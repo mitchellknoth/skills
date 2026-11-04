@@ -1,0 +1,14 @@
+{
+  "name": "knoth",
+  "owner": {
+    "name": "Mitchell Knoth"
+  },
+  "plugins": [
+    {
+      "name": "knoth-skills",
+      "source": "./",
+      "description": "Reusable engineering workflows for coding agents.",
+      "category": "engineering"
+    }
+  ]
+}

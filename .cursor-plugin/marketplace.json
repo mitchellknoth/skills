@@ -1,0 +1,16 @@
+{
+  "name": "knoth",
+  "owner": {
+    "name": "Mitchell Knoth"
+  },
+  "metadata": {
+    "description": "Reusable engineering workflows for coding agents."
+  },
+  "plugins": [
+    {
+      "name": "knoth-skills",
+      "source": "./",
+      "description": "Reusable engineering workflows for coding agents."
+    }
+  ]
+}
