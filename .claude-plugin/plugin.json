@@ -1,0 +1,13 @@
+{
+  "name": "knoth-skills",
+  "version": "0.1.0",
+  "description": "Reusable engineering workflows for coding agents.",
+  "author": {
+    "name": "Mitchell Knoth"
+  },
+  "repository": "https://github.com/mitchellknoth/skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/engineering/implement-review-loop"
+  ]
+}
