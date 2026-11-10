@@ -15,3 +15,5 @@ For each stage:
 4. Decide whether to continue to the next stage, revise the approach, or report a blocker. Pursue independent work while a prerequisite is unavailable. Avoid repeating a failed experiment without a changed hypothesis or condition.
 
 Report the outcome against the user's objective, the evidence and its limits, and the next consequential proof or action. If implementation was requested, continue beyond the proof when authorized and supported by the results.
+
+For multi-boundary integrations or when a stage's result could be mistaken for end-to-end proof, consult [designing proof stages](references/designing-proof-stages.md).

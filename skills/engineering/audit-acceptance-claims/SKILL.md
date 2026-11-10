@@ -11,3 +11,5 @@ Treat a green test as evidence that its assertions passed, not proof of every be
 2. Map each important claim to the assertions that support it. Ask what realistic regression could still pass: stale or fabricated values, a missing branch, a failure state that hides only part of the data, a stuck range, or a mocked boundary that bypasses the real path. Use only scenarios relevant to the task.
 3. Check test isolation, determinism, and available execution evidence where these affect the conclusion. Run safe checks when appropriate and authorized; distinguish tests you inspected from tests you actually ran. Do not claim production, real-provider, or deployment coverage from a mocked or local environment.
 4. Report actionable gaps first with precise references, the failure scenario, and its impact. Separate defects from untested boundaries and overbroad wording. State when no material findings were identified and recommend the smallest meaningful behavior-level assertion or corrected claim.
+
+For broad coverage claims or complex fixture boundaries, consult [claim mapping](references/claim-mapping.md).
