@@ -5,6 +5,10 @@ Reusable workflows for coding agents. Each skill is a portable `SKILL.md` with i
 ## Skills
 
 - [implement-review-loop](skills/engineering/implement-review-loop/SKILL.md) — implement substantial milestones with test-first cycles and independent review.
+- [investigate-before-designing](skills/engineering/investigate-before-designing/SKILL.md) — trace existing precedents and adapt them to the task.
+- [prove-integration-in-stages](skills/engineering/prove-integration-in-stages/SKILL.md) — test integration hypotheses with explicit evidence boundaries.
+- [evaluate-harness-change](skills/engineering/evaluate-harness-change/SKILL.md) — compare an agent harness change with a baseline.
+- [audit-acceptance-claims](skills/engineering/audit-acceptance-claims/SKILL.md) — check whether acceptance tests support user-visible claims.
 
 ## Install
 
@@ -18,7 +22,7 @@ Install in the current project, choosing your agent interactively:
 npx skills@latest add mitchellknoth/skills
 ```
 
-To install only this skill for a specific agent, add `--skill implement-review-loop --agent codex`; add `--global` for a user-wide installation. Run `npx skills@latest check` to check for updates and `npx skills@latest update` to update installed skills. Re-run `add` to discover and install newly added skills.
+To install one skill for a specific agent, add `--skill implement-review-loop --agent codex`; add `--global` for a user-wide installation. Run `npx skills@latest check` to check for updates and `npx skills@latest update` to update installed skills. Re-run `add` to discover and install newly added skills.
 
 ### Codex plugin
 
