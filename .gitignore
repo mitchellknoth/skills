@@ -1,2 +1,6 @@
 __pycache__/
 *.py[cod]
+
+# Local evaluation configuration and potentially private trial output
+/evals/local.json
+/.eval-results/

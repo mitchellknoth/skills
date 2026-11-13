@@ -16,6 +16,10 @@ See the [fleet quickstart](docs/fleet-quickstart.md) for examples, mode selectio
 
 See the [persona catalog](skills/engineering/fleet-preset/references/PERSONAS.md) for explicit coverage limits and the [candidate skill assessment](docs/skill-candidate-assessment.md) for proposed evolution experiments. These are not complete per-bot memory or performance grades.
 
+## Evaluate before adopting
+
+[Run the local Mise evaluation pilot](docs/fleet-evaluations.md): compare your baseline against the same model plus a selected skill, with explicit call limits and optional blinded judging. Offline mocks validate plumbing only; no live effectiveness claim yet.
+
 ## Visual guide
 
 [Explore the illustrated fleet guide](docs/fleet-visual-guide.md): architecture and handoffs, learning versus measured evolution, and the preset versus build-your-own paths. The diagrams describe intended design, not proven live effectiveness.

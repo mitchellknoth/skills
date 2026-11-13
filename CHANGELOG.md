@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased — Local evaluation pilot
+
+- Add Mise-orchestrated paired decision probes, selective skill context, frozen provenance, explicit call budgets and optional blinded judging.
+- Add a native-login Claude host adapter and optional Harbor external bridge; credentials stay off task containers.
+- Run offline tests on pull requests and pushes. Live provider, Mac and Harbor/Docker validation remain pending; mock results establish plumbing only.
+
 ## 0.3.1 — Measured evolution and visual guide
 
 - Connect lessons to authorized trials, comparable outcomes and keep/revise/revert decisions with inert improvement records.
