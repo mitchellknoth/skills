@@ -20,7 +20,7 @@ Do not infer operate mode, standing permissions, schedules or merge authority fr
 1. Read [the architecture contract](references/architecture.md) for roles, state and lifecycle.
 2. When preparing a consequential action, read [readiness and authority](references/readiness.md).
 3. Before delegation, automation or a cross-harness move, read [adapter requirements](references/adapters.md).
-4. For curation, oversight, retrospectives or recovery, read [feedback](references/feedback.md).
+4. For curation, oversight, retrospectives or recovery, read [feedback](references/feedback.md) and the [learning-to-evolution loop](references/evolution.md).
 5. For role identity and memory distillation, read [personas](references/personas.md).
 6. For customer discovery and future cross-harness plans, read [adaptation](references/transpilation.md).
 7. For comparing or combining skills, read [skill evolution](references/skill-evolution.md).

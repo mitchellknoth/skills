@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.1 — Measured evolution and visual guide
+
+- Connect lessons to authorized trials, comparable outcomes and keep/revise/revert decisions with inert improvement records.
+- Add three editable diagrams for architecture, evolution and preset/abstraction paths.
+- Refine HIG and white-hat static assessments from inspected exports; retain the spec auditor canonical-rubric gap.
+- Expand package checks to 21 tests without claiming live behavioral effectiveness.
+
 ## 0.3.0 — Grok-first persona and evolution draft
 
 - Add explicit persona contracts, a coverage-labeled preset catalog and 15 sanitized role cards with independently read profiles and separately labeled current self-reports.

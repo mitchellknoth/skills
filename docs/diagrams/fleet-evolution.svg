@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="990" viewBox="0 0 1200 990" role="img" aria-labelledby="title desc"><title id="title">How the fleet learns and evolves</title><desc id="desc">Observations inform scoped lessons; behavior changes require a proposal, authorization, a bounded trial, and measured outcomes. Unknown and no-effect results do not count as improvement.</desc><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8Z" fill="#64748b"/></marker></defs><style>text{font-family:Arial,Helvetica,sans-serif;fill:#172554}.title{font-size:30px;font-weight:700}.subtitle{font-size:17px;fill:#475569}.head{font-size:21px;font-weight:700}.body{font-size:17px}.label{font-size:15px;fill:#475569}.line{fill:none;stroke:#64748b;stroke-width:2;marker-end:url(#arrow)}</style><rect width="1200" height="990" fill="#f8fafc"/><text x="48" y="55" class="title">How the fleet learns and evolves</text>
+<text x="48" y="86" class="subtitle">Learning changes remembered guidance. Evolution changes how work is done. Neither trains model weights.</text>
+<rect x="48" y="120" width="330" height="150" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="68" y="154" class="head">1  Observe</text>
+<text x="68" y="185" class="body">Task results, corrections and misses</text>
+<text x="68" y="211" class="body">Capture source, scope and revision</text>
+<text x="68" y="237" class="body">Record failures and missing signals</text>
+<rect x="435" y="120" width="330" height="150" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="455" y="154" class="head">2  Explain with evidence</text>
+<text x="455" y="185" class="body">Separate fact from interpretation</text>
+<text x="455" y="211" class="body">Check why the current rule exists</text>
+<text x="455" y="237" class="body">Retain counterexamples and limits</text>
+<rect x="822" y="120" width="330" height="150" rx="14" fill="#ecfdf5" stroke="#cbd5e1"/>
+<text x="842" y="154" class="head">3  Keep a scoped lesson</text>
+<text x="842" y="185" class="body">Who/what does it apply to?</text>
+<text x="842" y="211" class="body">Preserve provenance and exceptions</text>
+<text x="842" y="237" class="body">Avoid turning one miss into policy</text>
+<path d="M378 195 H435" class="line"/>
+<path d="M765 195 H822" class="line"/>
+<path d="M987 270 V340" class="line"/>
+<rect x="822" y="340" width="330" height="176" rx="14" fill="#eff6ff" stroke="#cbd5e1"/>
+<text x="842" y="374" class="head">4  Propose a change</text>
+<text x="842" y="405" class="body">Owner + intended benefit</text>
+<text x="842" y="431" class="body">Baseline + success measure</text>
+<text x="842" y="457" class="body">Bounded trial + rollback</text>
+<text x="842" y="483" class="body">Policy changes need authority</text>
+<rect x="435" y="340" width="330" height="176" rx="14" fill="#eff6ff" stroke="#cbd5e1"/>
+<text x="455" y="374" class="head">5  Authorize and trial</text>
+<text x="455" y="405" class="body">Use the actual approval boundary</text>
+<text x="455" y="431" class="body">Test the smallest useful change</text>
+<text x="455" y="457" class="body">Keep a baseline / prior version</text>
+<text x="455" y="483" class="body">Do not expand permissions</text>
+<rect x="48" y="340" width="330" height="176" rx="14" fill="#eff6ff" stroke="#cbd5e1"/>
+<text x="68" y="374" class="head">6  Measure behavior</text>
+<text x="68" y="405" class="body">Compare outcomes, not promises</text>
+<text x="68" y="431" class="body">Did the failure recur?</text>
+<text x="68" y="457" class="body">Did speed or quality regress?</text>
+<text x="68" y="483" class="body">Delivery alone is not learning</text>
+<path d="M822 425 H765" class="line"/>
+<path d="M435 425 H378" class="line"/>
+<path d="M213 516 V575" class="line"/>
+<rect x="48" y="575" width="1104" height="145" rx="14" fill="#fff7ed" stroke="#cbd5e1"/>
+<text x="68" y="609" class="head">7  Decide from the outcome</text>
+<text x="68" y="640" class="body">Improved with credible evidence → retain within the approved scope</text>
+<text x="68" y="666" class="body">No effect / regression → revise or revert; keep the finding open where warranted</text>
+<text x="68" y="692" class="body">Unknown / missing telemetry → collect evidence or pause; never label it a win</text>
+<text x="48" y="770" class="head">Different feedback loops serve different purposes</text>
+<text x="48" y="808" class="body">Daily oversight: stuck work and whether prior advice changed behavior.</text>
+<text x="48" y="834" class="body">Weekly retro: worked roles, real catches and a small set of change proposals.</text>
+<text x="48" y="860" class="body">Coordinator calibration: recurring corrections, stale beliefs and owner-confirmed durable changes.</text>
+<text x="48" y="886" class="body">Monthly hygiene + post-prune guard: simplify controls, then watch for lost protection.</text>
+<text x="48" y="947" class="subtitle">Preset cadences shown. The abstract architecture leaves cadence and roster configurable.</text>
+</svg>

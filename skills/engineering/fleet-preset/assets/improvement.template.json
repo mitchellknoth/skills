@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "id": null,
+  "fix_ledger_reference": null,
+  "owner": null,
+  "status": "draft",
+  "observation": {
+    "observed_at": null,
+    "task_reference": null,
+    "configuration_version": null,
+    "source_references": [],
+    "source_kind": null,
+    "facts": [],
+    "interpretation": null,
+    "coverage_gaps": []
+  },
+  "lesson": {
+    "claim": null,
+    "scope": null,
+    "confidence": "unassessed",
+    "counterexamples": [],
+    "disconfirming_evidence_to_seek": null,
+    "supersedes_reference": null
+  },
+  "proposal": {
+    "target": null,
+    "before_version": null,
+    "candidate_version": null,
+    "change": null,
+    "existing_purpose_or_protection": null,
+    "predicted_benefit": null,
+    "risks": [],
+    "decision_reference": null
+  },
+  "trial": {
+    "status": "not_started",
+    "scope": null,
+    "authorization_reference": null,
+    "policy_check_reference": null,
+    "baseline_references": [],
+    "measures": [],
+    "minimum_sample": null,
+    "observation_window": null,
+    "acceptance_criteria": [],
+    "regression_checks": [],
+    "rollback_condition": null,
+    "rollback_version": null
+  },
+  "outcome": {
+    "classification": "inconclusive",
+    "sample_count": 0,
+    "evidence_references": [],
+    "measured_results": [],
+    "comparability_notes": null,
+    "confounders": [],
+    "protected_behavior_results": [],
+    "coverage_gaps": [],
+    "observed_at": null
+  },
+  "disposition": {
+    "decision": "unresolved",
+    "rationale": null,
+    "decision_reference": null,
+    "implementation_reference": null,
+    "next_checkpoint": null
+  }
+}

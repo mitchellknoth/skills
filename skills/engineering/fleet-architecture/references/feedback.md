@@ -40,3 +40,7 @@ A retrospective proposes changes; it does not authorize persistent memory writes
 `scripts/feedback.py` is an inert reference classifier for synthetic records. It checks a small subset of evidence and recovery properties. It cannot inspect artifacts, authenticate approval, measure outcomes, deliver messages or alter memory/routines. The adapter must establish the facts before supplying them. Test actual loop behavior separately in an isolated runtime.
 
 The private `feedback-run.template.json` captures a rich operational record; it is not the classifier input schema. `feedback.py` accepts the deliberately normalized shape in `assets/feedback.example.json`, with one selected period, evidence-backed artifact, advice outcomes and optional proposal. A real adapter must verify and map the rich record to that shape. Passing an identifier string still does not prove the referenced evidence exists or is authentic.
+
+## Close the learning loop
+
+Use [learning and evolution](evolution.md) to connect an observation to a durable lesson, a bounded change trial and a measured keep/revise/revert decision. This includes proving the value of new practices, not only detecting regressions after pruning. The [improvement record](../assets/improvement.template.json) links to the fix ledger; it does not replace it or authorize action.
