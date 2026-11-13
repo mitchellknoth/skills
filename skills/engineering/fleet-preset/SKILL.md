@@ -24,6 +24,10 @@ The `fleet-architecture` skill is the neutral alternative, not a required additi
 7. **Observe completion.** Record the actual resulting revision/action and verify the relevant outcome. Carry deployment dependencies and residual risks forward. A merge, green summary or completed routine is not sufficient proof of deployment or user acceptance.
 8. **Close the feedback loop.** Reuse existing oversight. Significant findings have an owner, disposition, checkpoint and evidence of closure. Track last successful output, not merely Active status. Keep quiet when healthy; surface actionable changes rather than recurring noise.
 
+## Retrospectives and operational learning
+
+Use the dedicated [retrospective and maintenance playbook](references/retrospectives.md), not just step 8 above. It preserves distinct curator/wake, daily oversight, weekly fleet retro, coordinator calibration, merge evidence, monthly hygiene, post-prune regression and dry-run methods. The selected cadence is a preset preference, not an activated schedule. Changes to persistent memory, roles, routines or skills follow the specified confirmation process.
+
 ## Adoption
 
 Copy [preset.template.json](assets/preset.template.json) to private installation configuration and fill the placeholders. It supplies process preferences, **not permission**. Persistent bot creation, schedule activation, external messages, merges and deployments remain unconfigured until authorized and supported. Read [preset choices](references/choices.md) before adopting or modifying the preset.

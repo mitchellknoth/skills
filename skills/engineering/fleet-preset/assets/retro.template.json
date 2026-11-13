@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "period": null,
+  "previous_artifact": null,
+  "source_references": [],
+  "source_gaps": [],
+  "worked_capabilities": [
+    {
+      "capability": null,
+      "actual_task": null,
+      "effectiveness": null,
+      "pitfall_or_catch": null,
+      "evidence": [],
+      "proposed_lesson_or_skill_reference": null
+    }
+  ],
+  "goal_progress": {
+    "score": null,
+    "basis": null,
+    "trend": null,
+    "scale_max": 10
+  },
+  "impact_ranked_misses": [],
+  "landed_fixes": [],
+  "advice_effectiveness": [],
+  "open_issues": [],
+  "state_quality": {
+    "stale_sources": [],
+    "curator_misses": [],
+    "measured_usage": null
+  },
+  "proposed_changes": [],
+  "owner_decision": null,
+  "output_reference": null,
+  "confirmation": {
+    "status": "not_requested",
+    "source": null
+  },
+  "delivery": {
+    "full_dated_artifact": null,
+    "health_line_changed": null,
+    "owner_scorecard": null,
+    "coordinator_note": null
+  }
+}

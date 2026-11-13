@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "observed_at": null,
+      "finding_id": null,
+      "source_references": [],
+      "observation": null,
+      "interpretation": null,
+      "advice": null,
+      "decision": {
+        "status": "unresolved",
+        "reference": null
+      },
+      "owner": null,
+      "next_checkpoint": null,
+      "predicted_benefit": null,
+      "former_protection": null,
+      "implementation": {
+        "status": "not_started",
+        "reference": null
+      },
+      "behavior_change": {
+        "status": "not_verified",
+        "evidence": []
+      },
+      "rollback_condition": null,
+      "later_outcome": null
+    }
+  ]
+}

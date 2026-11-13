@@ -1,0 +1,16 @@
+{
+  "period": "week-example",
+  "delivery_required": true,
+  "confirmation_required": true,
+  "artifact": {
+    "period": "week-example",
+    "reference": "local-example/retro",
+    "kind": "scheduled",
+    "evidence_checked": true,
+    "source_complete": true,
+    "delivered": true
+  },
+  "advice": [],
+  "scores": [],
+  "proposal": null
+}

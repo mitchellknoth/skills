@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "candidate": null,
+  "decision": "proposed",
+  "evidence": [],
+  "former_protection": null,
+  "replacement_evidence": [],
+  "scope": null,
+  "owner": null,
+  "authorization_reference": null,
+  "baseline": null,
+  "expected_benefit": null,
+  "regression_check_at": null,
+  "observed_signals": [],
+  "telemetry_status": "unknown",
+  "regression_disposition": null,
+  "restore_candidate": null,
+  "rollback_condition": null
+}

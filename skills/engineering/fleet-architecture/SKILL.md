@@ -20,7 +20,8 @@ Do not infer operate mode, standing permissions, schedules or merge authority fr
 1. Read [the architecture contract](references/architecture.md) for roles, state and lifecycle.
 2. When preparing a consequential action, read [readiness and authority](references/readiness.md).
 3. Before delegation, automation or a cross-harness move, read [adapter requirements](references/adapters.md).
-4. To evaluate or change the harness, read [evaluation](references/evaluation.md).
+4. For curation, oversight, retrospectives or recovery, read [feedback](references/feedback.md).
+5. To evaluate or change the harness, read [evaluation](references/evaluation.md).
 
 No dependency on a named company, repository, cloud, model, roster, review count, cadence or deployment platform. The template has **unset policy choices**, not concealed defaults from the opinionated preset. If the user wants the author's more prescriptive workflow, select `fleet-preset` explicitly.
 

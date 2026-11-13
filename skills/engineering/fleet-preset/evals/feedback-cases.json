@@ -1,0 +1,323 @@
+[
+  {
+    "name": "quiet-success-recorded",
+    "record": {
+      "period": "week-example",
+      "delivery_required": true,
+      "confirmation_required": true,
+      "artifact": {
+        "period": "week-example",
+        "reference": "local-example/retro",
+        "kind": "scheduled",
+        "evidence_checked": true,
+        "source_complete": true,
+        "delivered": true
+      },
+      "advice": [],
+      "scores": [],
+      "proposal": null
+    },
+    "expected_status": "recorded",
+    "expected_proposal": "none",
+    "expected_followups": 0
+  },
+  {
+    "name": "active-is-not-output",
+    "record": {
+      "period": "week-example",
+      "delivery_required": true,
+      "confirmation_required": true,
+      "artifact": null,
+      "advice": [],
+      "scores": [],
+      "proposal": null,
+      "schedule_active": true
+    },
+    "expected_status": "unverified",
+    "expected_proposal": "none",
+    "expected_followups": 1
+  },
+  {
+    "name": "quota-failure-no-output",
+    "record": {
+      "period": "week-example",
+      "delivery_required": true,
+      "confirmation_required": true,
+      "artifact": null,
+      "advice": [],
+      "scores": [],
+      "proposal": null,
+      "execution_status": "failed",
+      "failure_reason": "quota"
+    },
+    "expected_status": "unverified",
+    "expected_proposal": "none",
+    "expected_followups": 1
+  },
+  {
+    "name": "manual-recovery-no-duplicate",
+    "record": {
+      "period": "week-example",
+      "delivery_required": true,
+      "confirmation_required": true,
+      "artifact": {
+        "period": "week-example",
+        "reference": "local-example/retro",
+        "kind": "manual",
+        "evidence_checked": true,
+        "source_complete": true,
+        "delivered": true
+      },
+      "advice": [],
+      "scores": [],
+      "proposal": null
+    },
+    "expected_status": "manual_recovery",
+    "expected_proposal": "none",
+    "expected_followups": 0
+  },
+  {
+    "name": "manual-wrong-period",
+    "record": {
+      "period": "week-example",
+      "delivery_required": true,
+      "confirmation_required": true,
+      "artifact": {
+        "period": "older-week",
+        "reference": "local-example/retro",
+        "kind": "manual",
+        "evidence_checked": true,
+        "source_complete": true,
+        "delivered": true
+      },
+      "advice": [],
+      "scores": [],
+      "proposal": null
+    },
+    "expected_status": "unverified",
+    "expected_proposal": "none",
+    "expected_followups": 1
+  },
+  {
+    "name": "delivered-but-unread-sources",
+    "record": {
+      "period": "week-example",
+      "delivery_required": true,
+      "confirmation_required": true,
+      "artifact": {
+        "period": "week-example",
+        "reference": "local-example/retro",
+        "kind": "scheduled",
+        "evidence_checked": true,
+        "source_complete": false,
+        "delivered": true
+      },
+      "advice": [],
+      "scores": [],
+      "proposal": null
+    },
+    "expected_status": "unverified",
+    "expected_proposal": "none",
+    "expected_followups": 1
+  },
+  {
+    "name": "completed-but-not-delivered",
+    "record": {
+      "period": "week-example",
+      "delivery_required": true,
+      "confirmation_required": true,
+      "artifact": {
+        "period": "week-example",
+        "reference": "local-example/retro",
+        "kind": "scheduled",
+        "evidence_checked": true,
+        "source_complete": true,
+        "delivered": false
+      },
+      "advice": [],
+      "scores": [],
+      "proposal": null
+    },
+    "expected_status": "unverified",
+    "expected_proposal": "none",
+    "expected_followups": 1
+  },
+  {
+    "name": "optional-delivery-local-record",
+    "record": {
+      "period": "week-example",
+      "delivery_required": false,
+      "confirmation_required": true,
+      "artifact": {
+        "period": "week-example",
+        "reference": "local-example/retro",
+        "kind": "scheduled",
+        "evidence_checked": true,
+        "source_complete": true,
+        "delivered": false
+      },
+      "advice": [],
+      "scores": [],
+      "proposal": null
+    },
+    "expected_status": "recorded",
+    "expected_proposal": "none",
+    "expected_followups": 0
+  },
+  {
+    "name": "advice-sent-not-effectiveness",
+    "record": {
+      "period": "week-example",
+      "delivery_required": true,
+      "confirmation_required": true,
+      "artifact": {
+        "period": "week-example",
+        "reference": "local-example/retro",
+        "kind": "scheduled",
+        "evidence_checked": true,
+        "source_complete": true,
+        "delivered": true
+      },
+      "advice": [
+        {
+          "id": "A1",
+          "status": "sent"
+        }
+      ],
+      "scores": [],
+      "proposal": null
+    },
+    "expected_status": "recorded",
+    "expected_proposal": "none",
+    "expected_followups": 1
+  },
+  {
+    "name": "effectiveness-observed",
+    "record": {
+      "period": "week-example",
+      "delivery_required": true,
+      "confirmation_required": true,
+      "artifact": {
+        "period": "week-example",
+        "reference": "local-example/retro",
+        "kind": "scheduled",
+        "evidence_checked": true,
+        "source_complete": true,
+        "delivered": true
+      },
+      "advice": [
+        {
+          "id": "A1",
+          "status": "verified",
+          "outcome_evidence": "example/after"
+        }
+      ],
+      "scores": [],
+      "proposal": null
+    },
+    "expected_status": "recorded",
+    "expected_proposal": "none",
+    "expected_followups": 0
+  },
+  {
+    "name": "calibration-does-not-self-modify",
+    "record": {
+      "period": "week-example",
+      "delivery_required": true,
+      "confirmation_required": true,
+      "artifact": {
+        "period": "week-example",
+        "reference": "local-example/retro",
+        "kind": "scheduled",
+        "evidence_checked": true,
+        "source_complete": true,
+        "delivered": true
+      },
+      "advice": [],
+      "scores": [],
+      "proposal": {
+        "confirmed": false,
+        "change": "proposed memory correction"
+      }
+    },
+    "expected_status": "recorded",
+    "expected_proposal": "pending_confirmation",
+    "expected_followups": 0
+  },
+  {
+    "name": "confirmation-without-source",
+    "record": {
+      "period": "week-example",
+      "delivery_required": true,
+      "confirmation_required": true,
+      "artifact": {
+        "period": "week-example",
+        "reference": "local-example/retro",
+        "kind": "scheduled",
+        "evidence_checked": true,
+        "source_complete": true,
+        "delivered": true
+      },
+      "advice": [],
+      "scores": [],
+      "proposal": {
+        "confirmed": true
+      }
+    },
+    "expected_status": "recorded",
+    "expected_proposal": "pending_confirmation",
+    "expected_followups": 0
+  },
+  {
+    "name": "confirmed-still-policy-check",
+    "record": {
+      "period": "week-example",
+      "delivery_required": true,
+      "confirmation_required": true,
+      "artifact": {
+        "period": "week-example",
+        "reference": "local-example/retro",
+        "kind": "scheduled",
+        "evidence_checked": true,
+        "source_complete": true,
+        "delivered": true
+      },
+      "advice": [],
+      "scores": [],
+      "proposal": {
+        "confirmed": true,
+        "confirmation_source": "example/owner-decision"
+      }
+    },
+    "expected_status": "recorded",
+    "expected_proposal": "recorded_for_policy_check",
+    "expected_followups": 0
+  },
+  {
+    "name": "idle-capability-unscored",
+    "record": {
+      "period": "week-example",
+      "delivery_required": true,
+      "confirmation_required": true,
+      "artifact": {
+        "period": "week-example",
+        "reference": "local-example/retro",
+        "kind": "scheduled",
+        "evidence_checked": true,
+        "source_complete": true,
+        "delivered": true
+      },
+      "advice": [],
+      "scores": [
+        {
+          "worked": false,
+          "grade": null
+        }
+      ],
+      "proposal": null
+    },
+    "expected_status": "recorded",
+    "expected_proposal": "none",
+    "expected_followups": 0
+  }
+]

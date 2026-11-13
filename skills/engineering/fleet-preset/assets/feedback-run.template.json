@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "loop_kind": null,
+  "period": {
+    "id": null,
+    "start": null,
+    "end": null
+  },
+  "schedule": {
+    "configured": false,
+    "expected_at": null
+  },
+  "execution": {
+    "attempted_at": null,
+    "started_at": null,
+    "completed_at": null,
+    "status": "unknown",
+    "failure_reason": null
+  },
+  "artifact": {
+    "reference": null,
+    "created_at": null,
+    "period_id": null,
+    "evidence_checked": false,
+    "source_complete": false
+  },
+  "delivery": {
+    "required": null,
+    "recipient": null,
+    "status": "unknown",
+    "evidence": null
+  },
+  "manual_recovery": {
+    "reference": null,
+    "covers_period": null,
+    "verified": false
+  },
+  "source_checkpoints": [],
+  "latest_successful_output": null,
+  "findings": [],
+  "next_action": null
+}

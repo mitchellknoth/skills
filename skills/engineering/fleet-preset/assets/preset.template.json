@@ -30,5 +30,45 @@
   "activation": {
     "live_actions_enabled": false,
     "approval_reference": null
+  },
+  "feedback": {
+    "loops": [
+      {
+        "kind": "curation_and_wake",
+        "cadence": "twice daily; curate before each proactive wake"
+      },
+      {
+        "kind": "operational_oversight",
+        "cadence": "weekdays after coordinator brief"
+      },
+      {
+        "kind": "fleet_retro",
+        "cadence": "weekly"
+      },
+      {
+        "kind": "coordinator_calibration",
+        "cadence": "weekly, separate from fleet retro"
+      },
+      {
+        "kind": "merge_scoreboard",
+        "cadence": "relevant events"
+      },
+      {
+        "kind": "harness_hygiene",
+        "cadence": "monthly"
+      },
+      {
+        "kind": "post_prune_regression",
+        "cadence": "7-14 days after cut or next review after regression"
+      },
+      {
+        "kind": "orchestration_dry_run_retro",
+        "cadence": "after substantial orchestration"
+      }
+    ],
+    "state_store": null,
+    "confirmation_policy": "Persistent memory, persona, routine and skill edits require owner confirmation",
+    "max_weekly_proposals": 3,
+    "lesson_persistence_weeks": 2
   }
 }

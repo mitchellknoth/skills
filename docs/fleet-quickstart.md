@@ -46,3 +46,14 @@ The repository is public. This draft contains general reusable practices and syn
 ## What is deliberately not implemented
 
 No Grok Bot export/import, scheduler, webhook listener, credential manager, GitHub merge executor, persistent agent runtime or migration of private state. The adapters document capability requirements; they do not claim runtime parity. Behavioral LLM replays and live integration tests remain future work requiring an appropriate isolated environment and authorization.
+
+## Retrospectives and follow-through
+
+The neutral template lets you choose feedback loops and cadence. The preset separately captures curation before proactive work, daily advisory oversight, weekly fleet retrospectives, weekly coordinator calibration, merge evidence, monthly hygiene, post-prune regression and dry-run orchestration reviews. It uses private run/ledger/retro/prune templates and leaves all activation dormant.
+
+```sh
+python3 skills/engineering/fleet-architecture/scripts/feedback.py \
+  skills/engineering/fleet-architecture/assets/feedback.example.json
+```
+
+This classifier is an inert example, not a scheduler or a policy-change authorizer.

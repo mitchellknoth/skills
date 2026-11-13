@@ -25,5 +25,10 @@
   "activation": {
     "live_actions_enabled": false,
     "approval_reference": null
+  },
+  "feedback": {
+    "loops": [],
+    "state_store": null,
+    "confirmation_policy": null
   }
 }
