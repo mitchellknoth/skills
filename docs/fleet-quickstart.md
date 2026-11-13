@@ -57,3 +57,14 @@ python3 skills/engineering/fleet-architecture/scripts/feedback.py \
 ```
 
 This classifier is an inert example, not a scheduler or a policy-change authorizer.
+
+## Grok-first persona setup (manual, dormant)
+
+1. Choose the neutral `fleet-architecture` or opinionated `fleet-preset` explicitly.
+2. For a custom architecture, fill the neutral persona and customer-profile templates privately. For the preset, inspect `references/PERSONAS.md` and its coverage catalog; select applicable cards, not every historical role.
+3. Read the selected card's baseline and proposed-refinement sections separately. Resolve source conflicts and unavailable memory/skill inventory before claiming a faithful port.
+4. Follow `fleet-preset/references/grok-mvp.md` to map profile, curated memory, skills, routine intent, rooms and state. Save installation bindings outside the public source.
+5. Verify what the target actually loads and which capabilities are available. Do not activate or alter live bots merely because files are installed.
+6. Evaluate with inert cases and a separately authorized shadow. Future target adaptation follows `references/transpilation.md`; no executable transpiler is supplied yet.
+
+Candidate skill assessments are in [the research report](skill-candidate-assessment.md). They are proposals for comparative evaluation, not permission to replace existing curated skills.

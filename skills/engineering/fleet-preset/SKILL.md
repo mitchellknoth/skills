@@ -28,6 +28,10 @@ The `fleet-architecture` skill is the neutral alternative, not a required additi
 
 Use the dedicated [retrospective and maintenance playbook](references/retrospectives.md), not just step 8 above. It preserves distinct curator/wake, daily oversight, weekly fleet retro, coordinator calibration, merge evidence, monthly hygiene, post-prune regression and dry-run methods. The selected cadence is a preset preference, not an activated schedule. Changes to persistent memory, roles, routines or skills follow the specified confirmation process.
 
+## Grok-first deployment and persona selection
+
+Use [Grok MVP](references/grok-mvp.md) for the first manual target and [PERSONAS](references/PERSONAS.md) for source-grounded identity, coverage limits and proposed behavioral refinements. These do not create bots or import private memory. The neutral architecture remains independently selectable.
+
 ## Adoption
 
 Copy [preset.template.json](assets/preset.template.json) to private installation configuration and fill the placeholders. It supplies process preferences, **not permission**. Persistent bot creation, schedule activation, external messages, merges and deployments remain unconfigured until authorized and supported. Read [preset choices](references/choices.md) before adopting or modifying the preset.

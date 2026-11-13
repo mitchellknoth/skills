@@ -10,7 +10,11 @@ Reusable workflows for coding agents. Each skill is a portable `SKILL.md` with i
 - [fleet-preset](skills/engineering/fleet-preset/SKILL.md) — the author's opinionated delivery flow, explicitly selected and independently installable.
 - [implement-review-loop](skills/engineering/implement-review-loop/SKILL.md) — implement substantial milestones with test-first cycles and independent review.
 
+The fleet MVP is **Grok Bot first**, with a manual [deployment blueprint](skills/engineering/fleet-preset/references/grok-mvp.md). Cross-harness transpilation is a [capability-aware roadmap](skills/engineering/fleet-architecture/references/transpilation.md), not a shipped runtime compiler.
+
 See the [fleet quickstart](docs/fleet-quickstart.md) for examples, mode selection, local validation and runtime limits. This first fleet package is an **initial draft**, not an export of an active bot account.
+
+See the [persona catalog](skills/engineering/fleet-preset/references/PERSONAS.md) for explicit coverage limits and the [candidate skill assessment](docs/skill-candidate-assessment.md) for proposed evolution experiments. These are not complete per-bot memory or performance grades.
 
 ## Install
 

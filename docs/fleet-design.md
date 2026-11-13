@@ -12,7 +12,7 @@ Edit canonical support, run synchronization, then test. Keep preset-specific rol
 
 ## Versioning
 
-This draft uses package version 0.2.1 in both manifests. Publication of the files does not activate a runtime or establish behavioral parity. Future changes need migration notes, preserved user configuration and a rollback path. Do not overwrite private installation state when refreshing managed files.
+This draft uses package version 0.3.0 in both manifests. Publication of the files does not activate a runtime or establish behavioral parity. Future changes need migration notes, preserved user configuration and a rollback path. Do not overwrite private installation state when refreshing managed files.
 
 ## First-version evidence
 
@@ -29,3 +29,7 @@ The package distills the user's requested architecture and prescriptive workflow
 The initial package contained generic feedback principles, not a faithful port of the distinct retrospective machinery. This refinement adds configurable core feedback contracts and preset playbooks based on a fuller live-routine and referenced-skill inspection. Source copies differed on pruning authority; the draft preserves the current stricter owner-confirmed behavior. It does not claim the exact runtime-loaded source version has been verified.
 
 Automated feedback fixtures test an inert record classifier only. They do not prove that a real curator runs, a retrospective is delivered, or advice improves behavior. Those still require runtime evaluation.
+
+## Persona and target evolution
+
+Personas preserve source-grounded decision lenses and reusable learned behavior without exporting private memories. The neutral path provides a schema; the preset supplies a reviewed catalog. The first runtime target is a manual Grok Bot blueprint. Future targets require capability-aware planning and conformance tests, not word substitution.

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "mode": "design",
+  "harness": {
+    "name": null,
+    "version": null
+  },
+  "goals": [],
+  "repositories": [],
+  "languages": [],
+  "tools": [],
+  "state_sources": [],
+  "timezone": null,
+  "budget": {
+    "amount": null,
+    "unit": null
+  },
+  "policy": {
+    "authorization_source": null,
+    "review_independence": null,
+    "risk_classes": []
+  },
+  "capabilities": {
+    "persistent_agents": "unknown",
+    "independent_context": "unknown",
+    "scheduled_wakes": "unknown",
+    "event_delivery": "unknown",
+    "durable_state": "unknown",
+    "version_bound_reviews": "unknown",
+    "atomic_head_guard": "unknown"
+  },
+  "recommendations": [],
+  "activation": {
+    "enabled": false
+  }
+}

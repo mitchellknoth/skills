@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "id": "ROUTINE_ID",
+  "owner_persona": null,
+  "source_version": null,
+  "purpose": null,
+  "trigger": {"type": null, "cadence": null, "timezone": null, "event_filter": null},
+  "inputs": [],
+  "required_capabilities": [],
+  "authority_ref": null,
+  "actions": [],
+  "outputs": [],
+  "deduplication_key": null,
+  "successful_checkpoint_rule": null,
+  "failure_behavior": null,
+  "terminal_behavior": null,
+  "activation": {"enabled": false, "verified_delivery": false}
+}

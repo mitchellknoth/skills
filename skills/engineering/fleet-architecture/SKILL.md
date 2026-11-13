@@ -21,7 +21,10 @@ Do not infer operate mode, standing permissions, schedules or merge authority fr
 2. When preparing a consequential action, read [readiness and authority](references/readiness.md).
 3. Before delegation, automation or a cross-harness move, read [adapter requirements](references/adapters.md).
 4. For curation, oversight, retrospectives or recovery, read [feedback](references/feedback.md).
-5. To evaluate or change the harness, read [evaluation](references/evaluation.md).
+5. For role identity and memory distillation, read [personas](references/personas.md).
+6. For customer discovery and future cross-harness plans, read [adaptation](references/transpilation.md).
+7. For comparing or combining skills, read [skill evolution](references/skill-evolution.md).
+8. To evaluate or change the harness, read [evaluation](references/evaluation.md).
 
 No dependency on a named company, repository, cloud, model, roster, review count, cadence or deployment platform. The template has **unset policy choices**, not concealed defaults from the opinionated preset. If the user wants the author's more prescriptive workflow, select `fleet-preset` explicitly.
 

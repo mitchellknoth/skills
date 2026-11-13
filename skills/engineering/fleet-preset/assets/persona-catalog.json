@@ -1,0 +1,375 @@
+{
+  "schema_version": 1,
+  "source_snapshot": "2026-11-13",
+  "claim": "Sanitized current-profile and routine evidence, with explicitly labeled current role self-reports and older coordinator skill inventory. Complete raw-memory and curated-skill extraction remains incomplete.",
+  "personas": [
+    {
+      "id": "coordinator",
+      "display_name": "Jarvis / coordinator",
+      "path": "references/personas/coordinator/PERSONA.md",
+      "status": "active",
+      "coverage": {
+        "instructions": "read",
+        "routines": "read",
+        "memory": "self-reported",
+        "skills": "reported-inventory"
+      },
+      "limitations": [
+        "Full per-bot memory and curated-skill inventory not verified.",
+        "Runtime-loaded versions and permission bindings not proven."
+      ],
+      "source_snapshot": "2026-11-13",
+      "source_categories": [
+        "visible role instructions",
+        "visible routine bodies or inventory",
+        "prior audit observations",
+        "current profile independently read 2026-11-13",
+        "current role report/recall, sanitized self-report"
+      ]
+    },
+    {
+      "id": "principal",
+      "display_name": "Principal",
+      "path": "references/personas/principal/PERSONA.md",
+      "status": "active",
+      "coverage": {
+        "instructions": "read",
+        "routines": "read",
+        "memory": "self-reported",
+        "skills": "reported-inventory"
+      },
+      "limitations": [
+        "Full per-bot memory and curated-skill inventory not verified.",
+        "Runtime-loaded versions and permission bindings not proven."
+      ],
+      "source_snapshot": "2026-11-13",
+      "source_categories": [
+        "visible role instructions",
+        "visible routine bodies or inventory",
+        "prior audit observations",
+        "current profile independently read 2026-11-13",
+        "current role interview, sanitized self-report"
+      ]
+    },
+    {
+      "id": "qa",
+      "display_name": "QA",
+      "path": "references/personas/qa/PERSONA.md",
+      "status": "active",
+      "coverage": {
+        "instructions": "read",
+        "routines": "read",
+        "memory": "self-reported",
+        "skills": "reported-inventory"
+      },
+      "limitations": [
+        "Full per-bot memory and curated-skill inventory not verified.",
+        "Runtime-loaded versions and permission bindings not proven."
+      ],
+      "source_snapshot": "2026-11-13",
+      "source_categories": [
+        "visible role instructions",
+        "visible routine bodies or inventory",
+        "prior audit observations",
+        "current profile independently read 2026-11-13",
+        "current role interview, sanitized self-report"
+      ]
+    },
+    {
+      "id": "product",
+      "display_name": "Insurance Product",
+      "path": "references/personas/product/PERSONA.md",
+      "status": "active",
+      "coverage": {
+        "instructions": "read",
+        "routines": "read",
+        "memory": "self-reported",
+        "skills": "not-inspected"
+      },
+      "limitations": [
+        "Full per-bot memory and curated-skill inventory not verified.",
+        "Runtime-loaded versions and permission bindings not proven."
+      ],
+      "source_snapshot": "2026-11-13",
+      "source_categories": [
+        "visible role instructions",
+        "visible routine bodies or inventory",
+        "prior audit observations",
+        "current profile independently read 2026-11-13",
+        "current role interview, sanitized self-report"
+      ]
+    },
+    {
+      "id": "ux",
+      "display_name": "UI / UX",
+      "path": "references/personas/ux/PERSONA.md",
+      "status": "active",
+      "coverage": {
+        "instructions": "read",
+        "routines": "read",
+        "memory": "self-reported",
+        "skills": "reported-inventory"
+      },
+      "limitations": [
+        "Full per-bot memory and curated-skill inventory not verified.",
+        "Runtime-loaded versions and permission bindings not proven."
+      ],
+      "source_snapshot": "2026-11-13",
+      "source_categories": [
+        "visible role instructions",
+        "visible routine bodies or inventory",
+        "prior audit observations",
+        "current profile independently read 2026-11-13",
+        "current role interview, sanitized self-report"
+      ]
+    },
+    {
+      "id": "sre",
+      "display_name": "SRE",
+      "path": "references/personas/sre/PERSONA.md",
+      "status": "active",
+      "coverage": {
+        "instructions": "read",
+        "routines": "read",
+        "memory": "self-reported",
+        "skills": "not-inspected"
+      },
+      "limitations": [
+        "Full per-bot memory and curated-skill inventory not verified.",
+        "Runtime-loaded versions and permission bindings not proven."
+      ],
+      "source_snapshot": "2026-11-13",
+      "source_categories": [
+        "visible role instructions",
+        "visible routine bodies or inventory",
+        "prior audit observations",
+        "current profile independently read 2026-11-13",
+        "current role interview, sanitized self-report"
+      ]
+    },
+    {
+      "id": "security-blue",
+      "display_name": "Cyber Blue",
+      "path": "references/personas/security-blue/PERSONA.md",
+      "status": "active",
+      "coverage": {
+        "instructions": "read",
+        "routines": "read",
+        "memory": "self-reported",
+        "skills": "not-inspected"
+      },
+      "limitations": [
+        "Full per-bot memory and curated-skill inventory not verified.",
+        "Runtime-loaded versions and permission bindings not proven."
+      ],
+      "source_snapshot": "2026-11-13",
+      "source_categories": [
+        "visible role instructions",
+        "visible routine bodies or inventory",
+        "prior audit observations",
+        "current profile independently read 2026-11-13",
+        "current role interview, sanitized self-report"
+      ]
+    },
+    {
+      "id": "security-red",
+      "display_name": "Cyber Red",
+      "path": "references/personas/security-red/PERSONA.md",
+      "status": "active",
+      "coverage": {
+        "instructions": "read",
+        "routines": "not-present-at-snapshot",
+        "memory": "self-reported",
+        "skills": "reported-inventory"
+      },
+      "limitations": [
+        "Full per-bot memory and curated-skill inventory not verified.",
+        "Runtime-loaded versions and permission bindings not proven."
+      ],
+      "source_snapshot": "2026-11-13",
+      "source_categories": [
+        "visible role instructions",
+        "visible routine bodies or inventory",
+        "prior audit observations",
+        "current profile independently read 2026-11-13",
+        "current role interview, sanitized self-report"
+      ]
+    },
+    {
+      "id": "data",
+      "display_name": "Data",
+      "path": "references/personas/data/PERSONA.md",
+      "status": "active",
+      "coverage": {
+        "instructions": "read",
+        "routines": "not-present-at-snapshot",
+        "memory": "self-reported",
+        "skills": "reported-inventory"
+      },
+      "limitations": [
+        "Full per-bot memory and curated-skill inventory not verified.",
+        "Runtime-loaded versions and permission bindings not proven."
+      ],
+      "source_snapshot": "2026-11-13",
+      "source_categories": [
+        "visible role instructions",
+        "visible routine bodies or inventory",
+        "prior audit observations",
+        "current profile independently read 2026-11-13",
+        "current role interview, sanitized self-report"
+      ]
+    },
+    {
+      "id": "legal",
+      "display_name": "Legal / compliance",
+      "path": "references/personas/legal/PERSONA.md",
+      "status": "active",
+      "coverage": {
+        "instructions": "read",
+        "routines": "read",
+        "memory": "self-reported",
+        "skills": "reported-inventory"
+      },
+      "limitations": [
+        "Full per-bot memory and curated-skill inventory not verified.",
+        "Runtime-loaded versions and permission bindings not proven."
+      ],
+      "source_snapshot": "2026-11-13",
+      "source_categories": [
+        "visible role instructions",
+        "visible routine bodies or inventory",
+        "prior audit observations",
+        "current profile independently read 2026-11-13",
+        "current role interview, sanitized self-report"
+      ]
+    },
+    {
+      "id": "finance",
+      "display_name": "CFO",
+      "path": "references/personas/finance/PERSONA.md",
+      "status": "active",
+      "coverage": {
+        "instructions": "read",
+        "routines": "read",
+        "memory": "self-reported",
+        "skills": "reported-inventory"
+      },
+      "limitations": [
+        "Full per-bot memory and curated-skill inventory not verified.",
+        "Runtime-loaded versions and permission bindings not proven."
+      ],
+      "source_snapshot": "2026-11-13",
+      "source_categories": [
+        "visible role instructions",
+        "visible routine bodies or inventory",
+        "prior audit observations",
+        "current profile independently read 2026-11-13",
+        "current role interview, sanitized self-report"
+      ]
+    },
+    {
+      "id": "oversight",
+      "display_name": "Eggbot / oversight",
+      "path": "references/personas/oversight/PERSONA.md",
+      "status": "active",
+      "coverage": {
+        "instructions": "read",
+        "routines": "read",
+        "memory": "self-reported",
+        "skills": "partial"
+      },
+      "limitations": [
+        "Full per-bot memory and curated-skill inventory not verified.",
+        "Runtime-loaded versions and permission bindings not proven."
+      ],
+      "source_snapshot": "2026-11-13",
+      "source_categories": [
+        "visible role instructions",
+        "visible routine bodies or inventory",
+        "prior audit observations",
+        "current profile independently read 2026-11-13",
+        "current role interview, sanitized self-report"
+      ]
+    },
+    {
+      "id": "marketing",
+      "display_name": "Marketing",
+      "path": "references/personas/marketing/PERSONA.md",
+      "status": "active",
+      "coverage": {
+        "instructions": "read",
+        "routines": "read",
+        "memory": "self-reported",
+        "skills": "not-inspected"
+      },
+      "limitations": [
+        "Full per-bot memory and curated-skill inventory not verified.",
+        "Runtime-loaded versions and permission bindings not proven."
+      ],
+      "source_snapshot": "2026-11-13",
+      "source_categories": [
+        "visible role instructions",
+        "visible routine bodies or inventory",
+        "prior audit observations",
+        "current profile independently read 2026-11-13",
+        "current role interview, sanitized self-report"
+      ]
+    },
+    {
+      "id": "disk-saver",
+      "display_name": "Disk Saver",
+      "path": "references/personas/disk-saver/PERSONA.md",
+      "status": "installation-specific",
+      "coverage": {
+        "instructions": "read",
+        "routines": "read",
+        "memory": "self-reported",
+        "skills": "not-inspected"
+      },
+      "limitations": [
+        "Full per-bot memory and curated-skill inventory not verified.",
+        "Runtime-loaded versions and permission bindings not proven."
+      ],
+      "source_snapshot": "2026-11-13",
+      "source_categories": [
+        "visible role instructions",
+        "visible routine bodies or inventory",
+        "prior audit observations",
+        "current profile independently read 2026-11-13",
+        "current role interview, sanitized self-report"
+      ]
+    },
+    {
+      "id": "finops",
+      "display_name": "FinOps (historical)",
+      "path": "references/personas/finops/PERSONA.md",
+      "status": "ownership-folded-configuration-drift",
+      "coverage": {
+        "instructions": "read",
+        "routines": "read",
+        "memory": "self-reported",
+        "skills": "reported-inventory"
+      },
+      "limitations": [
+        "Full per-bot memory and curated-skill inventory not verified.",
+        "Runtime-loaded versions and permission bindings not proven."
+      ],
+      "source_snapshot": "2026-11-13",
+      "source_categories": [
+        "visible role instructions",
+        "visible routine bodies or inventory",
+        "prior audit observations",
+        "current profile independently read 2026-11-13",
+        "current role report/recall, sanitized self-report"
+      ]
+    }
+  ],
+  "coverage_definitions": {
+    "read": "Full visible instruction/routine bodies inspected in the prior snapshot; no runtime guarantee.",
+    "partial": "Some referenced skill/artifact sources read, not the entire surface.",
+    "not-inspected": "The full surface has not been read; no completeness claim.",
+    "not-present-at-snapshot": "No routines listed in the inspected UI, not proof none can exist elsewhere.",
+    "self-reported": "Current role interview about memory/practice; not independent raw-memory inspection or demonstrated execution.",
+    "reported-inventory": "Coordinator-reported older skill references; not complete current bindings or full skill-body inspection."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "id": "CAPABILITY_ID",
+  "display_name": "DISPLAY_NAME",
+  "purpose": null,
+  "decision_lens": [],
+  "boundaries": [],
+  "behavioral_lessons": [],
+  "skill_bindings": [],
+  "routine_bindings": [],
+  "source_records": [],
+  "unresolved_conflicts": [],
+  "private_context_ref": null
+}
