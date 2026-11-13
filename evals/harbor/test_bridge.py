@@ -34,6 +34,9 @@ class BridgeTests(unittest.TestCase):
         self.assertIn('environment_mode = "separate"', (self.task/'task.toml').read_text())
         self.assertNotIn('expected', self.instruction)
         self.assertTrue(all('mock=true' in c for c in self.commands))
+        import tomllib
+        version=tomllib.loads((run.ROOT/'mise.toml').read_text())['tools']['python']
+        self.assertIn(f'FROM python:{version}-slim',(self.task/'environment/Dockerfile').read_text())
 
     def test_mock_never_earns_behavioral_reward(self):
         answer = execute(self.bundle, self.instruction, mock=True)

@@ -117,6 +117,11 @@ class EvalTests(unittest.TestCase):
         self.assertEqual([],summary['candidate_improvements'])
     def test_plan_is_reproducible(self):
         self.assertEqual(eval.plan(self.config())[0],eval.plan(self.config())[0])
+    def test_python_adapter_uses_the_running_interpreter(self):
+        import sys
+        for name in ('python', 'python3'):
+            self.assertEqual(sys.executable,eval.resolve_argv([name,'adapter.py'])[0])
+        self.assertEqual('/chosen/python',eval.resolve_argv(['/chosen/python','adapter.py'])[0])
     def test_missing_traces_are_unknown_not_zero(self):
         c=self.config();c.update(model='explicit',trace_native_events=True)
         with tempfile.TemporaryDirectory() as temp,patch.object(eval,'invoke',return_value={'text':'{"decisions":{},"rationale":"synthetic"}','usage':None}):

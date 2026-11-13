@@ -92,7 +92,7 @@ provider request caps. Synthetic local probes performed no model inference.
 - Harbor export/bridge tests are mocked; actual Docker/Harbor execution remains
   unverified. The installed Claude CLI remains incompatible/unauthenticated.
 
-See [the run guide](fleet-evaluations.md) and
-[adapter controls](../evals/adapters/README.md) for reproducible commands and
+See [the run guide](../../../docs/fleet-evaluations.md) and
+[adapter controls](../../../evals/adapters/README.md) for reproducible commands and
 the collector alternatives considered. Hosted CI is recorded separately in
 the PR; local passes do not prove hosted execution.

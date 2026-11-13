@@ -18,7 +18,7 @@ See the [persona catalog](skills/engineering/fleet-preset/references/PERSONAS.md
 
 ## Evaluate before adopting
 
-[Run the local Mise evaluation pilot](docs/fleet-evaluations.md): compare your baseline against the same requested model and harness configuration plus a selected skill, with explicit call limits and optional blinded judging. A native-login Codex pilot now runs locally; [recorded validation](docs/evaluation-pilot-validation.md) remains inconclusive about skill effectiveness.
+[Run paired evaluations](docs/fleet-evaluations.md) with existing provider login, explicit call limits and optional blinded judging. [Public benchmark history](evals/results/README.md) records scores and provenance; the initial pilot remains inconclusive about skill effectiveness.
 
 ## Visual guide
 
@@ -69,15 +69,18 @@ Ask your agent to use `implement-review-loop` for an issue or feature. The imple
 ## Validate the fleet package
 
 ```sh
-python3 -m unittest discover -s tests -v
-python3 scripts/sync-fleet-core.py --check
+mise install
+mise run eval:check
 ```
 
 These test packaging and an inert readiness model, not live agent reliability. See [design and limits](docs/fleet-design.md).
 
 ## Contributing skills
 
-Place each skill in `skills/<category>/<skill-name>/SKILL.md`. List each distributed skill directory in both plugin manifests, and bump both plugin versions together when publishing changes. All distribution methods point to these source directories. Shared fleet support is canonical in `fleet-architecture` and generated into `fleet-preset` for standalone installation; synchronize it with `python3 scripts/sync-fleet-core.py` rather than editing copies.
+Place each skill in `skills/<category>/<skill-name>/SKILL.md` and list it in both plugin manifests. Shared fleet support is canonical in `fleet-architecture`; run `mise run core:sync` to regenerate its standalone copies in `fleet-preset`.
+
+For README changes, follow the [writing guidance](AGENTS.md). For version bumps,
+changelog updates or commit curation, use [the release process](.github/knowledge/release-process.md).
 
 ## License
 

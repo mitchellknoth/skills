@@ -9,10 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: jdx/mise-action@5228313ee0372e111a38da051671ca30fc5a96db # v3
+        with:
+          version: 2026.9.11
       - name: Check generated core and offline tests
-        run: |
-          python3 scripts/sync-fleet-core.py --check
-          python3 -m unittest discover -s tests -v
-          python3 -m unittest discover -s evals/adapters -p 'test_*.py' -v
-          python3 -m unittest evals.harbor.test_bridge -v
+        run: mise run eval:check
       # No inference, provider credentials, PR write access, or live release claim.

@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Public decision-probe score history",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "record_id", "observed_on", "kind", "mode", "source", "execution", "cases", "comparison", "judge", "usage", "trace", "verdict"],
+  "properties": {
+    "schema": {"const": 1},
+    "record_id": {"$ref": "#/$defs/hash"},
+    "observed_on": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
+    "kind": {"enum": ["paired_decision_probe", "saved_answer_judge"]},
+    "mode": {"enum": ["live", "mock", "unknown"]},
+    "source": {"$ref": "#/$defs/source"},
+    "execution": {"$ref": "#/$defs/execution"},
+    "cases": {"type": "array", "maxItems": 60, "items": {"$ref": "#/$defs/case"}},
+    "comparison": {
+      "type": "object", "additionalProperties": false,
+      "required": ["candidate_improvements", "candidate_regressions"],
+      "properties": {"candidate_improvements": {"$ref": "#/$defs/count"}, "candidate_regressions": {"$ref": "#/$defs/count"}}
+    },
+    "judge": {"$ref": "#/$defs/judge"},
+    "usage": {"$ref": "#/$defs/usage"},
+    "trace": {
+      "type": "object", "additionalProperties": false,
+      "required": ["reporting_calls", "tool_events"],
+      "properties": {"reporting_calls": {"$ref": "#/$defs/count"}, "tool_events": {"anyOf": [{"$ref": "#/$defs/count"}, {"type": "null"}]}}
+    },
+    "verdict": {"enum": ["plumbing_only", "blocked", "inconclusive"]}
+  },
+  "$defs": {
+    "hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "count": {"type": "integer", "minimum": 0, "maximum": 1000000000000},
+    "model": {"enum": ["gpt-6-luna", "other", null]},
+    "source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["manifest_id", "parent_manifest_id", "trials_sha256", "judgments_sha256", "summary_sha256", "git_commit", "git_dirty", "fixture_sha256", "contexts_sha256", "exporter_sha256", "runner_sha256", "adapter_sha256", "baseline_skill_sha256", "candidate_skill_sha256", "requested_model", "judge_model", "model_identity"],
+      "properties": {
+        "manifest_id": {"$ref": "#/$defs/hash"},
+        "parent_manifest_id": {"anyOf": [{"$ref": "#/$defs/hash"}, {"type": "null"}]},
+        "trials_sha256": {"$ref": "#/$defs/hash"},
+        "judgments_sha256": {"anyOf": [{"$ref": "#/$defs/hash"}, {"type": "null"}]},
+        "summary_sha256": {"anyOf": [{"$ref": "#/$defs/hash"}, {"type": "null"}]},
+        "git_commit": {"anyOf": [{"type": "string", "pattern": "^[0-9a-f]{40}$"}, {"type": "null"}]},
+        "git_dirty": {"type": "boolean"},
+        "fixture_sha256": {"$ref": "#/$defs/hash"},
+        "contexts_sha256": {"$ref": "#/$defs/hash"},
+        "exporter_sha256": {"$ref": "#/$defs/hash"},
+        "runner_sha256": {"$ref": "#/$defs/hash"},
+        "adapter_sha256": {"$ref": "#/$defs/hash"},
+        "baseline_skill_sha256": {"$ref": "#/$defs/hash"},
+        "candidate_skill_sha256": {"$ref": "#/$defs/hash"},
+        "requested_model": {"$ref": "#/$defs/model"},
+        "judge_model": {"$ref": "#/$defs/model"},
+        "model_identity": {"const": "unverified"}
+      }
+    },
+    "execution": {
+      "type": "object", "additionalProperties": false,
+      "required": ["status", "planned_cli_calls", "completed_cli_calls", "expected_trials", "completed_trials", "duration_seconds"],
+      "properties": {
+        "status": {"enum": ["completed", "incomplete"]},
+        "planned_cli_calls": {"$ref": "#/$defs/count"},
+        "completed_cli_calls": {"$ref": "#/$defs/count"},
+        "expected_trials": {"$ref": "#/$defs/count"},
+        "completed_trials": {"$ref": "#/$defs/count"},
+        "duration_seconds": {"anyOf": [{"type": "number", "minimum": 0, "maximum": 1000000000}, {"type": "null"}]}
+      }
+    },
+    "case": {
+      "type": "object", "additionalProperties": false,
+      "required": ["case", "repeat", "variant", "complete", "passed", "checks_passed", "checks_total"],
+      "properties": {
+        "case": {"enum": ["readiness", "evidence", "learning"]},
+        "repeat": {"type": "integer", "minimum": 0, "maximum": 9},
+        "variant": {"enum": ["baseline", "candidate"]},
+        "complete": {"type": "boolean"}, "passed": {"type": "boolean"},
+        "checks_passed": {"$ref": "#/$defs/count"}, "checks_total": {"$ref": "#/$defs/count"}
+      }
+    },
+    "judge": {
+      "type": "object", "additionalProperties": false,
+      "required": ["expected_calls", "completed_calls", "order_disagreements", "baseline_preferences", "candidate_preferences", "ties"],
+      "properties": {
+        "expected_calls": {"$ref": "#/$defs/count"}, "completed_calls": {"$ref": "#/$defs/count"},
+        "order_disagreements": {"$ref": "#/$defs/count"}, "baseline_preferences": {"$ref": "#/$defs/count"},
+        "candidate_preferences": {"$ref": "#/$defs/count"}, "ties": {"$ref": "#/$defs/count"}
+      }
+    },
+    "usage": {
+      "type": "object", "additionalProperties": false,
+      "required": ["input_tokens", "cached_input_tokens", "output_tokens", "reasoning_output_tokens", "reporting_calls"],
+      "properties": {
+        "input_tokens": {"$ref": "#/$defs/count"}, "cached_input_tokens": {"$ref": "#/$defs/count"},
+        "output_tokens": {"$ref": "#/$defs/count"}, "reasoning_output_tokens": {"$ref": "#/$defs/count"},
+        "reporting_calls": {"$ref": "#/$defs/count"}
+      }
+    }
+  }
+}

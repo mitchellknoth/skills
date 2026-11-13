@@ -1,7 +1,7 @@
 {
   "version": 1,
   "adapter": [
-    "python3",
+    "python",
     "evals/adapters/claude_local.py"
   ],
   "model": "REPLACE_WITH_EXPLICIT_MODEL",

@@ -5,8 +5,8 @@ This is a **decision-probe bridge**, not a native skill-discovery or tool-action
 From the repository root:
 
 ```sh
-python -m unittest evals.harbor.test_bridge -v
-python -m evals.harbor.export --config evals/local.example.json --out .eval-results/harbor-smoke
+mise run eval:harbor:test
+mise run eval:harbor:export
 ```
 
 Export does not run inference or Docker. It writes a private host bundle, six paired task directories, and `commands.json`. Printed commands use `mock=true`. Run them individually in printed order with Harbor installed in the same Python environment and the repository root on `PYTHONPATH`. Use one trial at a time, no retries. Mock output deliberately earns zero behavioral reward even when its fixture checks pass; `grade.json` identifies mock plumbing results.
@@ -15,7 +15,7 @@ To run actual inference, first select an explicit model and review the local con
 
 Each instruction contains only a trial selector. The external `BaseAgent` invokes the host adapter, carries prior step outputs within that trial, and uploads `/app/answer.json`. Harbor transfers this declared artifact to the separate verifier. Expected decisions are never included in the model prompt. There is no shell execution of model output.
 
-Keep `.eval-results` private: host bundles contain skill snapshots and responses can contain private context. The artifact records bundle, case, variant, repetition, outputs and mock status. Version/skill/runner identity is frozen before execution. Hashes aid reproducibility, not protection against someone deliberately rewriting all local files.
+Keep `.eval-results` private: host bundles contain skill snapshots and responses can contain private context. The artifact records bundle, case, variant, repetition, outputs and mock status. Version/skill/runner identity is frozen before execution. Hashes aid reproducibility, not protection against someone deliberately rewriting all local files. Public paired-run scores use the separate [history exporter](../results/README.md); it does not import raw Harbor task bundles.
 
 ## Current limits
 

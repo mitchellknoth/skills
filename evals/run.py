@@ -109,7 +109,10 @@ def invoke(argv, request, config):
 def resolve_argv(argv):
     if not isinstance(argv, list) or not argv or not all(isinstance(a,str) for a in argv):
         raise ValueError('adapter must be a nonempty argv array, not a shell command')
-    return [str((ROOT/a).resolve()) if (ROOT/a).is_file() else a for a in argv]
+    # Python adapters inherit the exact interpreter selected by Mise/uv.
+    # An explicit executable path remains a deliberate BYO harness choice.
+    return [sys.executable if i == 0 and a in ('python', 'python3') else
+            str((ROOT/a).resolve()) if (ROOT/a).is_file() else a for i,a in enumerate(argv)]
 
 def plan(config):
     if config['version'] != 1 or config['repeats'] not in range(1, 11):
@@ -235,6 +238,8 @@ def run(config, out, mock=False, allow=False):
     manifest,snapshots,cases=plan(config)
     if not mock and not allow: raise ValueError('Live inference requires --allow-inference')
     if not mock and ('REPLACE' in config['model']): raise ValueError('Select an explicit provider model')
+    manifest['execution_mode']='mock' if mock else 'live'
+    manifest['id']=digest(encode({k:v for k,v in manifest.items() if k!='id'}))
     out=Path(out); out.mkdir(mode=0o700,parents=True,exist_ok=False)
     (out/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
     argv=resolve_argv(config['adapter'])

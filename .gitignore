@@ -1,6 +1,8 @@
 __pycache__/
 *.py[cod]
+.venv/
+.pytest_cache/
 
-# Local evaluation configuration and potentially private trial output
+# Private settings/raw artifacts. Sanitized score history lives in evals/results/.
 /evals/local.json
 /.eval-results/

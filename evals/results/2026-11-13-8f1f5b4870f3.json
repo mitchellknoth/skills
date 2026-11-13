@@ -1,0 +1,78 @@
+{
+  "cases": [
+    {
+      "case": "learning",
+      "checks_passed": 4,
+      "checks_total": 4,
+      "complete": true,
+      "passed": true,
+      "repeat": 0,
+      "variant": "baseline"
+    },
+    {
+      "case": "learning",
+      "checks_passed": 4,
+      "checks_total": 4,
+      "complete": true,
+      "passed": true,
+      "repeat": 0,
+      "variant": "candidate"
+    }
+  ],
+  "comparison": {
+    "candidate_improvements": 0,
+    "candidate_regressions": 0
+  },
+  "execution": {
+    "completed_cli_calls": 2,
+    "completed_trials": 2,
+    "duration_seconds": null,
+    "expected_trials": 2,
+    "planned_cli_calls": 2,
+    "status": "completed"
+  },
+  "judge": {
+    "baseline_preferences": 1,
+    "candidate_preferences": 1,
+    "completed_calls": 2,
+    "expected_calls": 2,
+    "order_disagreements": 1,
+    "ties": 0
+  },
+  "kind": "saved_answer_judge",
+  "mode": "live",
+  "observed_on": "2026-11-13",
+  "record_id": "8f1f5b4870f35052d8bf651445101179ad2aca2414bc0a1fdbd6ee3466ecae6e",
+  "schema": 1,
+  "source": {
+    "adapter_sha256": "38d5f74d82acf3f6fb77a0cb52d0be038822090d3bfdd2cf0e35ce77dbfc24b6",
+    "baseline_skill_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "candidate_skill_sha256": "770bbe6777ecea1633befe912ae028dc71fc796caab6d4e0ee1bbce7795420da",
+    "contexts_sha256": "48178106b75712a70064228da48e7d15d5ff58e7f8728d56ca4c5d257d4f00ba",
+    "exporter_sha256": "1713906ed49594f1b28d5e11d5f7e21990c7fbbadb711c8bc48874f278856f6a",
+    "fixture_sha256": "b1159c7e09e6979a5e3b3cc279b00c1193c8669066c45e6ffb37517035cae5f0",
+    "git_commit": "8f7254e0f98c1bb2a959f0775dc1157ac169c49d",
+    "git_dirty": true,
+    "judge_model": "gpt-6-luna",
+    "judgments_sha256": "bf3404a4ffa2bb624658ec39de45148a68e31dc87ffc0029222f58513b585d91",
+    "manifest_id": "3fd10b0df244db09e60223acef5c1c53fb2f5c04247857f279cb78ba3c8d8087",
+    "model_identity": "unverified",
+    "parent_manifest_id": "91dc3d5d26b4ed9810fe241a953a3c3c8abdb14d54b78ea8ed341b70a2aa1671",
+    "requested_model": null,
+    "runner_sha256": "55e72a606d76aa9205a0a694ca7093c52ed12b58dd6c38e38497d3d68e6a3527",
+    "summary_sha256": "a8f68c5d450f05d17edc80e3bc21e9fb5e7ef9c7e819a6ac6a0c14a9c819a289",
+    "trials_sha256": "102f2e9b2a9f0d4456244ae646c30c0175f28d0fdb38f4e09d774ae75937338f"
+  },
+  "trace": {
+    "reporting_calls": 2,
+    "tool_events": 0
+  },
+  "usage": {
+    "cached_input_tokens": 0,
+    "input_tokens": 1756,
+    "output_tokens": 106,
+    "reasoning_output_tokens": 0,
+    "reporting_calls": 2
+  },
+  "verdict": "inconclusive"
+}

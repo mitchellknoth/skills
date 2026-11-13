@@ -1,6 +1,6 @@
 # Evidence before a fleet release
 
-This is a small **decision-probe pilot**, not a proven score for Jarvis or Grok Bot. It asks whether adding the package changes the same model's decisions on the same evidence. It does not yet exercise real merges, bot schedules, or private memory.
+This **decision-probe pilot** compares the same requested model and harness configuration with and without selected skill context. Its three families measure declared decisions; they do not establish reliability of real merges, bot schedules or private memory.
 
 ## Run locally with Mise
 
@@ -20,7 +20,7 @@ The Codex example selects a pinned custom text-only harness, `gpt-6-luna`, one r
 eight agent CLI calls, no judge, and content-minimized native events. Run
 `mise run eval:codex:probe` first (synthetic local model endpoint, no inference), then
 `mise run eval:codex:canary -- --allow-inference --otel` (one subscription call).
-See [adapter controls and limits](../evals/adapters/README.md#codex-01561-text-only-harness).
+See [adapter controls and limits](../evals/adapters/references/codex.md).
 Both trace collection and inference are opt-in; raw reasoning is never collected.
 Use `eval:judge` on one saved pair for two blinded calls when semantic review is
 useful; set `judge_model` and `max_calls=14` before a full run to judge all three
@@ -56,7 +56,12 @@ not package labels; answer prose can still reveal the presence of skill context.
 Reversed-order disagreement needs review; a judge cannot overrule a hard gate.
 A second independent human should calibrate the judge before trusting it.
 
-Every run records the pre-run configuration, skill/file hashes, fixture/grader hashes, checkout commit and dirty status, planned calls/order, raw responses, trial failures, latency and separate judgments. Results stay in ignored `.eval-results/`; local settings stay in ignored `evals/local.json`. Inspect before sharing. Never commit private histories, credentials, provider output containing personal details, or raw memory.
+Every run records its configuration, source hashes, checkout identity, planned
+order, responses, failures, latency and judgments in private `.eval-results/`.
+Settings remain in ignored `evals/local.json`. After a run, export and inspect
+[sanitized score history](../evals/results/README.md), then commit the numeric
+record. That history retains unchanged, negative and incomplete measurements
+without committing private responses or configuration. CI validates its schema.
 
 A green pilot means **inconclusive, ready for broader testing**, not “newer is better.” Promote only after complete paired runs show an improvement on a preselected outcome, no protected-behavior regression, acceptable cost/latency, human review and a rollback target. Record unchanged or negative outcomes too. This is the same lesson → proposed change → authorized trial → measure → retain/revise/revert loop the package teaches.
 
