@@ -1,2 +1,8 @@
 __pycache__/
 *.py[cod]
+.venv/
+.pytest_cache/
+
+# Private settings/raw artifacts. Sanitized score history lives in evals/results/.
+/evals/local.json
+/.eval-results/

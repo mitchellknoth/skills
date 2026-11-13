@@ -25,9 +25,9 @@ Installing both skills does not mean both policies apply. Select the entry point
 ## Local validation
 
 ```sh
-python3 -m unittest discover -s tests -v
-python3 scripts/sync-fleet-core.py --check
-python3 skills/engineering/fleet-architecture/scripts/readiness.py \
+mise install
+mise run eval:check
+mise run fleet:readiness -- \
   skills/engineering/fleet-architecture/assets/readiness.example.json
 ```
 
@@ -52,7 +52,7 @@ No Grok Bot export/import, scheduler, webhook listener, credential manager, GitH
 The neutral template lets you choose feedback loops and cadence. The preset separately captures curation before proactive work, daily advisory oversight, weekly fleet retrospectives, weekly coordinator calibration, merge evidence, monthly hygiene, post-prune regression and dry-run orchestration reviews. It uses private run/ledger/retro/prune templates and leaves all activation dormant.
 
 ```sh
-python3 skills/engineering/fleet-architecture/scripts/feedback.py \
+mise run fleet:feedback -- \
   skills/engineering/fleet-architecture/assets/feedback.example.json
 ```
 

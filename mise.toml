@@ -1,0 +1,98 @@
+[tools]
+python = "3.12.14"
+uv = "0.12.5"
+
+[env]
+UV_PYTHON_DOWNLOADS = "never"
+
+[tasks."eval:sync"]
+description = "Sync locked Python dependencies using Mise's Python"
+run = 'uv sync --locked --python "{{ tools.python.path }}/bin/python"'
+
+[tasks."eval:lock"]
+description = "Refresh uv.lock after intentional dependency edits"
+run = 'uv lock --python "{{ tools.python.path }}/bin/python"'
+
+[tasks.test]
+description = "Run all offline tests with pytest"
+depends = ["eval:sync"]
+run = "uv run --locked --no-sync pytest"
+
+[tasks."core:check"]
+description = "Verify generated standalone skill support"
+depends = ["eval:sync"]
+run = "uv run --locked --no-sync python scripts/sync-fleet-core.py --check"
+
+[tasks."core:sync"]
+description = "Regenerate standalone skill support from its canonical source"
+depends = ["eval:sync"]
+run = "uv run --locked --no-sync python scripts/sync-fleet-core.py"
+
+[tasks."eval:check"]
+description = "Offline package and evaluation tests; no model calls"
+depends = ["core:check", "test", "eval:history:check"]
+
+[tasks."eval:plan"]
+description = "Show paired trial plan and call budget without inference"
+depends = ["eval:sync"]
+run = "uv run --locked --no-sync python evals/run.py plan"
+
+[tasks."eval:smoke"]
+description = "Offline mock plumbing check; not evidence of skill effectiveness"
+depends = ["eval:sync"]
+run = "uv run --locked --no-sync python evals/run.py mock"
+
+[tasks."eval:run"]
+description = "Explicit live run with local config: mise run eval:run -- --allow-inference"
+depends = ["eval:sync"]
+run = "uv run --locked --no-sync python evals/run.py run --config evals/local.json"
+
+[tasks."eval:harbor:export"]
+description = "Generate frozen paired Harbor tasks; no model calls"
+depends = ["eval:sync"]
+run = "uv run --locked --no-sync python -m evals.harbor.export --config evals/local.example.json --out .eval-results/harbor-smoke"
+
+[tasks."eval:codex:probe"]
+description = "Inspect installed Codex request against loopback fixture; no model inference"
+depends = ["eval:sync"]
+run = "uv run --locked --no-sync python evals/adapters/probe_codex.py"
+
+[tasks."eval:codex:canary"]
+description = "One synthetic ChatGPT-login call; explicit --allow-inference required"
+depends = ["eval:sync"]
+run = "uv run --locked --no-sync python evals/canary.py"
+
+[tasks."eval:judge"]
+description = "Explicit two-call blinded judge stage on saved answers; requires --source and --allow-inference"
+depends = ["eval:sync"]
+run = "uv run --locked --no-sync python evals/run.py judge-saved"
+
+[tasks."eval:adapter:test"]
+description = "Run adapter and collector tests; append pytest selectors as needed"
+depends = ["eval:sync"]
+run = "uv run --locked --no-sync pytest evals/adapters"
+
+[tasks."eval:harbor:test"]
+description = "Run mocked Harbor bridge tests"
+depends = ["eval:sync"]
+run = "uv run --locked --no-sync pytest evals/harbor"
+
+[tasks."fleet:readiness"]
+description = "Evaluate a readiness JSON record; append its path"
+depends = ["eval:sync"]
+run = "uv run --locked --no-sync python skills/engineering/fleet-architecture/scripts/readiness.py"
+
+[tasks."fleet:feedback"]
+description = "Classify a feedback JSON record; append its path"
+depends = ["eval:sync"]
+run = "uv run --locked --no-sync python skills/engineering/fleet-architecture/scripts/feedback.py"
+
+[tasks."eval:archive"]
+description = "Export sanitized, content-addressed scores from --source; inspect and commit the output"
+depends = ["eval:sync"]
+run = "uv run --locked --no-sync python -m evals.history export"
+
+[tasks."eval:history:check"]
+description = "Validate all committed benchmark score records against the strict public schema"
+depends = ["eval:sync"]
+run = "uv run --locked --no-sync python -m evals.history check"

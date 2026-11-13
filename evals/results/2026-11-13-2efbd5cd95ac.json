@@ -1,0 +1,114 @@
+{
+  "cases": [
+    {
+      "case": "evidence",
+      "checks_passed": 4,
+      "checks_total": 4,
+      "complete": true,
+      "passed": true,
+      "repeat": 0,
+      "variant": "baseline"
+    },
+    {
+      "case": "evidence",
+      "checks_passed": 4,
+      "checks_total": 4,
+      "complete": true,
+      "passed": true,
+      "repeat": 0,
+      "variant": "candidate"
+    },
+    {
+      "case": "learning",
+      "checks_passed": 4,
+      "checks_total": 4,
+      "complete": true,
+      "passed": true,
+      "repeat": 0,
+      "variant": "baseline"
+    },
+    {
+      "case": "learning",
+      "checks_passed": 4,
+      "checks_total": 4,
+      "complete": true,
+      "passed": true,
+      "repeat": 0,
+      "variant": "candidate"
+    },
+    {
+      "case": "readiness",
+      "checks_passed": 4,
+      "checks_total": 4,
+      "complete": true,
+      "passed": true,
+      "repeat": 0,
+      "variant": "baseline"
+    },
+    {
+      "case": "readiness",
+      "checks_passed": 4,
+      "checks_total": 4,
+      "complete": true,
+      "passed": true,
+      "repeat": 0,
+      "variant": "candidate"
+    }
+  ],
+  "comparison": {
+    "candidate_improvements": 0,
+    "candidate_regressions": 0
+  },
+  "execution": {
+    "completed_cli_calls": 8,
+    "completed_trials": 6,
+    "duration_seconds": 122.904,
+    "expected_trials": 6,
+    "planned_cli_calls": 14,
+    "status": "incomplete"
+  },
+  "judge": {
+    "baseline_preferences": 0,
+    "candidate_preferences": 0,
+    "completed_calls": 0,
+    "expected_calls": 6,
+    "order_disagreements": 0,
+    "ties": 0
+  },
+  "kind": "paired_decision_probe",
+  "mode": "unknown",
+  "observed_on": "2026-11-13",
+  "record_id": "2efbd5cd95acba8550414d583c911045fd3dbeb4a9054b739136c9d4b6168ac1",
+  "schema": 1,
+  "source": {
+    "adapter_sha256": "e3ae1fa83aca910e2caa32d8b2a489699519bd5b11ac57ed0378247033913fe1",
+    "baseline_skill_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "candidate_skill_sha256": "770bbe6777ecea1633befe912ae028dc71fc796caab6d4e0ee1bbce7795420da",
+    "contexts_sha256": "48178106b75712a70064228da48e7d15d5ff58e7f8728d56ca4c5d257d4f00ba",
+    "exporter_sha256": "1713906ed49594f1b28d5e11d5f7e21990c7fbbadb711c8bc48874f278856f6a",
+    "fixture_sha256": "b1159c7e09e6979a5e3b3cc279b00c1193c8669066c45e6ffb37517035cae5f0",
+    "git_commit": "8f7254e0f98c1bb2a959f0775dc1157ac169c49d",
+    "git_dirty": true,
+    "judge_model": "gpt-6-luna",
+    "judgments_sha256": null,
+    "manifest_id": "91dc3d5d26b4ed9810fe241a953a3c3c8abdb14d54b78ea8ed341b70a2aa1671",
+    "model_identity": "unverified",
+    "parent_manifest_id": null,
+    "requested_model": "gpt-6-luna",
+    "runner_sha256": "a232ab089059e9d05106748b581805658cfa769326b7682637e7ea2d8f114f7b",
+    "summary_sha256": null,
+    "trials_sha256": "102f2e9b2a9f0d4456244ae646c30c0175f28d0fdb38f4e09d774ae75937338f"
+  },
+  "trace": {
+    "reporting_calls": 8,
+    "tool_events": 0
+  },
+  "usage": {
+    "cached_input_tokens": 0,
+    "input_tokens": 25256,
+    "output_tokens": 793,
+    "reasoning_output_tokens": 0,
+    "reporting_calls": 8
+  },
+  "verdict": "blocked"
+}

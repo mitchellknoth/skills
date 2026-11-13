@@ -96,7 +96,9 @@ class PackagingTests(unittest.TestCase):
     def test_each_skill_standalone_links_and_execution(self):
         for source in (CORE, PRESET):
             with self.subTest(skill=source.name), tempfile.TemporaryDirectory() as directory:
-                isolated = Path(directory) / source.name
+                # macOS temp paths may use /var, an alias of /private/var.
+                # Compare canonical paths on both sides of containment checks.
+                isolated = (Path(directory) / source.name).resolve()
                 shutil.copytree(source, isolated, ignore=shutil.ignore_patterns('__pycache__'))
                 for file in isolated.rglob('*.md'):
                     for link in re.findall(r'\]\(([^)]+)\)', file.read_text()):
