@@ -11,6 +11,19 @@ benchmark prompts and answer text to Anthropic; local execution is not offline
 inference. Subscription limits still apply. Use synthetic/redacted fixtures.
 No login, install, or paid inference happens automatically.
 
+## Compatibility status
+
+Offline tests do not establish live provider compatibility. On the first Mac
+preflight, Claude Code 2.1.167 lacked the required `--restricted` and
+`--safe-mode` flags and was not authenticated, so this adapter cannot run there.
+Codex 0.156.1 was authenticated, but a tool-free mode was not established.
+There is **no bundled Codex adapter or working local-auth judge on that setup**.
+Read-only filesystem sandboxing does not prevent reads, all tool use, or prompt
+injection; rejecting tool events after they occur is not preventive isolation.
+Do not weaken the judge's no-tools contract or copy credentials into Harbor
+containers to work around this. A compatible provider CLI or a separately
+verified, contained host-auth bridge is required before live evaluation.
+
 Safety controls: argument arrays (no shell), empty temporary working directory,
 restricted/safe mode, empty built-in tools, deny all tools, strict empty MCP,
 no custom setting sources, disabled slash commands, no persisted sessions,
