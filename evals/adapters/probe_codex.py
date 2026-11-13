@@ -60,6 +60,7 @@ def fixture_response():
 class Fixture:
     def __init__(self):
         self.requests = []
+        self.metadata_requests = 0
         self.rejected = 0
         self.authorization_observed = False
         self.rejection_categories = Counter()
@@ -78,6 +79,16 @@ class Fixture:
                     self.connection.settimeout(2)
                     if authorization_present:
                         category = 'authorization'; raise ValueError('Unexpected authorization.')
+                    if self.path == '/v1/analytics/codex/turn-costs':
+                        # Native CLI requests a cost estimate separately from inference.
+                        # Discard its body and return an empty synthetic estimate.
+                        self.rfile.read(size)
+                        owner.metadata_requests += 1
+                        self.send_response(200)
+                        self.send_header('Content-Type', 'application/json')
+                        self.end_headers()
+                        self.wfile.write(b'{}')
+                        return
                     if self.path != '/v1/responses':
                         category = 'route'; raise ValueError('Unexpected route.')
                     category = 'payload'
@@ -158,6 +169,7 @@ def probe(otel=False):
         report = {'schema': 1, 'kind': 'installed-cli-synthetic-request-inspection',
                   'success': success, 'cli_version': VERSION, 'requested_model': MODEL,
                   'inference_calls': 0, 'synthetic_requests': fixture.requests,
+                  'synthetic_cost_metadata_requests': fixture.metadata_requests,
                   'authorization_header_observed': fixture.authorization_observed,
                   'rejected_requests': fixture.rejected, 'rejection_categories': dict(fixture.rejection_categories),
                   'fixture_response_completed': completed,
