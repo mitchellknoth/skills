@@ -18,7 +18,7 @@ See the [persona catalog](skills/engineering/fleet-preset/references/PERSONAS.md
 
 ## Evaluate before adopting
 
-[Run the local Mise evaluation pilot](docs/fleet-evaluations.md): compare your baseline against the same model plus a selected skill, with explicit call limits and optional blinded judging. Offline mocks validate plumbing only; no live effectiveness claim yet.
+[Run the local Mise evaluation pilot](docs/fleet-evaluations.md): compare your baseline against the same requested model and harness configuration plus a selected skill, with explicit call limits and optional blinded judging. A native-login Codex pilot now runs locally; [recorded validation](docs/evaluation-pilot-validation.md) remains inconclusive about skill effectiveness.
 
 ## Visual guide
 

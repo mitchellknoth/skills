@@ -4,7 +4,9 @@
 
 - Add Mise-orchestrated paired decision probes, selective skill context, frozen provenance, explicit call budgets and optional blinded judging.
 - Add a native-login Claude host adapter and optional Harbor external bridge; credentials stay off task containers.
-- Run offline tests on pull requests and pushes. Live provider, Mac and Harbor/Docker validation remain pending; mock results establish plumbing only.
+- Add a pinned Codex ChatGPT-login adapter, minimized native events, opt-in loopback OTLP logs, a synthetic installed-CLI request probe, and a reproducible live canary. Keep provider credentials on the host.
+- Verify the Mac/Mise/Python 3.12.14 path with 76 offline tests, a complete eight-call paired pilot, one final live canary, and a separate two-call saved-answer judge stage. Both variants pass the pointed cases; reversed-order judge preferences disagree. No effectiveness or persistent-learning claim.
+- Run offline tests on pull requests and pushes. Harbor/Docker execution, native skill discovery and actual backend model identity remain unverified; mocks establish plumbing only. See the validation record for interrupted attempts and usage limits.
 
 ## 0.3.1 — Measured evolution and visual guide
 
