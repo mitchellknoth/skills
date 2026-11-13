@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "task_id": "LOCAL_ID",
+  "intent": "",
+  "non_goals": [],
+  "acceptance": [],
+  "revision": null,
+  "owner": null,
+  "source_references": [],
+  "authorization": {
+    "status": "unknown",
+    "source": null,
+    "action": null,
+    "scope": null
+  },
+  "review": {
+    "status": "not_started",
+    "evidence": []
+  },
+  "verification": {
+    "status": "not_run",
+    "evidence": []
+  },
+  "findings": [],
+  "execution": {
+    "status": "not_started",
+    "result_reference": null
+  },
+  "outcome": {
+    "status": "not_observed",
+    "evidence": []
+  },
+  "next_action": null,
+  "blocker": null,
+  "checkpoint": null
+}

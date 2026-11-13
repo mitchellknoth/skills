@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "mode": "design",
+  "selection": "architecture-template",
+  "installation_name": "REPLACE_LOCALLY",
+  "state_store": null,
+  "roles": [],
+  "policy": {
+    "review_requirements": null,
+    "verification_requirements": null,
+    "authorization_source": null,
+    "authority_boundaries": null,
+    "review_round_limit": null,
+    "test_first": null
+  },
+  "runtime": {
+    "adapter": null,
+    "verified_capabilities": [],
+    "unsupported_capabilities": []
+  },
+  "automations": {
+    "enabled": false,
+    "definitions": []
+  },
+  "activation": {
+    "live_actions_enabled": false,
+    "approval_reference": null
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "revision": "rev-B",
+  "action": "merge",
+  "target": "example/pr/7",
+  "action_revision": "rev-B",
+  "evidence_complete": true,
+  "policy": {
+    "configured": true,
+    "required_reviews": [
+      "independent"
+    ],
+    "required_checks": [
+      "unit"
+    ],
+    "independent_reviews": [
+      "independent"
+    ]
+  },
+  "authorization": {
+    "verified": true,
+    "action": "merge",
+    "target": "example/pr/7",
+    "scope_current": true,
+    "revision_bound": false
+  },
+  "reviews": {
+    "independent": {
+      "revision": "rev-B",
+      "status": "pass",
+      "independent": true
+    }
+  },
+  "checks": {
+    "unit": {
+      "revision": "rev-B",
+      "status": "passed"
+    }
+  },
+  "findings": []
+}

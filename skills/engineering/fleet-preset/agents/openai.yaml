@@ -1,0 +1,3 @@
+interface:
+  display_name: "Opinionated Fleet Preset"
+  short_description: "Use an evidence-driven delivery preset"

@@ -1,0 +1,835 @@
+[
+  {
+    "name": "ready-authorized-positive",
+    "record": {
+      "revision": "rev-B",
+      "action": "merge",
+      "target": "example/pr/7",
+      "action_revision": "rev-B",
+      "evidence_complete": true,
+      "policy": {
+        "configured": true,
+        "required_reviews": [
+          "independent"
+        ],
+        "required_checks": [
+          "unit"
+        ],
+        "independent_reviews": [
+          "independent"
+        ]
+      },
+      "authorization": {
+        "verified": true,
+        "action": "merge",
+        "target": "example/pr/7",
+        "scope_current": true,
+        "revision_bound": false
+      },
+      "reviews": {
+        "independent": {
+          "revision": "rev-B",
+          "status": "pass",
+          "independent": true
+        }
+      },
+      "checks": {
+        "unit": {
+          "revision": "rev-B",
+          "status": "passed"
+        }
+      },
+      "findings": []
+    },
+    "expected_status": "ready"
+  },
+  {
+    "name": "batch-yes-stale-review",
+    "record": {
+      "revision": "rev-B",
+      "action": "merge",
+      "target": "example/pr/7",
+      "action_revision": "rev-B",
+      "evidence_complete": true,
+      "policy": {
+        "configured": true,
+        "required_reviews": [
+          "independent"
+        ],
+        "required_checks": [
+          "unit"
+        ],
+        "independent_reviews": [
+          "independent"
+        ]
+      },
+      "authorization": {
+        "verified": true,
+        "action": "merge",
+        "target": "example/pr/7",
+        "scope_current": true,
+        "revision_bound": false
+      },
+      "reviews": {
+        "independent": {
+          "revision": "rev-A",
+          "status": "pass",
+          "independent": true
+        }
+      },
+      "checks": {
+        "unit": {
+          "revision": "rev-B",
+          "status": "passed"
+        }
+      },
+      "findings": []
+    },
+    "expected_status": "not_ready"
+  },
+  {
+    "name": "material-warning-green-ci",
+    "record": {
+      "revision": "rev-B",
+      "action": "merge",
+      "target": "example/pr/7",
+      "action_revision": "rev-B",
+      "evidence_complete": true,
+      "policy": {
+        "configured": true,
+        "required_reviews": [
+          "independent"
+        ],
+        "required_checks": [
+          "unit"
+        ],
+        "independent_reviews": [
+          "independent"
+        ]
+      },
+      "authorization": {
+        "verified": true,
+        "action": "merge",
+        "target": "example/pr/7",
+        "scope_current": true,
+        "revision_bound": false
+      },
+      "reviews": {
+        "independent": {
+          "revision": "rev-B",
+          "status": "pass",
+          "independent": true
+        }
+      },
+      "checks": {
+        "unit": {
+          "revision": "rev-B",
+          "status": "passed"
+        }
+      },
+      "findings": [
+        {
+          "id": "F1",
+          "material": true,
+          "disposition": "open"
+        }
+      ]
+    },
+    "expected_status": "not_ready"
+  },
+  {
+    "name": "fixed-current-positive",
+    "record": {
+      "revision": "rev-B",
+      "action": "merge",
+      "target": "example/pr/7",
+      "action_revision": "rev-B",
+      "evidence_complete": true,
+      "policy": {
+        "configured": true,
+        "required_reviews": [
+          "independent"
+        ],
+        "required_checks": [
+          "unit"
+        ],
+        "independent_reviews": [
+          "independent"
+        ]
+      },
+      "authorization": {
+        "verified": true,
+        "action": "merge",
+        "target": "example/pr/7",
+        "scope_current": true,
+        "revision_bound": false
+      },
+      "reviews": {
+        "independent": {
+          "revision": "rev-B",
+          "status": "pass",
+          "independent": true
+        }
+      },
+      "checks": {
+        "unit": {
+          "revision": "rev-B",
+          "status": "passed"
+        }
+      },
+      "findings": [
+        {
+          "id": "F1",
+          "material": true,
+          "disposition": "fixed",
+          "evidence_verified": true,
+          "verified_revision": "rev-B"
+        }
+      ]
+    },
+    "expected_status": "ready"
+  },
+  {
+    "name": "fixed-old-head",
+    "record": {
+      "revision": "rev-B",
+      "action": "merge",
+      "target": "example/pr/7",
+      "action_revision": "rev-B",
+      "evidence_complete": true,
+      "policy": {
+        "configured": true,
+        "required_reviews": [
+          "independent"
+        ],
+        "required_checks": [
+          "unit"
+        ],
+        "independent_reviews": [
+          "independent"
+        ]
+      },
+      "authorization": {
+        "verified": true,
+        "action": "merge",
+        "target": "example/pr/7",
+        "scope_current": true,
+        "revision_bound": false
+      },
+      "reviews": {
+        "independent": {
+          "revision": "rev-B",
+          "status": "pass",
+          "independent": true
+        }
+      },
+      "checks": {
+        "unit": {
+          "revision": "rev-B",
+          "status": "passed"
+        }
+      },
+      "findings": [
+        {
+          "id": "F1",
+          "material": true,
+          "disposition": "fixed",
+          "evidence_verified": true,
+          "verified_revision": "rev-A"
+        }
+      ]
+    },
+    "expected_status": "not_ready"
+  },
+  {
+    "name": "rejected-with-evidence-positive",
+    "record": {
+      "revision": "rev-B",
+      "action": "merge",
+      "target": "example/pr/7",
+      "action_revision": "rev-B",
+      "evidence_complete": true,
+      "policy": {
+        "configured": true,
+        "required_reviews": [
+          "independent"
+        ],
+        "required_checks": [
+          "unit"
+        ],
+        "independent_reviews": [
+          "independent"
+        ]
+      },
+      "authorization": {
+        "verified": true,
+        "action": "merge",
+        "target": "example/pr/7",
+        "scope_current": true,
+        "revision_bound": false
+      },
+      "reviews": {
+        "independent": {
+          "revision": "rev-B",
+          "status": "pass",
+          "independent": true
+        }
+      },
+      "checks": {
+        "unit": {
+          "revision": "rev-B",
+          "status": "passed"
+        }
+      },
+      "findings": [
+        {
+          "id": "F1",
+          "material": true,
+          "disposition": "rejected",
+          "evidence_verified": true,
+          "scope_current": true
+        }
+      ]
+    },
+    "expected_status": "ready"
+  },
+  {
+    "name": "accepted-without-authority",
+    "record": {
+      "revision": "rev-B",
+      "action": "merge",
+      "target": "example/pr/7",
+      "action_revision": "rev-B",
+      "evidence_complete": true,
+      "policy": {
+        "configured": true,
+        "required_reviews": [
+          "independent"
+        ],
+        "required_checks": [
+          "unit"
+        ],
+        "independent_reviews": [
+          "independent"
+        ]
+      },
+      "authorization": {
+        "verified": true,
+        "action": "merge",
+        "target": "example/pr/7",
+        "scope_current": true,
+        "revision_bound": false
+      },
+      "reviews": {
+        "independent": {
+          "revision": "rev-B",
+          "status": "pass",
+          "independent": true
+        }
+      },
+      "checks": {
+        "unit": {
+          "revision": "rev-B",
+          "status": "passed"
+        }
+      },
+      "findings": [
+        {
+          "id": "F1",
+          "material": true,
+          "disposition": "accepted",
+          "evidence_verified": true,
+          "scope_current": true
+        }
+      ]
+    },
+    "expected_status": "not_ready"
+  },
+  {
+    "name": "accepted-scoped-positive",
+    "record": {
+      "revision": "rev-B",
+      "action": "merge",
+      "target": "example/pr/7",
+      "action_revision": "rev-B",
+      "evidence_complete": true,
+      "policy": {
+        "configured": true,
+        "required_reviews": [
+          "independent"
+        ],
+        "required_checks": [
+          "unit"
+        ],
+        "independent_reviews": [
+          "independent"
+        ]
+      },
+      "authorization": {
+        "verified": true,
+        "action": "merge",
+        "target": "example/pr/7",
+        "scope_current": true,
+        "revision_bound": false
+      },
+      "reviews": {
+        "independent": {
+          "revision": "rev-B",
+          "status": "pass",
+          "independent": true
+        }
+      },
+      "checks": {
+        "unit": {
+          "revision": "rev-B",
+          "status": "passed"
+        }
+      },
+      "findings": [
+        {
+          "id": "F1",
+          "material": true,
+          "disposition": "accepted",
+          "evidence_verified": true,
+          "scope_current": true,
+          "acceptance_authorized": true,
+          "policy_allows_acceptance": true
+        }
+      ]
+    },
+    "expected_status": "ready"
+  },
+  {
+    "name": "self-review-is-not-independent",
+    "record": {
+      "revision": "rev-B",
+      "action": "merge",
+      "target": "example/pr/7",
+      "action_revision": "rev-B",
+      "evidence_complete": true,
+      "policy": {
+        "configured": true,
+        "required_reviews": [
+          "independent"
+        ],
+        "required_checks": [
+          "unit"
+        ],
+        "independent_reviews": [
+          "independent"
+        ]
+      },
+      "authorization": {
+        "verified": true,
+        "action": "merge",
+        "target": "example/pr/7",
+        "scope_current": true,
+        "revision_bound": false
+      },
+      "reviews": {
+        "independent": {
+          "revision": "rev-B",
+          "status": "pass",
+          "independent": false
+        }
+      },
+      "checks": {
+        "unit": {
+          "revision": "rev-B",
+          "status": "passed"
+        }
+      },
+      "findings": []
+    },
+    "expected_status": "not_ready"
+  },
+  {
+    "name": "deliberately-not-run",
+    "record": {
+      "revision": "rev-B",
+      "action": "merge",
+      "target": "example/pr/7",
+      "action_revision": "rev-B",
+      "evidence_complete": true,
+      "policy": {
+        "configured": true,
+        "required_reviews": [
+          "independent"
+        ],
+        "required_checks": [
+          "unit"
+        ],
+        "independent_reviews": [
+          "independent"
+        ]
+      },
+      "authorization": {
+        "verified": true,
+        "action": "merge",
+        "target": "example/pr/7",
+        "scope_current": true,
+        "revision_bound": false
+      },
+      "reviews": {
+        "independent": {
+          "revision": "rev-B",
+          "status": "pass",
+          "independent": true
+        }
+      },
+      "checks": {
+        "unit": {
+          "revision": "rev-B",
+          "status": "skipped"
+        }
+      },
+      "findings": []
+    },
+    "expected_status": "not_ready"
+  },
+  {
+    "name": "partial-api-result",
+    "record": {
+      "revision": "rev-B",
+      "action": "merge",
+      "target": "example/pr/7",
+      "action_revision": "rev-B",
+      "evidence_complete": false,
+      "policy": {
+        "configured": true,
+        "required_reviews": [
+          "independent"
+        ],
+        "required_checks": [
+          "unit"
+        ],
+        "independent_reviews": [
+          "independent"
+        ]
+      },
+      "authorization": {
+        "verified": true,
+        "action": "merge",
+        "target": "example/pr/7",
+        "scope_current": true,
+        "revision_bound": false
+      },
+      "reviews": {
+        "independent": {
+          "revision": "rev-B",
+          "status": "pass",
+          "independent": true
+        }
+      },
+      "checks": {
+        "unit": {
+          "revision": "rev-B",
+          "status": "passed"
+        }
+      },
+      "findings": []
+    },
+    "expected_status": "not_ready"
+  },
+  {
+    "name": "head-moved",
+    "record": {
+      "revision": "rev-B",
+      "action": "merge",
+      "target": "example/pr/7",
+      "action_revision": "rev-C",
+      "evidence_complete": true,
+      "policy": {
+        "configured": true,
+        "required_reviews": [
+          "independent"
+        ],
+        "required_checks": [
+          "unit"
+        ],
+        "independent_reviews": [
+          "independent"
+        ]
+      },
+      "authorization": {
+        "verified": true,
+        "action": "merge",
+        "target": "example/pr/7",
+        "scope_current": true,
+        "revision_bound": false
+      },
+      "reviews": {
+        "independent": {
+          "revision": "rev-B",
+          "status": "pass",
+          "independent": true
+        }
+      },
+      "checks": {
+        "unit": {
+          "revision": "rev-B",
+          "status": "passed"
+        }
+      },
+      "findings": []
+    },
+    "expected_status": "not_ready"
+  },
+  {
+    "name": "unverified-permission",
+    "record": {
+      "revision": "rev-B",
+      "action": "merge",
+      "target": "example/pr/7",
+      "action_revision": "rev-B",
+      "evidence_complete": true,
+      "policy": {
+        "configured": true,
+        "required_reviews": [
+          "independent"
+        ],
+        "required_checks": [
+          "unit"
+        ],
+        "independent_reviews": [
+          "independent"
+        ]
+      },
+      "authorization": {
+        "verified": false,
+        "action": "merge",
+        "target": "example/pr/7",
+        "scope_current": true,
+        "revision_bound": false
+      },
+      "reviews": {
+        "independent": {
+          "revision": "rev-B",
+          "status": "pass",
+          "independent": true
+        }
+      },
+      "checks": {
+        "unit": {
+          "revision": "rev-B",
+          "status": "passed"
+        }
+      },
+      "findings": []
+    },
+    "expected_status": "not_authorized"
+  },
+  {
+    "name": "wrong-action",
+    "record": {
+      "revision": "rev-B",
+      "action": "merge",
+      "target": "example/pr/7",
+      "action_revision": "rev-B",
+      "evidence_complete": true,
+      "policy": {
+        "configured": true,
+        "required_reviews": [
+          "independent"
+        ],
+        "required_checks": [
+          "unit"
+        ],
+        "independent_reviews": [
+          "independent"
+        ]
+      },
+      "authorization": {
+        "verified": true,
+        "action": "deploy",
+        "target": "example/pr/7",
+        "scope_current": true,
+        "revision_bound": false
+      },
+      "reviews": {
+        "independent": {
+          "revision": "rev-B",
+          "status": "pass",
+          "independent": true
+        }
+      },
+      "checks": {
+        "unit": {
+          "revision": "rev-B",
+          "status": "passed"
+        }
+      },
+      "findings": []
+    },
+    "expected_status": "not_authorized"
+  },
+  {
+    "name": "bound-permission-stale",
+    "record": {
+      "revision": "rev-B",
+      "action": "merge",
+      "target": "example/pr/7",
+      "action_revision": "rev-B",
+      "evidence_complete": true,
+      "policy": {
+        "configured": true,
+        "required_reviews": [
+          "independent"
+        ],
+        "required_checks": [
+          "unit"
+        ],
+        "independent_reviews": [
+          "independent"
+        ]
+      },
+      "authorization": {
+        "verified": true,
+        "action": "merge",
+        "target": "example/pr/7",
+        "scope_current": true,
+        "revision_bound": true,
+        "revision": "rev-A"
+      },
+      "reviews": {
+        "independent": {
+          "revision": "rev-B",
+          "status": "pass",
+          "independent": true
+        }
+      },
+      "checks": {
+        "unit": {
+          "revision": "rev-B",
+          "status": "passed"
+        }
+      },
+      "findings": []
+    },
+    "expected_status": "not_authorized"
+  },
+  {
+    "name": "template-not-configured",
+    "record": {
+      "revision": "rev-B",
+      "action": "merge",
+      "target": "example/pr/7",
+      "action_revision": "rev-B",
+      "evidence_complete": true,
+      "policy": {
+        "configured": false,
+        "required_reviews": [
+          "independent"
+        ],
+        "required_checks": [
+          "unit"
+        ],
+        "independent_reviews": [
+          "independent"
+        ]
+      },
+      "authorization": {
+        "verified": true,
+        "action": "merge",
+        "target": "example/pr/7",
+        "scope_current": true,
+        "revision_bound": false
+      },
+      "reviews": {
+        "independent": {
+          "revision": "rev-B",
+          "status": "pass",
+          "independent": true
+        }
+      },
+      "checks": {
+        "unit": {
+          "revision": "rev-B",
+          "status": "passed"
+        }
+      },
+      "findings": []
+    },
+    "expected_status": "not_ready"
+  },
+  {
+    "name": "explicit-minimal-policy-positive",
+    "record": {
+      "revision": "rev-B",
+      "action": "merge",
+      "target": "example/pr/7",
+      "action_revision": "rev-B",
+      "evidence_complete": true,
+      "policy": {
+        "configured": true,
+        "required_reviews": [],
+        "required_checks": [],
+        "independent_reviews": []
+      },
+      "authorization": {
+        "verified": true,
+        "action": "merge",
+        "target": "example/pr/7",
+        "scope_current": true,
+        "revision_bound": false
+      },
+      "reviews": {
+        "independent": {
+          "revision": "rev-B",
+          "status": "pass",
+          "independent": true
+        }
+      },
+      "checks": {
+        "unit": {
+          "revision": "rev-B",
+          "status": "passed"
+        }
+      },
+      "findings": []
+    },
+    "expected_status": "ready"
+  },
+  {
+    "name": "explicit-non-independent-review-positive",
+    "record": {
+      "revision": "rev-B",
+      "action": "merge",
+      "target": "example/pr/7",
+      "action_revision": "rev-B",
+      "evidence_complete": true,
+      "policy": {
+        "configured": true,
+        "required_reviews": [
+          "independent"
+        ],
+        "required_checks": [
+          "unit"
+        ],
+        "independent_reviews": []
+      },
+      "authorization": {
+        "verified": true,
+        "action": "merge",
+        "target": "example/pr/7",
+        "scope_current": true,
+        "revision_bound": false
+      },
+      "reviews": {
+        "independent": {
+          "revision": "rev-B",
+          "status": "pass",
+          "independent": false
+        }
+      },
+      "checks": {
+        "unit": {
+          "revision": "rev-B",
+          "status": "passed"
+        }
+      },
+      "findings": []
+    },
+    "expected_status": "ready"
+  }
+]

@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "mode": "design",
+  "selection": "opinionated-preset",
+  "installation_name": "REPLACE_LOCALLY",
+  "state_store": null,
+  "roles": [
+    "coordinator",
+    "implementer",
+    "risk-selected reviewers",
+    "oversight"
+  ],
+  "policy": {
+    "review_requirements": "Risk-routed independent acceptance at current revision",
+    "verification_requirements": "Applicable checks with complete execution evidence",
+    "authorization_source": null,
+    "authority_boundaries": null,
+    "review_round_limit": 3,
+    "test_first": "Behavioral changes where practical; record exceptions"
+  },
+  "runtime": {
+    "adapter": null,
+    "verified_capabilities": [],
+    "unsupported_capabilities": []
+  },
+  "automations": {
+    "enabled": false,
+    "definitions": []
+  },
+  "activation": {
+    "live_actions_enabled": false,
+    "approval_reference": null
+  }
+}
