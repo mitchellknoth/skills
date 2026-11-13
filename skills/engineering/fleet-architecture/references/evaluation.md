@@ -4,7 +4,7 @@ This first version includes deterministic fixtures for the reference readiness m
 
 ## Two test layers
 
-**Package / model tests:** manifest parity, discoverable entry points, local links, template shape, and deterministic readiness scenarios. Run `python3 -m unittest discover -s tests -v` from the repository root.
+**Package / model tests:** manifest parity, discoverable entry points, local links, template shape, and deterministic readiness scenarios. From the source repository root, run `mise run eval:check` for the locked pytest suite and generated-core checks.
 
 **Behavioral evaluation (not yet executed):** freeze the old/new instruction versions, runtime/tool versions and evidence available at the decision point. Use inert tools, fresh sessions and historical decision prefixes so later outcomes do not leak the answer. Compare repeated paired trials with held-out variations. Score action paths and outcomes, not exact wording.
 
