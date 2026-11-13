@@ -20,3 +20,15 @@ run = "python evals/run.py run --config evals/local.json"
 [tasks."eval:harbor:export"]
 description = "Generate frozen paired Harbor tasks; no model calls"
 run = "python -m evals.harbor.export --config evals/local.example.json --out .eval-results/harbor-smoke"
+
+[tasks."eval:codex:probe"]
+description = "Inspect installed Codex request against loopback fixture; no model inference"
+run = "python evals/adapters/probe_codex.py"
+
+[tasks."eval:codex:canary"]
+description = "One synthetic ChatGPT-login call; explicit --allow-inference required"
+run = "python evals/canary.py"
+
+[tasks."eval:judge"]
+description = "Explicit two-call blinded judge stage on saved answers; requires --source and --allow-inference"
+run = "python evals/run.py judge-saved"

@@ -9,12 +9,23 @@ mise install
 mise run eval:check
 mise run eval:plan
 mise run eval:smoke
-cp evals/local.example.json evals/local.json
+cp evals/codex.example.json evals/local.json
 # Edit local.json: explicit model, selected skill, optional judge, and limits.
 mise run eval:run -- --allow-inference
 ```
 
 The mock is free and offline. It supplies correct fixture answers to test plumbing; its score **must never be presented as model or skill performance**. The example runs three paired cases, six trials and eight agent calls because the learning case has two steps. A judge adds six calls (each pair is judged twice with reversed answer order). Set `max_calls` accordingly. Three repeats cost 24 agent calls, or 42 with judging, and are still a pilot, not statistical proof.
+
+The Codex example selects a pinned custom text-only harness, `gpt-6-luna`, one repeat,
+eight agent CLI calls, no judge, and content-minimized native events. Run
+`mise run eval:codex:probe` first (synthetic local model endpoint, no inference), then
+`mise run eval:codex:canary -- --allow-inference --otel` (one subscription call).
+See [adapter controls and limits](../evals/adapters/README.md#codex-01561-text-only-harness).
+Both trace collection and inference are opt-in; raw reasoning is never collected.
+Use `eval:judge` on one saved pair for two blinded calls when semantic review is
+useful; set `judge_model` and `max_calls=14` before a full run to judge all three
+pairs. Saved judging records a new stage and never implies an interrupted full
+run completed.
 
 Local execution does not mean local inference. A hosted provider receives the synthetic prompts and selected package contents. The adapter uses the CLI's existing local authentication; the runner does not read credentials, copy them into containers, or put them in reports. It excludes API-key environment variables. The bundled adapter's supported provider and limitations are documented alongside it. Mac execution and real inference must be verified on the owner's machine before claiming success.
 
@@ -34,7 +45,16 @@ Positive controls penalize excessive refusal and repeated permission requests. E
 
 ## Rubric and release decisions
 
-Deterministic checks score the requested decision fields. They are **decision safety checks, not observations of executed actions**. No missing trial or failed check is averaged away. An optional tool-free, blinded judge compares factual grounding and actionable concision only. It sees the task and answers, not package labels. Reversed-order disagreement needs review; a judge cannot overrule a hard gate. A second independent human should calibrate the judge before trusting it.
+Deterministic checks score the requested decision fields, including a declared gate
+sequence that puts readiness before action and output verification afterward. They
+are **decision safety checks, not observations of executed actions**. Native traces
+report observed tool events separately (zero is expected in the text-only harness).
+No missing trial or failed check is averaged away. An optional tool-free, blinded
+judge compares factual grounding and actionable concision, including whether a
+retro actually specifies measurement and rollback. It sees the task and answers,
+not package labels; answer prose can still reveal the presence of skill context.
+Reversed-order disagreement needs review; a judge cannot overrule a hard gate.
+A second independent human should calibrate the judge before trusting it.
 
 Every run records the pre-run configuration, skill/file hashes, fixture/grader hashes, checkout commit and dirty status, planned calls/order, raw responses, trial failures, latency and separate judgments. Results stay in ignored `.eval-results/`; local settings stay in ignored `evals/local.json`. Inspect before sharing. Never commit private histories, credentials, provider output containing personal details, or raw memory.
 

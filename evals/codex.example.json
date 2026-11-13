@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "adapter": [
+    "python3",
+    "evals/adapters/codex_local.py"
+  ],
+  "model": "gpt-6-luna",
+  "judge_model": null,
+  "baseline": null,
+  "candidate": "skills/engineering/fleet-preset",
+  "repeats": 1,
+  "seed": 214,
+  "timeout_seconds": 120,
+  "max_calls": 8,
+  "max_prompt_chars": 60000,
+  "max_response_chars": 12000,
+  "billing": "subscription",
+  "max_estimated_usd": 0,
+  "estimated_usd_per_call": null,
+  "context_files": {
+    "baseline": {
+      "readiness": [
+        "SKILL.md",
+        "references/core/architecture.md",
+        "references/core/readiness.md",
+        "references/core/adapters.md",
+        "references/core/evaluation.md"
+      ],
+      "evidence": [
+        "SKILL.md",
+        "references/core/architecture.md",
+        "references/core/readiness.md",
+        "references/core/adapters.md",
+        "references/core/evaluation.md",
+        "references/core/feedback.md"
+      ],
+      "learning": [
+        "SKILL.md",
+        "references/core/architecture.md",
+        "references/core/readiness.md",
+        "references/core/adapters.md",
+        "references/core/evaluation.md",
+        "references/core/feedback.md",
+        "references/core/evolution.md",
+        "references/retrospectives.md"
+      ]
+    },
+    "candidate": {
+      "readiness": [
+        "SKILL.md",
+        "references/core/architecture.md",
+        "references/core/readiness.md",
+        "references/core/adapters.md",
+        "references/core/evaluation.md"
+      ],
+      "evidence": [
+        "SKILL.md",
+        "references/core/architecture.md",
+        "references/core/readiness.md",
+        "references/core/adapters.md",
+        "references/core/evaluation.md",
+        "references/core/feedback.md"
+      ],
+      "learning": [
+        "SKILL.md",
+        "references/core/architecture.md",
+        "references/core/readiness.md",
+        "references/core/adapters.md",
+        "references/core/evaluation.md",
+        "references/core/feedback.md",
+        "references/core/evolution.md",
+        "references/retrospectives.md"
+      ]
+    }
+  },
+  "trace_native_events": true
+}

@@ -2,7 +2,7 @@
 
 `claude_local.py` uses the official installed Claude Code CLI and its existing
 `claude.ai` login. It never reads, prints, copies or exports credential files.
-It intentionally does not support API keys, cloud-provider credentials, Codex,
+The Claude adapter intentionally does not support API keys, cloud-provider credentials, Codex,
 or `--bare` (which changes authentication behavior).
 
 Configure adapter argv as `["python3", "evals/adapters/claude_local.py"]` and set
@@ -16,13 +16,7 @@ No login, install, or paid inference happens automatically.
 Offline tests do not establish live provider compatibility. On the first Mac
 preflight, Claude Code 2.1.167 lacked the required `--restricted` and
 `--safe-mode` flags and was not authenticated, so this adapter cannot run there.
-Codex 0.156.1 was authenticated, but a tool-free mode was not established.
-There is **no bundled Codex adapter or working local-auth judge on that setup**.
-Read-only filesystem sandboxing does not prevent reads, all tool use, or prompt
-injection; rejecting tool events after they occur is not preventive isolation.
-Do not weaken the judge's no-tools contract or copy credentials into Harbor
-containers to work around this. A compatible provider CLI or a separately
-verified, contained host-auth bridge is required before live evaluation.
+The separate Codex adapter below supplies a narrowly configured text-only harness.
 
 Safety controls: argument arrays (no shell), empty temporary working directory,
 restricted/safe mode, empty built-in tools, deny all tools, strict empty MCP,
@@ -52,55 +46,107 @@ Offline adapter tests:
 (cd evals/adapters && python3 -m unittest -v test_claude_local.py)
 ```
 
-## Codex host-auth research (not implemented)
+## Codex 0.156.1 text-only harness
 
-Codex CLI **0.156.1** on the owner's Mac was authenticated with ChatGPT during
-the Mac preflight. This is
-not yet a compatible adapter. A host-side process could preserve the native
-login without extracting tokens or copying `auth.json` into Harbor containers.
-We intentionally do not bundle an adapter that cannot satisfy the trial contract.
+`codex_local.py` uses the installed official CLI's existing ChatGPT login. It
+does not open, copy or export provider credential files. API-key, alternate
+provider, proxy and `CODEX_HOME` environment overrides are excluded. Both the
+native login status and `forced_login_method="chatgpt"` are checked. No API
+billing fallback is supplied. Only `gpt-6-luna` is supported by this pilot.
+Subscription allowance is consumed; dollar cost is unavailable.
 
-The inspected CLI offers `exec --ignore-user-config` (authentication still uses
-`CODEX_HOME`), `--ignore-rules`, `--ephemeral`, `--strict-config`, `--json`,
-`--output-schema`, and `--sandbox read-only`. Candidate per-call controls include
-turning off web search and automatic project instructions; disabling shell,
-browser/computer use, apps/plugins/hooks, memories, subagents, image tools and
-skill discovery/install; and using a fresh temporary working directory with
-synthetic input over stdin. These flags are a research direction, not a verified
-isolation recipe. They do not establish a universal no-tools mode.
+Use `evals/codex.example.json` for the paired run. It budgets eight agent CLI
+calls with no judge by default. Setting `judge_model` and `max_calls=14` adds six
+blinded, reversed-order judge CLI calls. These are **CLI calls**,
+not a provider request or token cap: native Codex can retry network/stream
+requests. The wrapper never retries. Calls are sequential, output is bounded
+while streaming, input delivery is included in the timeout, and the outer
+runner kills the process group on timeout. No Docker is needed.
 
-Two concrete blockers remain:
+This evaluates **a custom text-only Codex harness with injected skill context**,
+not default Codex, native skill discovery, or a raw model. Its small, shared
+system prompt and authoritative custom model catalog deliberately remove
+shell, patch, clock, async messaging and other model-advertised tools. Feature
+overrides remove apps/plugins, browser/computer/image tools, skills, memories,
+subagents, hooks and Code Mode. Per-run config excludes user settings and
+project documents; the filesystem sandbox is read-only and sessions ephemeral.
+These changes apply equally to baseline, candidate and judge. Global security
+settings are never modified. CLI-level prevention relies on the inspected CLI
+and stable, trusted local/admin configuration; it is not universal OS isolation.
 
-1. **Effective MCP configuration:** `codex mcp list --json --ignore-user-config`
-   is rejected by this CLI. Therefore that command cannot verify the same
-   configuration used by isolated `exec`. An empty `mcp_servers` table is not
-   proof that inherited servers were removed.
-2. **Actual model identity:** the exact-version `exec` JSON event definitions
-   contain thread IDs, items and token usage, but no effective model field.
-   The requested `--model` value cannot be reported as verified actual identity.
+Native `mcp list --json` enumerates the superset of configured server names and
+transport types, including the user layer that `exec` ignores. The inventory
+is consumed transiently on the host; it can contain sensitive MCP transport
+configuration, so it is never logged, persisted or returned. Only validated
+names/types are used to explicitly disable every server. Disabled entries have
+inert valid transports because an empty table merges and an entry with only
+`enabled=false` is invalid. Plugins/apps are separately disabled. A concurrently
+added managed server could race enumeration; do not use this harness on an
+untrusted or changing managed machine. It does not start MCP servers to inventory
+them. Provider credentials never route through a collector or inference proxy.
 
-Do not weaken the existing judge contract, silently relabel requested model as
-actual model, or accept a contaminated trial to work around these blockers.
-Tool-event rejection would invalidate a trial *after* an attempted action; it
-would not prevent that action. Read-only does not prevent all host reads or
-external side effects, and ephemeral does not promise zero disk activity.
+`mise run eval:codex:probe` inspects one unauthenticated synthetic Responses
+request using the installed CLI and the same tool controls. It requires an
+empty tool array, no auth headers and a completed fixture roundtrip. This is
+stronger evidence than a mock, but is not live provider/model validation.
+Native Codex may fetch first-party configuration metadata during bootstrap;
+all model requests in the probe go to the loopback fixture, with no inference
+or billing. The probe is separate code and cannot switch the live adapter's
+provider. The canary is separately opted in:
 
-Before implementing a live bridge, establish effective tool/MCP controls and
-model attestation for the pinned CLI (or a separately inspected transport).
-Then run an explicitly authorized synthetic canary covering attempted file,
-shell and network/tool access, malformed output and model mismatch. Record
-observed behavior and remaining limits. No such live canary has run.
+```sh
+mise run eval:codex:canary -- --allow-inference --otel
+cp evals/codex.example.json evals/local.json
+mise run eval:run -- --allow-inference
+# Optional: judge just one saved pair, two calls, with a separately recorded manifest.
+mise run eval:judge -- --source .eval-results/RUN --case learning \
+  --judge-model gpt-6-luna --allow-inference --out .eval-results/JUDGE-RUN
+```
 
-Any future bridge needs bounded runtime/output/call counts, no automatic retry,
-no API-key or billing fallback, stripped provider/environment overrides, and
-native authentication without credential copying. It would evaluate the
-**Codex harness**, not a raw model. Host execution still sends inference to the
-provider. Subscription authentication is neither free/unlimited usage nor
-local inference; plan limits and provider billing must be checked before runs.
-A no-tools Responses API adapter is a separate option requiring separately
-authorized API authentication and billing, not repurposed ChatGPT credentials.
+`--otel` starts a short-lived loopback OTLP/HTTP JSON receiver and enables the
+native log exporter only for that call. It records known event names and
+counts; **logs are not spans**. Compatibility experiments received some actual
+spans but also rejected requests, so the pilot leaves the trace exporter disabled.
+No span UI integration or complete native span pipeline is claimed. Native `--json` events provide
+ordered structural item events and usage, and `trace_native_events=true` opts
+in to retaining their minimized form in paired trial artifacts. Text, arguments,
+paths, IDs, tool outputs, account/resource attributes and raw spans are discarded
+by the observers. User prompt logging is disabled and tool-result logging is
+set to zero bytes. The paired runner still saves the model's final answers for
+grading; use synthetic data and inspect results before sharing.
 
-References:
-- https://developers.openai.com/codex/noninteractive
-- https://developers.openai.com/codex/config-reference
-- https://github.com/openai/codex/blob/rust-v0.156.1/codex-rs/exec/src/exec_events.rs
+Trials and judgments are journaled incrementally. An interrupted full run stays
+`blocked`/`in_progress`; a separate saved-answer stage does not turn it into a
+completed full run or infer missing usage. Saved judging verifies the fixture
+and source manifest, rechecks step completeness, hashes the answer artifact,
+and records current judge code. It never regenerates agent answers.
+
+Reasoning summaries, if present, are counted but their text is discarded. They
+are not hidden chain of thought, explanations of causation or grading ground
+truth. Trace observers do not block actions. The independent configuration
+controls remove tools before inference; unexpected tool/unknown/error events
+invalidate the trial after observation. A zero-tool trace alone proves neither
+prevention nor safety in another harness.
+
+`requested_model` records the explicit CLI argument. `actual_model=null` and
+`model_identity_verified=false` are intentional: this version's exec events
+do not attest actual model identity, and telemetry's configured model name is
+not backend attestation. No score establishes raw-model identity or persistent
+learning. The judge compares final-answer grounding and concision, uses the
+same requested model, and still needs independent human calibration.
+
+Version-pinned primary references:
+- [Tool exposure](https://github.com/openai/codex/blob/rust-v0.156.1/codex-rs/core/src/tools/spec_plan.rs)
+- [Exec events](https://github.com/openai/codex/blob/rust-v0.156.1/codex-rs/exec/src/exec_events.rs)
+- [Configuration schema](https://github.com/openai/codex/blob/rust-v0.156.1/codex-rs/core/config.schema.json)
+- [Model metadata](https://github.com/openai/codex/blob/rust-v0.156.1/codex-rs/protocol/src/openai_models.rs)
+
+## Collector choice
+
+The pilot keeps a standard-library receiver because its needed output is a few
+redacted event counts. [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/configuration/)
+can route/filter logs and spans if the volume grows. [Phoenix](https://arize.com/docs/phoenix/tracing/concepts-tracing/otel-openinference/exporter)
+accepts OTLP spans; useful LLM views would need verified span semantics and an
+OpenInference mapping, not just Codex log forwarding. [Langfuse self-hosting](https://langfuse.com/self-hosting/deployment/docker-compose)
+adds a Docker deployment and supporting infrastructure. None is installed or
+claimed integrated here. The Docker boundary remains separate from this pilot.

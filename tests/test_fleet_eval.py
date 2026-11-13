@@ -94,6 +94,11 @@ class EvalTests(unittest.TestCase):
         for payload in ('[]','null','42'):
             with self.subTest(payload=payload), self.assertRaises(ValueError):
                 eval.invoke([__import__('sys').executable,'-c',f'print({payload!r})'], {'prompt':'x'},self.config())
+    def test_malformed_optional_usage_and_trace_fail_closed(self):
+        for extra in ({'usage':'bad'},{'usage':{'input_tokens':'bad'}},{'trace':{}},{'trace':{'tool_events':-1}}):
+            payload=json.dumps(dict(text='{}',**extra))
+            with self.subTest(extra=extra),self.assertRaises(ValueError):
+                eval.invoke([__import__('sys').executable,'-c',f'print({payload!r})'],{'prompt':'x'},self.config())
     def test_cli_blocked_result_exits_nonzero(self):
         with patch('sys.argv',['run.py','mock']), patch.object(eval,'run',return_value={'verdict':'blocked'}):
             with self.assertRaises(SystemExit) as caught: eval.main()
@@ -112,5 +117,27 @@ class EvalTests(unittest.TestCase):
         self.assertEqual([],summary['candidate_improvements'])
     def test_plan_is_reproducible(self):
         self.assertEqual(eval.plan(self.config())[0],eval.plan(self.config())[0])
+    def test_missing_traces_are_unknown_not_zero(self):
+        c=self.config();c.update(model='explicit',trace_native_events=True)
+        with tempfile.TemporaryDirectory() as temp,patch.object(eval,'invoke',return_value={'text':'{"decisions":{},"rationale":"synthetic"}','usage':None}):
+            summary=eval.run(c,Path(temp)/'run',allow=True)
+            self.assertIsNone(summary['observed_tool_events'])
+            self.assertEqual(0,summary['trace_reporting_calls'])
+    def test_saved_judging_is_explicit_bounded_and_journaled(self):
+        c=self.config();c.update(judge_model='explicit',max_calls=14)
+        with tempfile.TemporaryDirectory() as temp:
+            source=Path(temp)/'source';eval.run(c,source,mock=True)
+            with self.assertRaises(ValueError):eval.judge_saved(source,Path(temp)/'no-spend','learning')
+            with patch.object(eval,'invoke',return_value={'text':'{"winner":"tie","reason":"synthetic"}','usage':None}) as invoke:
+                result=eval.judge_saved(source,Path(temp)/'judge','learning',True)
+                self.assertEqual(2,invoke.call_count)
+                self.assertTrue(all(call.args[1]['role']=='judge' for call in invoke.call_args_list))
+            self.assertTrue(result['position_agreement'])
+            self.assertEqual(2,len(json.loads((Path(temp)/'judge/judgments.json').read_text())))
+            records=json.loads((source/'trials.json').read_text());records[0]['outputs']=[]
+            (source/'trials.json').write_text(json.dumps(records))
+            # Reject missing step on the requested pair, independently of old grade fields.
+            cid=records[0]['case']
+            with self.assertRaises(ValueError):eval.judge_saved(source,Path(temp)/'invalid',cid,True)
 
 if __name__=='__main__': unittest.main()
