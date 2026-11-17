@@ -20,7 +20,7 @@ Source-system bindings are for Grok Bot, where the architecture was built and op
 | `source_of_truth_board` | One state record: owner, lane, status, hold condition | Each fact lives once; holds name lift conditions | A GitHub Project via the GitHub CLI or connector |
 | `review_ledger` | Append-only record of scores and merges | Append-only; exact heads; one-row merge record | A file in the shared workspace plus comments on the change |
 | `human_channel` | The one channel to the human | One router; one decision at a time; interrupt bar | The owner's one-to-one chat with the coordinator |
-| `tool_connector` | Integration or CLI with a permission scope | Effective capabilities inspected, not assumed; read-only means read-only | MCP connectors and CLIs the bot is granted |
+| `tool_connector` | Integration or CLI with a permission scope, acting under an identity | Effective capabilities inspected, not assumed; read-only means read-only; the acting identity is known | MCP connectors and CLIs the bot is granted |
 
 ## Reading the bindings
 
@@ -31,6 +31,15 @@ Each entry in the JSON has:
 - `blocks_if_missing`: the action or claim that must stop when the primitive is `unsupported`. A missing `approval_gate` blocks every one-way door; there is no weaker substitute.
 - `grok`: the source binding and its evidence label.
 - `targets`: one entry each for Claude Code, Codex, Cursor and Dot. Status uses `supported`, `emulated`, `manual`, `unsupported` or `unknown`. Only `skill` is `supported` today, on the evidence of the repository's own install paths; discovery and loading are not tested. Everything else is `unknown`, with a `lead` where this repository's adapter notes mention a related feature, and a `todo`.
+
+## Identity: shared by default, per-agent recommended
+
+Every tool call acts under some platform identity. Two arrangements:
+
+- **Shared login (default).** All agents act under one platform account. It is low friction: nothing to provision or rotate. The cost is attribution: the platform's "who did this" is identical for every agent and for the human, and a shared-login approval is never a human yes ([provenance](protocols.md#2-authorization-provenance)). So the [review ledger](protocols.md#3-exact-head-scoring-and-delta-re-score) must record **which seat actually acted** at the moment it acted.
+- **Per-agent identity (recommended target).** Each agent gets a distinct identity with least-privilege scopes, for example an app identity or a machine user per agent on the code host. Attribution comes from the platform, scopes shrink to what the seat needs, and one agent's credential can be revoked alone. It costs provisioning, scoping and rotation work, so it is a one-way-door change to a platform setting that needs the human's yes.
+
+Moving from the first to the second is a private installation change. The package ships no account names or secrets.
 
 ## Rules for a transpiler
 

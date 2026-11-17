@@ -23,7 +23,7 @@ Each Grok mechanism is a binding of a provider-neutral [primitive](core/primitiv
 | Outbound messages | `outbound_rule` | Draft card by default; saved send rule as the sole exception | A declined send is final; never retried by another route |
 | State references | `source_of_truth_board`, `review_ledger`, `human_channel` | GitHub Project, scores-log file, the owner's one-to-one chat | Private installation-specific bindings, ownership and recovery checkpoints |
 | Shared machine | `shared_workspace` | The box and per-bot desktops | Lock heavy runs; one checkout per seat per change |
-| Tool requirements | `tool_connector` | Integrations/permissions | Inspect effective capabilities, not just prompt promises |
+| Tool requirements and identity | `tool_connector` | Integrations/permissions; one shared platform login by default (low friction, attribution lost, so record the acting seat), distinct per-bot identities with least-privilege scopes as the recommended target | Inspect effective capabilities, not just prompt promises |
 
 ## Installation sequence
 

@@ -21,6 +21,7 @@ Source: [field notes](grok-field-notes.md), 2026-11-17. The preset above is deli
 - **Scripts:** the live fleet treats a positive net script delta as a stop and a last resort that needs the owner's words, and bans tests that regex-match source text. The preset allows a justified safety-preserving addition.
 - **Merge authority:** the live coordinator merges reviewed product PRs on staff PASS, empty threads and a clean merge-tree, and fixes forward under an owner waiver that does not wait for every hosted check. The preset keeps final-head evidence required unless an installation records its own waiver.
 - **Fix ownership:** the seat that raises a must-fix owns the fix. The preset keeps the implementer as integration owner and allows an authorized reviewer patch that is not the sole acceptance.
+- **Identity:** the live fleet defaults to one shared platform login for merges, because it is low friction. Attribution is lost, so ledgers record which seat acted, and a shared-login approval is never a human yes. The recommended target is a distinct per-agent identity (for example a GitHub App or machine user per bot) with least-privilege scopes. The preset keeps this installation-specific; changing platform identities or scopes is a one-way door that needs the owner's yes.
 
 ## Before customization
 

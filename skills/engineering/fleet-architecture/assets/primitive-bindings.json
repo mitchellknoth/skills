@@ -520,7 +520,8 @@
       "summary": "An append-only record of scores, fixes and merges bound to exact heads.",
       "invariants": [
         "Append-only; one line per score with seat, head, verdict, IDs and evidence pointer.",
-        "Merge record is one row with one owner."
+        "Merge record is one row with one owner.",
+        "Records which seat actually acted whenever agents share a platform identity."
       ],
       "guarantee_lost_if_emulated": "Scores cannot be audited; delta re-score cannot find the prior head.",
       "blocks_if_missing": "claiming a passed panel",
@@ -615,16 +616,18 @@
       "invariants": [
         "Effective capabilities are inspected, not assumed from prompt promises.",
         "Read-only means read-only.",
-        "Least privilege; no credentials in the public package."
+        "Least privilege; no credentials in the public package.",
+        "The acting identity is known and attributable per agent, or the ledger records which seat acted.",
+        "Recommended target: a distinct per-agent identity with least-privilege scopes (for example an app identity or machine user per agent); shared login is the low-friction default."
       ],
-      "guarantee_lost_if_emulated": "An action silently runs with broader or narrower authority than claimed.",
+      "guarantee_lost_if_emulated": "An action silently runs with broader or narrower authority than claimed. With a shared login, platform attribution is lost and cannot separate agents or the human.",
       "blocks_if_missing": "any action using the tool",
       "used_by_functions": [
         "all"
       ],
       "grok": {
         "mechanism": "MCP connectors and CLIs the bot is granted; inspect effective capabilities.",
-        "notes": "Prefer connectors over console changes.",
+        "notes": "Default: one shared platform login for merges and other code-host actions, because it is low friction. Tradeoff: attribution is lost, so ledgers record the seat that acted. Recommended target: a distinct identity per bot (for example a GitHub App or machine user) with least-privilege scopes. Inspect effective capabilities.",
         "status": "supported",
         "evidence": "observed in the source fleet, 2026-11-17; not independently verified here"
       },

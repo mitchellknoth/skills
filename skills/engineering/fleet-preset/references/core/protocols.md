@@ -50,7 +50,7 @@ A **PR-scoped watcher** automates the checks. It listens to one change; on CI pa
 
 **Fix forward.** A human may waive waiting for every hosted check on staff PASS. A waiver names its condition and scope. It does not cover: a deterministic break the change itself causes; a change whose readiness triggers a plan that has not finished; a merge during a running apply; or unapplied one-way-door plans on the default branch. Recover a failed post-merge run with a catch-up fix-forward change, never a rerun, and make its plan include every unit still owed.
 
-**Verify before claiming.** After merge, read back who and what merged. When agents share one platform identity, "merged by" cannot tell them apart, so log the acting agent when it happens.
+**Verify before claiming.** After merge, read back who and what merged. When agents share one platform identity (the low-friction default), "merged by" cannot tell them apart, so log the acting agent when it happens. The recommended target is a distinct least-privilege identity per agent, which restores attribution at the source ([identity](primitives.md#identity-shared-by-default-per-agent-recommended)).
 
 ## 5. Challenge before you log
 

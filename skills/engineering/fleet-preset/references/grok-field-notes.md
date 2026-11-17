@@ -56,9 +56,9 @@ Each seat is a [risk-owned reviewer](core/functions.md#risk-owned-reviewer) (or 
 | `outbound_rule` | Anything leaving under the owner's name is a draft card by default. A saved send rule is the only standing exception, and a declined or blocked send is final: no retry through another route. |
 | `memory_scope` | Owner-shared memory for preferences, principles and curated skills; per-agent dated facts and monthly logs. Roster detail lives in memory, not in the profile text, so profiles stay short. |
 | `shared_workspace` | The box is one machine shared by all bots, with a desktop per bot. Heavy runs take a lock and run under `nice`; never edit another bot's checkout; scratch lives under the agent's folder. |
-| `source_of_truth_board` | A GitHub Project with Captain, Lane, Status and Hold condition. Every merge runs under one shared platform login, so the platform's "merged by" cannot tell humans from bots; log the acting bot at merge time. |
+| `source_of_truth_board` | A GitHub Project with Captain, Lane, Status and Hold condition. Under the shared-login default the platform's "merged by" cannot tell humans from bots, so log the acting bot at merge time (see `tool_connector` for the recommended per-bot identity). |
 | `human_channel` | The owner's one-to-one chat is one continuous session. A reply in a room does not count as having told the owner. |
-| `tool_connector` | Inspect effective capabilities, not prompt promises. Live cloud facts come from the cloud CLI read-only, never from memory. |
+| `tool_connector` | Inspect effective capabilities, not prompt promises. Live cloud facts come from the cloud CLI read-only, never from memory. **Identity:** the default is one shared platform login for merges and other code-host actions, because it is low friction. The tradeoff is lost attribution, so the ledger must record which seat actually acted. The recommended target is a distinct identity per bot (for example a GitHub App or a machine user) with least-privilege scopes. |
 | `agent_persona`, `skill`, `review_ledger` | Profiles stay short and name anti-jobs; skills are pinned and confirmed loaded; the scores log is a plain append-only file, and the merge record is one row with one owner. |
 
 ## Provenance and limits
