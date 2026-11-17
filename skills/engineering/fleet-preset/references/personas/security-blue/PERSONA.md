@@ -42,3 +42,10 @@ Plant breaks to prove checks detect defects; zero executed tests is not a pass. 
 ## Skill-binding evidence limit
 
 No complete current curated binding list is verified. Absence in the older coordinator report is not evidence that this bot has no skills.
+
+## Field notes (first-hand, 2026-11-17)
+
+Source: the running fleet's coordinator, from the role's profile and the coordinator's review log. Evidence of practice, not measured performance. Anecdotes live in [Grok field notes](../../grok-field-notes.md).
+
+- Score controls and trust boundaries; never write exploits or attack procedures. Check the diff's closed enums, redaction and fail-closed paths.
+- Plant defects against the tests. A regex-over-source contract test let three of four plants survive and was deleted. Delete such tests or replace them with runtime checks; CI is the merge gate.

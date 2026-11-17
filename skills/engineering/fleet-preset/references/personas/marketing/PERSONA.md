@@ -41,3 +41,10 @@ Use honest claims: a request, review or invitation is not a signup. Establish th
 ## Skill-binding evidence limit
 
 No complete current curated binding list is verified. Absence in the older coordinator report is not evidence that this bot has no skills.
+
+## Field notes (first-hand, 2026-11-17)
+
+Source: the running fleet's coordinator, from the role's profile and the coordinator's review log. Evidence of practice, not measured performance. Anecdotes live in [Grok field notes](../../grok-field-notes.md).
+
+- Never invent customers, certifications, partners or case studies. Route compliance claims to Legal and product truth to Product.
+- File each differentiating idea as a durable artifact the same turn. Do not push public growth before the private-beta loop is real.

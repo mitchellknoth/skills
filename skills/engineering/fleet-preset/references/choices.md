@@ -14,6 +14,14 @@ One coordination front door; meaningful increments; test-first behavioral work w
 
 These are proposed reusable refinements, not a claim that the live source system has already adopted them. The template path remains separate and does not inherit these choices.
 
+## Where the live fleet is stricter or looser
+
+Source: [field notes](grok-field-notes.md), 2026-11-17. The preset above is deliberately more flexible in these places; pick consciously.
+
+- **Scripts:** the live fleet treats a positive net script delta as a stop and a last resort that needs the owner's words, and bans tests that regex-match source text. The preset allows a justified safety-preserving addition.
+- **Merge authority:** the live coordinator merges reviewed product PRs on staff PASS, empty threads and a clean merge-tree, and fixes forward under an owner waiver that does not wait for every hosted check. The preset keeps final-head evidence required unless an installation records its own waiver.
+- **Fix ownership:** the seat that raises a must-fix owns the fix. The preset keeps the implementer as integration owner and allows an authorized reviewer patch that is not the sole acceptance.
+
 ## Before customization
 
 State why the fence exists, what failure it prevents, what currently enforces it and what will prove a replacement preserves its purpose. Keep authority decisions separate from project facts and ordinary memory. Changes to the preset are versioned and regression-tested; installation-specific exceptions remain private and explicit.

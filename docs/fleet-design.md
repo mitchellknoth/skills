@@ -24,6 +24,10 @@ Behavioral acceptance remains: fresh-session skill selection, role routing, corr
 
 The package distills the user's requested architecture and prescriptive workflow. No pstack skills, scripts or opinions were copied. Its packaging inspired separation of canonical content, runtime adaptation and dormant activation. No private incident transcript or sensitive installation data is distributed.
 
+## First-hand field notes
+
+The preset also carries [field notes](../skills/engineering/fleet-preset/references/grok-field-notes.md) written by the coordinator of a running fleet, with short per-role additions on each persona card. They are practice evidence and mistakes that produced rules, scrubbed of identifiers, customers, addresses, hashes and run numbers. They are not a memory export and do not claim effectiveness. Preserve that scrub when extending them.
+
 ## Learning-loop refinement
 
 The initial package contained generic feedback principles, not a faithful port of the distinct retrospective machinery. This refinement adds configurable core feedback contracts and preset playbooks based on a fuller live-routine and referenced-skill inspection. Source copies differed on pruning authority; the draft preserves the current stricter owner-confirmed behavior. It does not claim the exact runtime-loaded source version has been verified.

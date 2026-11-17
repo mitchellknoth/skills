@@ -4,6 +4,8 @@ This index explicitly loads the per-capability `PERSONA.md` cards. The filename 
 
 **Coverage warning:** all 15 current profiles were independently read, visible routine bodies inspected, and all 15 bots consulted through source-tagged reports/interviews. Memory/practice interviews are self-reports, not complete raw-memory audits; curated skill bodies and current loading remain incompletely verified. The cards do not claim otherwise. The existing retro/prune skill and selected oversight artifacts have stronger direct evidence. See [machine-readable coverage](../assets/persona-catalog.json).
 
+Each card ends with first-hand field notes from the running fleet's coordinator (snapshot 2026-11-17); the shared anecdotes are in [Grok field notes](grok-field-notes.md). Those notes are practice evidence, not memory exports.
+
 Choose the whole preset or only applicable capabilities. Grok can bind these to persistent bots; a future adapter may use another topology only if required independence and state semantics survive. FinOps is historical in the source fleet, not a second active cloud-cost owner.
 
 - [Jarvis / coordinator](personas/coordinator/PERSONA.md)

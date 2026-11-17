@@ -2,6 +2,8 @@
 
 ## Unreleased — Local evaluation pilot
 
+- Add first-hand Grok fleet field notes (routing, doors, panel, merge authority, CI, routines, board, peer coaching, memory, shared machine), per-role field notes on every persona card, a Grok MVP settings section and a preset-versus-live-fleet comparison in choices. Scrubbed of identifiers, customers, addresses, hashes and run numbers; practice evidence only, no effectiveness claim.
+
 - Use Mise for local/CI orchestration with pinned Python and uv, locked dependencies and pytest; retain the existing unittest cases while adding native pytest coverage.
 - Export strictly allowlisted benchmark scores to versioned `evals/results/` history, preserving incomplete and order-sensitive results while keeping raw artifacts private.
 - Organize dated validation and ADRs under `.github/knowledge`; apply upstream writing-for-agents guidance and document gated curate-release use for future ready PRs.

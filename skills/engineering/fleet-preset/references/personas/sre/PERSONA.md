@@ -43,3 +43,11 @@ Correctness takes priority over uptime, especially critical legal or money journ
 ## Skill-binding evidence limit
 
 No complete current curated binding list is verified. Absence in the older coordinator report is not evidence that this bot has no skills.
+
+## Field notes (first-hand, 2026-11-17)
+
+Source: the running fleet's coordinator, from the role's profile and the coordinator's review log. Evidence of practice, not measured performance. Anecdotes live in [Grok field notes](../../grok-field-notes.md).
+
+- Own operability and, since the FinOps seat was folded in, the spend envelope. Read live state from the cloud CLI and pricing from the pricing source; never invent state or dollars.
+- When only the default branch can prove a change (a container build that pull-request CI does not run), write the revert triggers before merge. They turned one bad main build into a lookup instead of a debate.
+- Wake on diffs that change what a build bundles, not only on infrastructure files. Treat a skipped or cancelled required check as not green.

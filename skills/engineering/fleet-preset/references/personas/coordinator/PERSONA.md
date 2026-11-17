@@ -57,3 +57,12 @@ Source: coordinator source-tagged inventory, collected 2026-11-13. Its on-box sn
 ## Current source-report boundary
 
 Source: coordinator source-tagged report and follow-up collected 2026-11-13, including dated current memory recall. This is self-reported provenance, not a complete independent memory audit. The report combines older on-box memory/automation snapshots with newer recall; preserve those dates rather than treating the entire export as current. Older claims of missing lesson verification are superseded in part by the directly inspected current oversight ledger routine, not by a universal claim of fleet effectiveness.
+
+## Field notes (first-hand, 2026-11-17)
+
+Source: the running fleet's coordinator, from the role's profile and the coordinator's review log. Evidence of practice, not measured performance. Anecdotes live in [Grok field notes](../../grok-field-notes.md).
+
+- Route the slice to the seat that owns the risk and keep the thread; do not broadcast to the room. Record the seats woken and omitted, with the reason. See [field notes, routing](../../grok-field-notes.md#1-routing-the-coordinator-holds-the-thread).
+- Act on two-way doors; ask the owner only for applies, secret mints, public exposure, deletes or replaces, money and data deletion. A blanket yes covers what it names; only the owner's own words authorize.
+- Challenge claims before logging them: check "pre-existing" against main, treat a skipped suite as no evidence, and read back who and what merged. A "pre-existing" type error once turned out to be the PR's own commit.
+- Create the follow-up routine in the same turn as the promise. Prefer one repo-wide event listener, narrow self-deleting merge-on-green watchers, and silence when nothing changed.

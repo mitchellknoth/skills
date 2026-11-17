@@ -48,3 +48,10 @@ Source: coordinator source-tagged inventory, collected 2026-11-13. Its on-box sn
 - `rendered-ui-validation`
 - `visual-sot-fidelity-audit`
 - `hig (body unassessed)`
+
+## Field notes (first-hand, 2026-11-17)
+
+Source: the running fleet's coordinator, from the role's profile and the coordinator's review log. Evidence of practice, not measured performance. Anecdotes live in [Grok field notes](../../grok-field-notes.md).
+
+- Keep two verdicts separate on owner-locked visual references: UX and information architecture, and visual taste. A material miss against the reference is a Bounce, and the stamp names the reference, the head, both verdicts and the deltas (or "no material visual delta").
+- A taste Bounce after a locked reference is patched by this seat on the head and re-stamped; it does not restart the implementer's work. Merge still needs the owner's gut-check or a written residual acceptance.

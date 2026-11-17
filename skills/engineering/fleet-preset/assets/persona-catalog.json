@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source_snapshot": "2026-11-13",
-  "claim": "Sanitized current-profile and routine evidence, with explicitly labeled current role self-reports and older coordinator skill inventory. Complete raw-memory and curated-skill extraction remains incomplete.",
+  "claim": "Sanitized current-profile and routine evidence, with explicitly labeled current role self-reports and older coordinator skill inventory. Complete raw-memory and curated-skill extraction remains incomplete. Field notes added 2026-11-17 are first-hand coordinator practice, not an independent audit of each role.",
   "personas": [
     {
       "id": "coordinator",
@@ -11,11 +11,11 @@
       "coverage": {
         "instructions": "read",
         "routines": "read",
-        "memory": "self-reported",
-        "skills": "reported-inventory"
+        "memory": "partial",
+        "skills": "partial"
       },
       "limitations": [
-        "Full per-bot memory and curated-skill inventory not verified.",
+        "Full per-bot memory not verified; the profile memory file and fleet skills were read first-hand, other memory surfaces were not.",
         "Runtime-loaded versions and permission bindings not proven."
       ],
       "source_snapshot": "2026-11-13",
@@ -24,8 +24,11 @@
         "visible routine bodies or inventory",
         "prior audit observations",
         "current profile independently read 2026-11-13",
-        "current role report/recall, sanitized self-report"
-      ]
+        "current role report/recall, sanitized self-report",
+        "first-hand coordinator field notes 2026-11-17",
+        "coordinator memory and fleet skills read first-hand 2026-11-17"
+      ],
+      "field_notes_snapshot": "2026-11-17"
     },
     {
       "id": "principal",
@@ -48,8 +51,10 @@
         "visible routine bodies or inventory",
         "prior audit observations",
         "current profile independently read 2026-11-13",
-        "current role interview, sanitized self-report"
-      ]
+        "current role interview, sanitized self-report",
+        "first-hand coordinator field notes 2026-11-17"
+      ],
+      "field_notes_snapshot": "2026-11-17"
     },
     {
       "id": "qa",
@@ -72,8 +77,10 @@
         "visible routine bodies or inventory",
         "prior audit observations",
         "current profile independently read 2026-11-13",
-        "current role interview, sanitized self-report"
-      ]
+        "current role interview, sanitized self-report",
+        "first-hand coordinator field notes 2026-11-17"
+      ],
+      "field_notes_snapshot": "2026-11-17"
     },
     {
       "id": "product",
@@ -96,8 +103,10 @@
         "visible routine bodies or inventory",
         "prior audit observations",
         "current profile independently read 2026-11-13",
-        "current role interview, sanitized self-report"
-      ]
+        "current role interview, sanitized self-report",
+        "first-hand coordinator field notes 2026-11-17"
+      ],
+      "field_notes_snapshot": "2026-11-17"
     },
     {
       "id": "ux",
@@ -120,8 +129,10 @@
         "visible routine bodies or inventory",
         "prior audit observations",
         "current profile independently read 2026-11-13",
-        "current role interview, sanitized self-report"
-      ]
+        "current role interview, sanitized self-report",
+        "first-hand coordinator field notes 2026-11-17"
+      ],
+      "field_notes_snapshot": "2026-11-17"
     },
     {
       "id": "sre",
@@ -144,8 +155,10 @@
         "visible routine bodies or inventory",
         "prior audit observations",
         "current profile independently read 2026-11-13",
-        "current role interview, sanitized self-report"
-      ]
+        "current role interview, sanitized self-report",
+        "first-hand coordinator field notes 2026-11-17"
+      ],
+      "field_notes_snapshot": "2026-11-17"
     },
     {
       "id": "security-blue",
@@ -168,8 +181,10 @@
         "visible routine bodies or inventory",
         "prior audit observations",
         "current profile independently read 2026-11-13",
-        "current role interview, sanitized self-report"
-      ]
+        "current role interview, sanitized self-report",
+        "first-hand coordinator field notes 2026-11-17"
+      ],
+      "field_notes_snapshot": "2026-11-17"
     },
     {
       "id": "security-red",
@@ -192,8 +207,10 @@
         "visible routine bodies or inventory",
         "prior audit observations",
         "current profile independently read 2026-11-13",
-        "current role interview, sanitized self-report"
-      ]
+        "current role interview, sanitized self-report",
+        "first-hand coordinator field notes 2026-11-17"
+      ],
+      "field_notes_snapshot": "2026-11-17"
     },
     {
       "id": "data",
@@ -216,8 +233,10 @@
         "visible routine bodies or inventory",
         "prior audit observations",
         "current profile independently read 2026-11-13",
-        "current role interview, sanitized self-report"
-      ]
+        "current role interview, sanitized self-report",
+        "first-hand coordinator field notes 2026-11-17"
+      ],
+      "field_notes_snapshot": "2026-11-17"
     },
     {
       "id": "legal",
@@ -240,8 +259,10 @@
         "visible routine bodies or inventory",
         "prior audit observations",
         "current profile independently read 2026-11-13",
-        "current role interview, sanitized self-report"
-      ]
+        "current role interview, sanitized self-report",
+        "first-hand coordinator field notes 2026-11-17"
+      ],
+      "field_notes_snapshot": "2026-11-17"
     },
     {
       "id": "finance",
@@ -264,8 +285,10 @@
         "visible routine bodies or inventory",
         "prior audit observations",
         "current profile independently read 2026-11-13",
-        "current role interview, sanitized self-report"
-      ]
+        "current role interview, sanitized self-report",
+        "first-hand coordinator field notes 2026-11-17"
+      ],
+      "field_notes_snapshot": "2026-11-17"
     },
     {
       "id": "oversight",
@@ -288,8 +311,10 @@
         "visible routine bodies or inventory",
         "prior audit observations",
         "current profile independently read 2026-11-13",
-        "current role interview, sanitized self-report"
-      ]
+        "current role interview, sanitized self-report",
+        "first-hand coordinator field notes 2026-11-17"
+      ],
+      "field_notes_snapshot": "2026-11-17"
     },
     {
       "id": "marketing",
@@ -312,8 +337,10 @@
         "visible routine bodies or inventory",
         "prior audit observations",
         "current profile independently read 2026-11-13",
-        "current role interview, sanitized self-report"
-      ]
+        "current role interview, sanitized self-report",
+        "first-hand coordinator field notes 2026-11-17"
+      ],
+      "field_notes_snapshot": "2026-11-17"
     },
     {
       "id": "disk-saver",
@@ -336,8 +363,10 @@
         "visible routine bodies or inventory",
         "prior audit observations",
         "current profile independently read 2026-11-13",
-        "current role interview, sanitized self-report"
-      ]
+        "current role interview, sanitized self-report",
+        "first-hand coordinator field notes 2026-11-17"
+      ],
+      "field_notes_snapshot": "2026-11-17"
     },
     {
       "id": "finops",
@@ -360,8 +389,10 @@
         "visible routine bodies or inventory",
         "prior audit observations",
         "current profile independently read 2026-11-13",
-        "current role report/recall, sanitized self-report"
-      ]
+        "current role report/recall, sanitized self-report",
+        "first-hand coordinator field notes 2026-11-17"
+      ],
+      "field_notes_snapshot": "2026-11-17"
     }
   ],
   "coverage_definitions": {
@@ -371,5 +402,7 @@
     "not-present-at-snapshot": "No routines listed in the inspected UI, not proof none can exist elsewhere.",
     "self-reported": "Current role interview about memory/practice; not independent raw-memory inspection or demonstrated execution.",
     "reported-inventory": "Coordinator-reported older skill references; not complete current bindings or full skill-body inspection."
-  }
+  },
+  "field_notes": "references/grok-field-notes.md",
+  "field_notes_snapshot": "2026-11-17"
 }

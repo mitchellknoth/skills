@@ -4,6 +4,7 @@
 - For release/history curation, follow [the release process](release-process.md).
 - For the original pilot's evidence, read [its validation note](validation/2026-11-13-local-pilot.md).
 - For PR #3's tooling/history follow-up, read [the review validation](validation/2026-11-13-review-followup.md).
+- For the first-hand Grok fleet field notes' provenance and scrub, read [their validation note](validation/2026-11-17-grok-field-notes.md).
 - For public measurements, use [score history](../../evals/results/README.md).
 
 Keep decisions and dated validation notes here. Put operational instructions
