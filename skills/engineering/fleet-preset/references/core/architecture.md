@@ -24,11 +24,11 @@ The abstract path names [functions](functions.md) (coordinator, advisor to the c
 7. **Observe:** verify the external result. Merge is not deployment; deployment success is not user acceptance. Retain dependencies needed for later release stages.
 8. **Learn:** assign significant findings an owner, disposition and next checkpoint. Measure whether the fix changes behavior, not just whether a retrospective was written.
 
-## Configurable, not universal
+## What is fixed and what is tunable
 
-The template does not prescribe mandatory test-first work, a fixed reviewer roster, fixed review rounds, a particular approval owner, nightly checks, automatic merge, or an implementation platform. Those are installation choices.
+**Fixed** (the protocols make these invariants, and the preset defaults to them): exact-head scoring with a delta re-score on every head move; the seat that raises a must-fix owns its fix; merge only when every routed seat has scored the exact head, the automated review (where one runs) is clean or triaged, required checks ran, and nothing is deploying; one-way doors decided only by the human's own words; net control-script delta at or below zero; ephemeral per-change watchers that end on merge or close. Evidence truthfulness, source provenance and respecting actual authority are never process preferences. Never invent a review, test, capability or permission to make a workflow appear complete.
 
-Evidence truthfulness, source provenance and respecting actual authority are not optional process preferences. Never invent a review, test, capability or permission to make a chosen workflow appear complete.
+**Tunable, as recorded installation policy:** which domains plug into the reviewer function, the reference values (round cap, windows, note length), cadences of standing routines, whether test-first work is expected, the human's door list (add only), whether an automated review exists, and how identity is provisioned. The template does not mandate an implementation platform.
 
 ## Handoff minimum
 

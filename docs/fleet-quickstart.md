@@ -4,11 +4,11 @@ This is a first-version draft. No live bots, automations or actions are installe
 
 ## Choose your entry point
 
-| | Architecture template | Opinionated preset |
+| | Abstract path | Prescriptive path |
 |---|---|---|
 | Invoke | `fleet-architecture` | `fleet-preset` |
-| Best for | Adapt the architecture to your own workflow | Start from the author's more prescriptive delivery flow |
-| Process | You configure roles, review, cadence and authority | Risk-routed review, meaningful test-first work, bounded loops, durable follow-through |
+| Best for | Adopt the functions and protocols for your own domains | Start from the author's named seats and strict defaults |
+| Process | Protocols are fixed; you choose domains, reference values and cadence | Risk-routed review, exact-head PASS and clean automated review before merge, net script delta at or below zero, bounded loops, durable follow-through |
 | Permission | Installation-specific, unset | Installation-specific, unset |
 | Independent install | Self-contained | Self-contained, with generated shared core |
 

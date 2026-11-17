@@ -45,8 +45,9 @@ Merge authority is the human's to grant. When granted, the coordinator merges a 
 5. One merge at a time, and no deploy or apply is running from an earlier merge.
 6. The default branch holds no unapplied plan with a one-way-door change the human's yes does not cover.
 7. The merge pins the head (an expected-head guard), so a late push cannot ride in.
+8. The net delta in control scripts against default state is at or below zero ([control budget](#8-control-budget)).
 
-A **PR-scoped watcher** automates the checks (full gate and event table in [autonomy](autonomy.md#the-ephemeral-merge-on-green-watcher)). It listens to one change; on CI passed it re-verifies 1-7; on a new head the approval is void and it requests a delta re-score; on CI failed it routes the failure and never reruns; on changes requested it routes to the implementer; and it **deletes itself** when the change merges or closes. Never mark a change ready and merge it in one step when readying triggers a plan; the watcher waits for the plan.
+A **PR-scoped watcher** automates the checks (full gate and event table in [autonomy](autonomy.md#the-ephemeral-merge-on-green-watcher)). It listens to one change; on CI passed it re-verifies 1-8; on a new head the approval is void and it requests a delta re-score; on CI failed it routes the failure and never reruns; on changes requested it routes to the implementer; and it **deletes itself** when the change merges or closes. Never mark a change ready and merge it in one step when readying triggers a plan; the watcher waits for the plan.
 
 **Fix forward.** A human may waive waiting for every hosted check on staff PASS. A waiver names its condition and scope. It does not cover: a deterministic break the change itself causes; a change whose readiness triggers a plan that has not finished; a merge during a running apply; or unapplied one-way-door plans on the default branch. Recover a failed post-merge run with a catch-up fix-forward change, never a rerun, and make its plan include every unit still owed.
 

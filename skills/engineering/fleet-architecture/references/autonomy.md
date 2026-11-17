@@ -25,7 +25,7 @@ If a question can be answered by one of these, it is not asked.
 3. Secret mints.
 4. Money.
 5. Data deletion.
-6. Production migrations.
+6. Production migrations and infrastructure applies.
 7. IAM or equivalent permissions outside an already approved shape.
 
 An installation may add doors in the human's own words. It may not remove one by inference. When classification is uncertain, treat it as a door until decided, then record the decision ([protocols 1](protocols.md#1-door-classification)).
@@ -70,7 +70,7 @@ Created **when a merge is promised**, scoped to one change, with the gates writt
 3. Required checks ran and are green, or the human's written waiver applies.
 4. Review threads are empty or triaged.
 5. No deploy or apply from an earlier merge is running on the default branch, and no unapplied one-way-door plan sits there.
-6. The net delta in control scripts and docs is at or below the installation's budget ([protocols 8](protocols.md#8-control-budget)).
+6. The net delta in control scripts is at or below zero ([protocols 8](protocols.md#8-control-budget)).
 7. The merge pins the head.
 
 Behavior by event:
