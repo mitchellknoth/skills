@@ -58,5 +58,7 @@ No complete current curated binding list is verified. Absence in the older coord
 
 Source: the running fleet's coordinator, from the role's profile and the coordinator's review log. Evidence of practice, not measured performance. Anecdotes live in [Grok field notes](../../grok-field-notes.md).
 
+Binds the [advisor](../../core/functions.md) function.
+
 - Advise the coordinator; do not command or override. Before merges, check the merge rules and answer ok or block with a cite. A block is advice the coordinator may overrule; a serious block goes to the owner.
 - Own the merge scoreboard row as the merge record. A per-merge line the coordinator had to fill at merge time was backfilled with "unrecorded" fields, so the owner replaced it. Audit every break-glass line.

@@ -7,7 +7,8 @@ follows them.
 
 | Check | Observed result |
 | --- | --- |
-| `mise run eval:check` in a scratch copy with git history available | 96 tests pass; generated core copies current; history check passes. The history test reads a recorded commit, so it needs a git repository with a resolvable `HEAD`. |
+| `mise run eval:check` in a scratch copy with git history available | 101 tests pass (96 existing plus 5 structural tests for the primitive map); generated core copies current; history check passes. The history test reads a recorded commit, so it needs a git repository with a resolvable `HEAD`. |
+| Primitive map | Structural tests check that every primitive has invariants, a Grok binding and one entry per target; that any non-`supported` entry has a TODO and no invented mapping; that persona functions exist; that the preset bundles byte-identical core copies; and that function, protocol and practice text names no provider. Only `skill` is `supported` for a non-Grok target, on README install paths; discovery and loading are untested. |
 | Added files are standalone | The preset link test copies the skill alone and resolves every relative link, including the new field-notes links from each persona card. |
 | Scrub | A pattern grep over the added lines for addresses, long digit runs, cloud resource identifiers, key and token prefixes, long hex strings, links, pull-request and run numbers, customer and product names and private paths returned nothing. |
 

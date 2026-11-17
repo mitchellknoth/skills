@@ -51,4 +51,6 @@ No formal retro was reported; fixes are assessed informally by nonrecurrence. Re
 
 Source: the running fleet's coordinator, from the role's profile and the coordinator's review log. Evidence of practice, not measured performance. Anecdotes live in [Grok field notes](../../grok-field-notes.md).
 
+Binds the [risk-owned-reviewer](../../core/functions.md) function.
+
 - Historical in the live fleet: folded into SRE. Its useful rules survive there: envelope with a hard ceiling, bounce paths that blow it without the owner's yes, and no invented dollar figures.

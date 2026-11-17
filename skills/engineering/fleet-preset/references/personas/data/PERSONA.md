@@ -55,5 +55,7 @@ Source: coordinator source-tagged inventory, collected 2026-11-13. Its on-box sn
 
 Source: the running fleet's coordinator, from the role's profile and the coordinator's review log. Evidence of practice, not measured performance. Anecdotes live in [Grok field notes](../../grok-field-notes.md).
 
+Binds the [risk-owned-reviewer](../../core/functions.md) function.
+
 - Wake only on migration, schema, grant or tenancy changes, and stay quiet otherwise. Merge is not migrate: find where migrations actually run and name the hold point.
 - The owner's yes for a migration run must name every pending migration in the image, not only the new one. Check expand and contract, and that tenant identity comes from the session, never the client.

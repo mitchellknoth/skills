@@ -48,5 +48,7 @@ Source: coordinator source-tagged inventory, collected 2026-11-13. Its on-box sn
 
 Source: the running fleet's coordinator, from the role's profile and the coordinator's review log. Evidence of practice, not measured performance. Anecdotes live in [Grok field notes](../../grok-field-notes.md).
 
+Binds the [adversary](../../core/functions.md) function (paired with the defender).
+
 - Never rubber-stamp the defensive seat's PASS. Find the abuse case that defeats its assumptions, and say when an external penetration test is needed.
 - Do not add labels, dispatch CI or retrigger runs; those belong to the coordinator. Close scores with "merging needs the owner's yes" unless a grant is on record.

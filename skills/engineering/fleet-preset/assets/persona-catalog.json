@@ -28,7 +28,8 @@
         "first-hand coordinator field notes 2026-11-17",
         "coordinator memory and fleet skills read first-hand 2026-11-17"
       ],
-      "field_notes_snapshot": "2026-11-17"
+      "field_notes_snapshot": "2026-11-17",
+      "function": "coordinator"
     },
     {
       "id": "principal",
@@ -54,7 +55,8 @@
         "current role interview, sanitized self-report",
         "first-hand coordinator field notes 2026-11-17"
       ],
-      "field_notes_snapshot": "2026-11-17"
+      "field_notes_snapshot": "2026-11-17",
+      "function": "implementer"
     },
     {
       "id": "qa",
@@ -80,7 +82,8 @@
         "current role interview, sanitized self-report",
         "first-hand coordinator field notes 2026-11-17"
       ],
-      "field_notes_snapshot": "2026-11-17"
+      "field_notes_snapshot": "2026-11-17",
+      "function": "done-ness-interrogator"
     },
     {
       "id": "product",
@@ -106,7 +109,8 @@
         "current role interview, sanitized self-report",
         "first-hand coordinator field notes 2026-11-17"
       ],
-      "field_notes_snapshot": "2026-11-17"
+      "field_notes_snapshot": "2026-11-17",
+      "function": "risk-owned-reviewer"
     },
     {
       "id": "ux",
@@ -132,7 +136,8 @@
         "current role interview, sanitized self-report",
         "first-hand coordinator field notes 2026-11-17"
       ],
-      "field_notes_snapshot": "2026-11-17"
+      "field_notes_snapshot": "2026-11-17",
+      "function": "risk-owned-reviewer"
     },
     {
       "id": "sre",
@@ -158,7 +163,8 @@
         "current role interview, sanitized self-report",
         "first-hand coordinator field notes 2026-11-17"
       ],
-      "field_notes_snapshot": "2026-11-17"
+      "field_notes_snapshot": "2026-11-17",
+      "function": "risk-owned-reviewer"
     },
     {
       "id": "security-blue",
@@ -184,7 +190,8 @@
         "current role interview, sanitized self-report",
         "first-hand coordinator field notes 2026-11-17"
       ],
-      "field_notes_snapshot": "2026-11-17"
+      "field_notes_snapshot": "2026-11-17",
+      "function": "risk-owned-reviewer"
     },
     {
       "id": "security-red",
@@ -210,7 +217,8 @@
         "current role interview, sanitized self-report",
         "first-hand coordinator field notes 2026-11-17"
       ],
-      "field_notes_snapshot": "2026-11-17"
+      "field_notes_snapshot": "2026-11-17",
+      "function": "adversary"
     },
     {
       "id": "data",
@@ -236,7 +244,8 @@
         "current role interview, sanitized self-report",
         "first-hand coordinator field notes 2026-11-17"
       ],
-      "field_notes_snapshot": "2026-11-17"
+      "field_notes_snapshot": "2026-11-17",
+      "function": "risk-owned-reviewer"
     },
     {
       "id": "legal",
@@ -262,7 +271,8 @@
         "current role interview, sanitized self-report",
         "first-hand coordinator field notes 2026-11-17"
       ],
-      "field_notes_snapshot": "2026-11-17"
+      "field_notes_snapshot": "2026-11-17",
+      "function": "risk-owned-reviewer"
     },
     {
       "id": "finance",
@@ -288,7 +298,8 @@
         "current role interview, sanitized self-report",
         "first-hand coordinator field notes 2026-11-17"
       ],
-      "field_notes_snapshot": "2026-11-17"
+      "field_notes_snapshot": "2026-11-17",
+      "function": "risk-owned-reviewer"
     },
     {
       "id": "oversight",
@@ -314,7 +325,8 @@
         "current role interview, sanitized self-report",
         "first-hand coordinator field notes 2026-11-17"
       ],
-      "field_notes_snapshot": "2026-11-17"
+      "field_notes_snapshot": "2026-11-17",
+      "function": "advisor"
     },
     {
       "id": "marketing",
@@ -340,7 +352,8 @@
         "current role interview, sanitized self-report",
         "first-hand coordinator field notes 2026-11-17"
       ],
-      "field_notes_snapshot": "2026-11-17"
+      "field_notes_snapshot": "2026-11-17",
+      "function": "risk-owned-reviewer"
     },
     {
       "id": "disk-saver",
@@ -366,7 +379,8 @@
         "current role interview, sanitized self-report",
         "first-hand coordinator field notes 2026-11-17"
       ],
-      "field_notes_snapshot": "2026-11-17"
+      "field_notes_snapshot": "2026-11-17",
+      "function": "housekeeper"
     },
     {
       "id": "finops",
@@ -392,7 +406,8 @@
         "current role report/recall, sanitized self-report",
         "first-hand coordinator field notes 2026-11-17"
       ],
-      "field_notes_snapshot": "2026-11-17"
+      "field_notes_snapshot": "2026-11-17",
+      "function": "risk-owned-reviewer"
     }
   ],
   "coverage_definitions": {

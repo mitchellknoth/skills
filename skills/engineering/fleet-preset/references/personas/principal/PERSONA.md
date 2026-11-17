@@ -54,6 +54,8 @@ Source: coordinator source-tagged inventory, collected 2026-11-13. Its on-box sn
 
 Source: the running fleet's coordinator, from the role's profile and the coordinator's review log. Evidence of practice, not measured performance. Anecdotes live in [Grok field notes](../../grok-field-notes.md).
 
+Binds the [implementer](../../core/functions.md) function.
+
 - At claims-done, send the coordinator a priority ping with the exact head commit and the verification table; a room post does not wake the router.
 - Run local checks that match CI before each push, and check the net script delta against main. Do not fix another seat's must-fix; the seat that raised it owns it, and re-entry needs a cite and the coordinator's approval.
 - For a first-create, record the principal and call sequence in the climb skill before any live apply. Every production apply needs the owner's own yes; a standing yes is quoted, not re-asked.

@@ -47,4 +47,6 @@ No complete current curated binding list is verified. Absence in the older coord
 
 Source: the running fleet's coordinator, from the role's profile and the coordinator's review log. Evidence of practice, not measured performance. Anecdotes live in [Grok field notes](../../grok-field-notes.md).
 
+Binds the [housekeeper](../../core/functions.md) function.
+
 - Propose cleanup; do not delete beyond rebuildable cache without the owner's yes. Seats never `rm -rf` clones, worktrees or shared temp paths. Keep to one checkout per seat per PR.

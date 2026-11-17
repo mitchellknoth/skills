@@ -47,5 +47,7 @@ No complete current curated binding list is verified. Absence in the older coord
 
 Source: the running fleet's coordinator, from the role's profile and the coordinator's review log. Evidence of practice, not measured performance. Anecdotes live in [Grok field notes](../../grok-field-notes.md).
 
+Binds the [risk-owned-reviewer](../../core/functions.md) function (defender side of the pair).
+
 - Score controls and trust boundaries; never write exploits or attack procedures. Check the diff's closed enums, redaction and fail-closed paths.
 - Plant defects against the tests. A regex-over-source contract test let three of four plants survive and was deleted. Delete such tests or replace them with runtime checks; CI is the merge gate.

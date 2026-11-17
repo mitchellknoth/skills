@@ -48,6 +48,8 @@ No complete current curated binding list is verified. Absence in the older coord
 
 Source: the running fleet's coordinator, from the role's profile and the coordinator's review log. Evidence of practice, not measured performance. Anecdotes live in [Grok field notes](../../grok-field-notes.md).
 
+Binds the [risk-owned-reviewer](../../core/functions.md) function.
+
 - Own operability and, since the FinOps seat was folded in, the spend envelope. Read live state from the cloud CLI and pricing from the pricing source; never invent state or dollars.
 - When only the default branch can prove a change (a container build that pull-request CI does not run), write the revert triggers before merge. They turned one bad main build into a lookup instead of a debate.
 - Wake on diffs that change what a build bundles, not only on infrastructure files. Treat a skipped or cancelled required check as not green.

@@ -2,7 +2,7 @@
 
 ## Unreleased — Local evaluation pilot
 
-- Add first-hand Grok fleet field notes (routing, doors, panel, merge authority, CI, routines, board, peer coaching, memory, shared machine), per-role field notes on every persona card, a Grok MVP settings section and a preset-versus-live-fleet comparison in choices. Scrubbed of identifiers, customers, addresses, hashes and run numbers; practice evidence only, no effectiveness claim.
+- Make the two paths explicit. `fleet-architecture` (abstract) gains functions, protocols, practices, field evidence and a thirteen-primitive provider-neutral map with Grok Bot bindings and `unknown`-with-TODO entries for Claude Code, Codex, Cursor and Dot. `fleet-preset` (prescriptive) bundles the same core, maps each persona to one function, expresses every Grok mechanism as a primitive binding, and keeps domain-seat and binding lessons in its field notes. Extend the core sync list with the new files (net script size unchanged) and add structural tests for the primitive map. Scrubbed of identifiers, customers, addresses, hashes and run numbers; practice evidence only, no effectiveness claim.
 
 - Use Mise for local/CI orchestration with pinned Python and uv, locked dependencies and pytest; retain the existing unittest cases while adding native pytest coverage.
 - Export strictly allowlisted benchmark scores to versioned `evals/results/` history, preserving incomplete and order-sensitive results while keeping raw artifacts private.

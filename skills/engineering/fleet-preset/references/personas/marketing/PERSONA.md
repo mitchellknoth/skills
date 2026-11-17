@@ -46,5 +46,7 @@ No complete current curated binding list is verified. Absence in the older coord
 
 Source: the running fleet's coordinator, from the role's profile and the coordinator's review log. Evidence of practice, not measured performance. Anecdotes live in [Grok field notes](../../grok-field-notes.md).
 
+Binds the [risk-owned-reviewer](../../core/functions.md) function.
+
 - Never invent customers, certifications, partners or case studies. Route compliance claims to Legal and product truth to Product.
 - File each differentiating idea as a durable artifact the same turn. Do not push public growth before the private-beta loop is real.

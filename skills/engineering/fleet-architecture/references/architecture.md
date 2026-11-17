@@ -9,6 +9,10 @@
 - **Runtime adapters:** translate capabilities into actual tool calls, identity, persistent state and event delivery. Unsupported features remain unsupported.
 - **Feedback:** examine concrete outcomes and turn recurring failures into bounded, tested changes. Reuse an existing oversight mechanism before adding one.
 
+## Functions, protocols and primitives
+
+The abstract path names [functions](functions.md) (coordinator, advisor to the coordinator, implementer, risk-owned reviewer, adversary paired with a defender, done-ness interrogator, curator, watcher and reporter, housekeeper, human gatekeeper) rather than domain roles. They follow [protocols](protocols.md) and [practices](practices.md), are built from provider-neutral [primitives](primitives.md), and have [field evidence](field-evidence.md). A function may share an agent with another unless a protocol requires independence.
+
 ## Lifecycle and contracts
 
 1. **Frame:** intent and non-goals; source of truth; acceptance and consequence boundaries. If an existing artifact and a written spec disagree materially, reconcile them before claiming either as authoritative.

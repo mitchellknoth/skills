@@ -2,7 +2,12 @@
 
 ## Why two paths
 
-The architecture is reusable without the author's review roster or process preferences. A separate preset makes those opinions visible and selectable. Neither path grants authority or silently activates runtime behavior.
+The goal is a provider-agnostic framework of the author's Grok Bot configuration, in the way a compiler front end does not care which language it emits. Two paths serve it:
+
+- **Abstract path, `fleet-architecture`:** pure functions (coordinator, advisor to the coordinator, implementer, risk-owned reviewer, adversary paired with a defender, done-ness interrogator, curator, watcher and reporter, housekeeper, human gatekeeper), the protocols that bind them, and thirteen provider-neutral primitives with per-target bindings. No domain is prescribed.
+- **Prescriptive path, `fleet-preset`:** the same core, bundled, plus named domain seats (each binds one function), the author's process choices and field notes. Every Grok Bot mechanism is a binding of a neutral primitive.
+
+Neither path grants authority or silently activates runtime behavior. The primitive map is the intermediate representation for cross-provider plans; apart from `skill`, non-Grok bindings are `unknown` until a conformance replay says otherwise.
 
 ## Canonical sources and standalone distribution
 
@@ -26,7 +31,7 @@ The package distills the user's requested architecture and prescriptive workflow
 
 ## First-hand field notes
 
-The preset also carries [field notes](../skills/engineering/fleet-preset/references/grok-field-notes.md) written by the coordinator of a running fleet, with short per-role additions on each persona card. They are practice evidence and mistakes that produced rules, scrubbed of identifiers, customers, addresses, hashes and run numbers. They are not a memory export and do not claim effectiveness. Preserve that scrub when extending them.
+The packages also carry [core field evidence](../skills/engineering/fleet-architecture/references/field-evidence.md) and the preset's [field notes](../skills/engineering/fleet-preset/references/grok-field-notes.md), written by the coordinator of a running fleet, with short per-role additions on each persona card. The provider-neutral lessons live in the architecture core's field evidence; the preset keeps domain-seat and Grok-binding lessons. They are practice evidence and mistakes that produced rules, scrubbed of identifiers, customers, addresses, hashes and run numbers. They are not a memory export and do not claim effectiveness. Preserve that scrub when extending them.
 
 ## Learning-loop refinement
 

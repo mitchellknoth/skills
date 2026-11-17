@@ -19,6 +19,10 @@ Do not silently weaken a required independent review, approval provenance, atomi
 
 Recommendations explain fit and tradeoffs instead of selecting tools by popularity. Recommend consolidation only after testing whether context or independence is lost. Never copy credentials, enable schedules, send messages or expand permissions as a side effect of rendering a plan.
 
+## Primitive map
+
+The intermediate representation is the [thirteen primitives](primitives.md) (agent persona, peer message, routine, memory scope, skill, approval gate, standing authorization, outbound rule, shared workspace, source-of-truth board, review ledger, human channel, tool connector), data in [primitive-bindings.json](../assets/primitive-bindings.json). The [functions](functions.md) and [protocols](protocols.md) are written only in primitives. Provider names appear only in bindings. Targets today: Grok Bot (source), Claude Code, Codex, Cursor and Dot. Apart from `skill`, every non-Grok entry is `unknown` with a TODO, and none is promoted without a recorded conformance replay.
+
 ## Promotion boundary
 
 A future compiler needs deterministic schema validation, versioned adapters, migration/rollback, conflict-safe state updates, unchanged private configuration, and a conformance suite. Targets should declare tested versions and exact coverage. Do not advertise one-click cross-harness replication before those exist.
