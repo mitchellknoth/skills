@@ -7,7 +7,7 @@ Domain-free rules that the [functions](functions.md) follow. Numeric values mark
 Classify every action before taking it.
 
 - **Two-way door:** reversible at acceptable cost. The coordinator acts and shows. Examples: opening a change, filing an issue, drafting, reviewing, a dry plan, starting the next increment of an epic.
-- **One-way door:** hard or costly to undo. The human decides. The installation lists its doors in the human's words. The reference list: infrastructure applies, minting secrets, making something public, deletes or replaces, money, data deletion.
+- **One-way door:** hard or costly to undo. The human decides. The installation lists its doors in the human's words. The reference list: deletes or replaces, public exposure, secret mints, money, data deletion, production migrations, infrastructure applies, and permissions outside an already approved shape. See the [interrupt contract](autonomy.md#2-the-interrupt-contract).
 - When classification is uncertain, treat it as one-way until decided, then record the decision.
 - A **blanket yes covers what it names**, plus the changes that carry it. Re-asking for an exact-revision yes after a blanket yes is toil. Re-ask only for a high-stakes item the yes did not name.
 - **PASS is not enable. Merge is not deploy.** A score reports readiness; it switches nothing on. Find where the deploy-like step actually runs and hold *there*, naming every pending item in the human's yes.
@@ -40,13 +40,13 @@ Merge authority is the human's to grant. When granted, the coordinator merges a 
 
 1. Every routed seat scored the head being merged, or explicitly carried its score, with no open must-fix.
 2. Required checks are green **and ran**, or the human's written waiver applies.
-3. Review threads and review comments are empty or triaged. Untriaged comments block even when every seat passed.
+3. Where the installation runs an **automated code review**, it has landed on the exact head and is clean or triaged; in progress or absent means wait. Review threads and comments are empty or triaged. Untriaged comments block even when every seat passed.
 4. The merge is clean against current default state; branches need not be up to date.
 5. One merge at a time, and no deploy or apply is running from an earlier merge.
 6. The default branch holds no unapplied plan with a one-way-door change the human's yes does not cover.
 7. The merge pins the head (an expected-head guard), so a late push cannot ride in.
 
-A **PR-scoped watcher** automates the checks. It listens to one change; on CI passed it re-verifies 1-7; on a new head the approval is void and it requests a delta re-score; on CI failed it routes the failure and never reruns; on changes requested it routes to the implementer; and it **deletes itself** when the change merges or closes. Never mark a change ready and merge it in one step when readying triggers a plan; the watcher waits for the plan.
+A **PR-scoped watcher** automates the checks (full gate and event table in [autonomy](autonomy.md#the-ephemeral-merge-on-green-watcher)). It listens to one change; on CI passed it re-verifies 1-7; on a new head the approval is void and it requests a delta re-score; on CI failed it routes the failure and never reruns; on changes requested it routes to the implementer; and it **deletes itself** when the change merges or closes. Never mark a change ready and merge it in one step when readying triggers a plan; the watcher waits for the plan.
 
 **Fix forward.** A human may waive waiting for every hosted check on staff PASS. A waiver names its condition and scope. It does not cover: a deterministic break the change itself causes; a change whose readiness triggers a plan that has not finished; a merge during a running apply; or unapplied one-way-door plans on the default branch. Recover a failed post-merge run with a catch-up fix-forward change, never a rerun, and make its plan include every unit still owed.
 

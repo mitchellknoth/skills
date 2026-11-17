@@ -15,7 +15,7 @@ The `fleet-architecture` skill is the neutral alternative, not a required additi
 
 ## How this skill relates to the abstract path
 
-This is the prescriptive path: named domain seats and the author's process choices. Underneath it sits the provider-neutral core, bundled here as [functions](references/core/functions.md), [protocols](references/core/protocols.md), [practices](references/core/practices.md) and the [primitive map](references/core/primitives.md). Every persona binds one function. Every Grok Bot mechanism is a binding of a neutral primitive, so a target other than Grok Bot can be planned from the primitives without losing the workflow. For the abstract path with no prescribed domains, use `fleet-architecture`.
+This is the prescriptive path: named domain seats and the author's process choices. Underneath it sits the provider-neutral core, bundled here as [functions](references/core/functions.md), [protocols](references/core/protocols.md), [practices](references/core/practices.md) [autonomy](references/core/autonomy.md) and the [primitive map](references/core/primitives.md). Every persona binds one function. Every Grok Bot mechanism is a binding of a neutral primitive, so a target other than Grok Bot can be planned from the primitives without losing the workflow. For the abstract path with no prescribed domains, use `fleet-architecture`.
 
 ## Preset workflow
 

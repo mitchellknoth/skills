@@ -61,6 +61,32 @@ Each seat is a [risk-owned reviewer](core/functions.md#risk-owned-reviewer) (or 
 | `tool_connector` | Inspect effective capabilities, not prompt promises. Live cloud facts come from the cloud CLI read-only, never from memory. **Identity:** the default is one shared platform login for merges and other code-host actions, because it is low friction. The tradeoff is lost attribution, so the ledger must record which seat actually acted. The recommended target is a distinct identity per bot (for example a GitHub App or a machine user) with least-privilege scopes. |
 | `agent_persona`, `skill`, `review_ledger` | Profiles stay short and name anti-jobs; skills are pinned and confirmed loaded; the scores log is a plain append-only file, and the merge record is one row with one owner. |
 
+## 3. Autonomy on Grok Bot
+
+How the abstract [autonomy layer](core/autonomy.md) binds here. Nothing below is provisioned by this package.
+
+**Interrupt contract.** One-way doors reach the owner as a single-question widget card in the one-to-one chat (for example a merge yes), or as an approval card when a blocked action escalates. Everything else proceeds. Prepared work first, then one question with a recommendation.
+
+**Routine taxonomy on Grok Bot.**
+
+| Routine | kind / lifecycle | Grok trigger |
+|---|---|---|
+| Twice-daily co-captain wake | scheduled / standing | Cron, owner time zone |
+| Weekday morning brief | scheduled / standing | Weekday cron; speaks only on change or a pending decision |
+| Weekday compounding-debt scan | scheduled / standing | Weekday cron |
+| Board curator | scheduled / standing | Cron |
+| Peer check-in | scheduled / standing | Cron; three-line format |
+| Weekly retrospective and huddle draft | scheduled / standing | Weekly cron (add or cut) |
+| Monthly prune, post-prune check, twice-monthly bonsai | scheduled / standing | Monthly or twice-monthly cron |
+| Repository listener | event / standing | Repository events: opened, merged, review requested, changes requested, comment, unresolved thread, default-branch CI failed |
+| Pipeline result reporter | event / standing | Default-branch pipeline events |
+| Alarm responder | event / standing | Webhook from monitoring |
+| **Merge-on-green watcher** | event / **ephemeral** | Listener scoped to one PR: updated, merged, closed, changes requested, CI passed or failed; removes itself on its terminal merged or closed wake |
+
+**Watcher gates in the prompt.** Exact-head reviewer PASS, the automated code review landed and clean on that head, required checks ran, no on-merge run in progress, no unapplied risky plan on the default branch, script and docs delta within budget; merge with the head pinned. Name it `#<PR> merge on green`. Created in the same turn the merge is promised; ends or is deleted on merge or close.
+
+**Proactive loop.** After a climb closes, the coordinator sends the next-priority question to the product seat with `SendToAgent`, then starts the two-way work without asking the owner. One-way doors in that work are prepared and queued as one widget question.
+
 ## Provenance and limits
 
 Sources: the coordinator's profile and routine definitions, a first-hand read of every teammate's profile, the curated fleet skills, and the coordinator's own review log. The log is one participant's record, not an independent audit; anecdotes are single occurrences. Nothing here installs a routine, grants authority or proves the practices transfer. Evaluate with the [evaluation guidance](core/evaluation.md) before adopting.

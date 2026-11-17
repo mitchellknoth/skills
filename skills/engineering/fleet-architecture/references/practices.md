@@ -4,16 +4,13 @@ Domain-free habits that keep the [functions](functions.md) and [protocols](proto
 
 ## 1. Routines
 
-A routine is an intent plus a trigger plus a named destination. See the [primitive map](primitives.md) for how a runtime binds it.
+The taxonomy (kind scheduled or event, lifecycle standing or ephemeral), the canonical routine set and the ephemeral merge-on-green watcher are in [autonomy](autonomy.md#3-routine-taxonomy-the-engine). Rules that hold for every routine:
 
-- **Event listeners over polling.** One repository-wide listener (change opened or merged, review requested, changes requested, comment, unresolved thread, default-state CI failed) wakes the coordinator. Any clock trigger runs hourly or slower and stays silent when clean.
-- **Narrow, self-deleting watchers.** A [merge-on-green watcher](protocols.md#4-merge-on-green-watcher) exists only from "approved" to "merged". A paused watcher for a finished change is clutter. Per-change babysitting routines are banned: they burn usage for nothing.
-- **Pipeline result reporter:** reads the default branch's deploy run after merge, so the merge watcher need not.
-- **Twice-daily wake:** reads curated state, finds the lowest unmet goal condition and assigns it *before* reporting. A weekday brief goes to the human only when something changed or a decision is pending. A weekday debt scan looks for quiet failures and security items that went silent.
-- **Alarm responder:** parses a monitoring alert, writes a short root-cause note with blast radius, and routes one seat if a bounded fix is clear. It never merges and never spends.
+- **Event listeners over polling.** Any clock trigger runs hourly or slower and stays silent when clean.
+- **Per-change babysitting routines are banned**; they burn usage for nothing. The narrow, self-ending merge-on-green watcher is the exception.
+- **Promised follow-up is not banter**: create the routine in the same turn.
 - **Housekeeping and learning loops:** a monthly prune, a regression check two weeks later, a weekly retrospective (add or cut) and a daily advisor pass. See [feedback](feedback.md).
-- **Promised follow-up is not banter.** If the coordinator says it will watch, merge or ping later and the turn will end first, it creates a short-lived routine in the same turn. A chat commitment with no routine does not count.
-- **Hygiene:** one bookmark per source, advanced only after a successful read; an unreadable source emits one line naming it, never "nothing moved"; standing rules are re-read each run instead of baked into the prompt; live status is re-verified and each write confirmed before reporting.
+- **Hygiene:** one bookmark per source, advanced only after a successful read; an unreadable source emits one line naming it, never "nothing moved"; standing rules are re-read each run; live status is re-verified and each write confirmed before reporting. No retrigger hacks.
 - A less proactive peer agent gets its own check-in routine with a fixed three-line format ([coaching](#3-coaching-a-peer-agent)).
 
 ## 2. One source of truth

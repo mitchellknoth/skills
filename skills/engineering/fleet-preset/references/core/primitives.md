@@ -10,7 +10,7 @@ Source-system bindings are for Grok Bot, where the architecture was built and op
 |---|---|---|---|
 | `agent_persona` | Durable behavioral contract for one function | Loaded explicitly; independent seats have separate context | Bot profile, curated skills, routines, group-chat membership |
 | `peer_message` | Addressed, asynchronous message with a priority flag | No live reply assumed; priority is reserved; carries information, never authorization | `SendToAgent` with a priority flag; room posts; `SendToUser` for the human |
-| `routine` | Intent plus trigger plus destination | Explicit trigger, reads, output, dedup key, terminal behavior; silent when clean; scoped watchers delete themselves | Saved prompt with a cron schedule, or a repository, chat or webhook listener, ending in a destination line |
+| `routine` | Intent plus trigger plus destination; `kind` scheduled or event, `lifecycle` standing or ephemeral | Explicit trigger, reads, output, dedup key, terminal behavior; silent when clean; scoped watchers delete themselves | Saved prompt with a cron schedule, or a repository, chat or webhook listener, ending in a destination line |
 | `memory_scope` | Shared owner-wide, per-agent and task-scoped memory | Scope explicit; human decisions verbatim with timestamp | Owner-shared memory, per-agent dated facts and logs, recall tools; task state on the board |
 | `skill` | Instruction package loaded on demand | Intended source and version actually loaded | A skill package in the skills store |
 | `approval_gate` | Human decision bound to one action | Only the human can produce it; bound to action and revision; a decline is final | Approval card; blocked actions escalate to it; outbound messages are send cards |
@@ -19,7 +19,7 @@ Source-system bindings are for Grok Bot, where the architecture was built and op
 | `shared_workspace` | Shared machine for checkouts, scratch, locks, logs | One checkout per seat per change; lock plus low priority for heavy runs; no killing others' work | The box: one persistent machine, a desktop per agent |
 | `source_of_truth_board` | One state record: owner, lane, status, hold condition | Each fact lives once; holds name lift conditions | A GitHub Project via the GitHub CLI or connector |
 | `review_ledger` | Append-only record of scores and merges | Append-only; exact heads; one-row merge record | A file in the shared workspace plus comments on the change |
-| `human_channel` | The one channel to the human | One router; one decision at a time; interrupt bar | The owner's one-to-one chat with the coordinator |
+| `human_channel` | The one channel to the human | One router; one decision at a time as a single structured question; interrupt bar | The owner's one-to-one chat with the coordinator |
 | `tool_connector` | Integration or CLI with a permission scope, acting under an identity | Effective capabilities inspected, not assumed; read-only means read-only; the acting identity is known | MCP connectors and CLIs the bot is granted |
 
 ## Reading the bindings
@@ -31,6 +31,10 @@ Each entry in the JSON has:
 - `blocks_if_missing`: the action or claim that must stop when the primitive is `unsupported`. A missing `approval_gate` blocks every one-way door; there is no weaker substitute.
 - `grok`: the source binding and its evidence label.
 - `targets`: one entry each for Claude Code, Codex, Cursor and Dot. Status uses `supported`, `emulated`, `manual`, `unsupported` or `unknown`. Only `skill` is `supported` today, on the evidence of the repository's own install paths; discovery and loading are not tested. Everything else is `unknown`, with a `lead` where this repository's adapter notes mention a related feature, and a `todo`.
+
+## Routine dimensions
+
+`routine` carries `kind` (`scheduled` or `event`) and `lifecycle` (`standing` or `ephemeral`), defined with the canonical set in [autonomy](autonomy.md#3-routine-taxonomy-the-engine). A target must preserve both: an ephemeral routine ends itself on its terminal condition, and an event routine is not silently degraded to polling. If a target lacks event triggers, the emulation (polling) loses prompt delivery and is named in the plan; if it lacks self-ending routines, cleanup becomes a manual step.
 
 ## Identity: shared by default, per-agent recommended
 

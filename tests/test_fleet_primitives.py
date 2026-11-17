@@ -34,6 +34,12 @@ class PrimitiveMapTests(unittest.TestCase):
                     else:
                         self.assertTrue(entry['evidence'])
 
+    def test_routine_carries_kind_and_lifecycle_and_targets_stay_unverified(self):
+        routine = next(p for p in self.map['primitives'] if p['id'] == 'routine')
+        self.assertEqual(set(routine['dimensions']['kind']), {'scheduled', 'event'})
+        self.assertEqual(set(routine['dimensions']['lifecycle']), {'standing', 'ephemeral'})
+        self.assertTrue(all(entry['status'] == 'unknown' for entry in routine['targets'].values()))
+
     def test_functions_are_known_and_persona_catalog_binds_one_each(self):
         functions = set(self.map['functions'])
         for primitive in self.map['primitives']:
@@ -43,12 +49,12 @@ class PrimitiveMapTests(unittest.TestCase):
             self.assertIn(persona['function'], functions)
 
     def test_preset_bundles_identical_core_files(self):
-        for name in ('functions.md', 'protocols.md', 'practices.md', 'field-evidence.md', 'primitives.md'):
+        for name in ('autonomy.md', 'functions.md', 'protocols.md', 'practices.md', 'field-evidence.md', 'primitives.md'):
             self.assertEqual((CORE / 'references' / name).read_bytes().replace(b'](../assets/', b'](../../assets/'),
                              (PRESET / 'references/core' / name).read_bytes())
 
     def test_core_functions_and_protocols_name_no_provider(self):
-        for name in ('functions.md', 'protocols.md', 'practices.md'):
+        for name in ('functions.md', 'protocols.md', 'practices.md', 'autonomy.md'):
             text = (CORE / 'references' / name).read_text().lower()
             for provider in ('grok', 'claude', 'codex', 'cursor'):
                 self.assertNotIn(provider, text, f'{name} names {provider}')

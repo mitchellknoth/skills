@@ -41,7 +41,7 @@ Lessons and anecdotes per primitive are in the [field notes](grok-field-notes.md
 
 - **Coordinator profile** (`agent_persona`): short and stable; the routing rule, the one-way door list and the anti-jobs. Roster detail and owner decisions live in `memory_scope`.
 - **Specialist profiles** (`agent_persona`): one lane each, a hard gate where the owner set one, explicit anti-jobs, PASS or BOUNCE at the exact head.
-- **Routine set** (`routine`): one repository-wide event listener, a twice-daily wake, a weekday brief, a production-alarm webhook, a pipeline result reporter, a board curator, narrow self-deleting merge-on-green watchers, and the monthly, post-prune and weekly retrospective loops. Leave inactive until authorized.
+- **Routine set** (`routine`, taxonomy in [autonomy](core/autonomy.md#3-routine-taxonomy-the-engine); Grok triggers in the [field notes](grok-field-notes.md#3-autonomy-on-grok-bot)): one repository-wide event listener, a twice-daily wake, a weekday brief, a production-alarm webhook, a pipeline result reporter, a board curator, narrow self-deleting merge-on-green watchers, and the monthly, post-prune and weekly retrospective loops. Leave inactive until authorized.
 - **State** (`source_of_truth_board`, `review_ledger`): a project board (captain, lane, status, hold condition) for ownership, the pull request for head and checks, an append-only scores log for review evidence.
 - **Shared machine** (`shared_workspace`): lock heavy runs, run them under `nice`, one checkout per seat per change, no edits to another bot's checkout, cleanup beyond rebuildable cache by proposal and the owner's yes.
 

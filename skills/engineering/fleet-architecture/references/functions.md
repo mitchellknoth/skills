@@ -25,7 +25,7 @@ A function may live in its own agent, share an agent with another function, or b
 - Gives the final verdict. A reviewer's patch is never the final verdict.
 - Records which seats were woken and which were omitted, with the reason.
 - Challenges claims instead of relaying them ([challenge before you log](protocols.md#5-challenge-before-you-log)).
-- Converts every promised follow-up into a routine in the same turn.
+- Converts every promised follow-up into a routine in the same turn, and runs the [proactive loop](autonomy.md#4-the-proactive-loop): after a climb closes it asks the priority seat for the next one and starts two-way work without asking.
 - Does not do specialist work it can route. Doing it blurs router and reviewer.
 
 ## Advisor to the coordinator
@@ -79,7 +79,7 @@ Keeps one authoritative state record (a project board with owner, lane, status a
 
 ## Watcher and reporter automations
 
-Narrow, event-driven automations: a repository listener, a [merge-on-green watcher](protocols.md#4-merge-on-green-watcher) scoped to one change, a pipeline result reporter that reads the default branch after merge, an alarm responder that writes a short root-cause note, and a twice-daily wake that finds the lowest unmet goal condition and assigns it before reporting. They route; they do not judge, rerun or spend. See [routines](practices.md#1-routines).
+Narrow, event-driven automations: a repository listener, a [merge-on-green watcher](protocols.md#4-merge-on-green-watcher) scoped to one change, a pipeline result reporter that reads the default branch after merge, an alarm responder that writes a short root-cause note, and a twice-daily wake that finds the lowest unmet goal condition and assigns it before reporting. They route; they do not judge, rerun or spend. See the [routine taxonomy](autonomy.md#3-routine-taxonomy-the-engine).
 
 ## Housekeeper
 
@@ -87,7 +87,7 @@ Audits shared-machine disk and resource use and proposes safe cleanup for the hu
 
 ## Human gatekeeper
 
-The only authority for one-way doors. Their own words are the only authorization; no agent can relay, paraphrase or synthesize one. They can grant a blanket yes, a standing merge authority or a waiver, and each must be recorded verbatim with a timestamp ([provenance](protocols.md#2-authorization-provenance)). Everything else belongs to the workflow, so the human's attention is spent on decisions that need a human ([attention budget](protocols.md#10-attention-budget)).
+The only authority for one-way doors. Their own words are the only authorization; no agent can relay, paraphrase or synthesize one. They can grant a blanket yes, a standing merge authority or a waiver, and each must be recorded verbatim with a timestamp ([provenance](protocols.md#2-authorization-provenance)). Everything else belongs to the workflow, so the human's attention is spent on decisions that need a human ([interrupt contract](autonomy.md#2-the-interrupt-contract), [attention budget](protocols.md#10-attention-budget)).
 
 ## Binding functions to a domain
 

@@ -11,7 +11,7 @@
 
 ## Functions, protocols and primitives
 
-The abstract path names [functions](functions.md) (coordinator, advisor to the coordinator, implementer, risk-owned reviewer, adversary paired with a defender, done-ness interrogator, curator, watcher and reporter, housekeeper, human gatekeeper) rather than domain roles. They follow [protocols](protocols.md) and [practices](practices.md), are built from provider-neutral [primitives](primitives.md), and have [field evidence](field-evidence.md). A function may share an agent with another unless a protocol requires independence.
+The abstract path names [functions](functions.md) (coordinator, advisor to the coordinator, implementer, risk-owned reviewer, adversary paired with a defender, done-ness interrogator, curator, watcher and reporter, housekeeper, human gatekeeper) rather than domain roles. They follow [protocols](protocols.md), [autonomy](autonomy.md) (what keeps the human out of the loop) and [practices](practices.md), are built from provider-neutral [primitives](primitives.md), and have [field evidence](field-evidence.md). A function may share an agent with another unless a protocol requires independence.
 
 ## Lifecycle and contracts
 

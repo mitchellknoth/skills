@@ -138,7 +138,10 @@
         "Trigger, reads, outputs, destination, deduplication key and terminal behavior are explicit.",
         "Silent when nothing changed; a failed source is reported, never \"nothing moved\".",
         "A PR-scoped routine deletes itself on merge or close.",
-        "Prompts state intent, not frozen tool arguments."
+        "Prompts state intent, not frozen tool arguments.",
+        "An ephemeral routine ends itself (deletes or pauses) on its terminal condition.",
+        "A merge watcher carries its gates in its prompt: exact-head reviewer PASS, clean automated review, no running apply, control-script delta within budget.",
+        "A promised follow-up becomes a routine in the same turn; events are preferred over polling."
       ],
       "guarantee_lost_if_emulated": "Event delivery degrades to polling; a watcher cannot be self-deleting, so stale watchers must be cleaned up manually.",
       "blocks_if_missing": "merge-on-green watching, twice-daily wake, alarm response",
@@ -150,7 +153,7 @@
       ],
       "grok": {
         "mechanism": "A routine: a saved prompt with a cron schedule in the owner time zone, or a GitHub, chat or webhook listener, ending with a plain-words destination line.",
-        "notes": "Create it in the same turn as the promise; leave inactive until authorized.",
+        "notes": "kind scheduled = a cron trigger in the owner time zone; kind event = a repository, chat or webhook listener. lifecycle ephemeral = a PR-scoped listener that removes itself on its terminal merged or closed wake; standing = a durable routine. Create in the same turn as the promise; leave inactive until authorized.",
         "status": "supported",
         "evidence": "observed in the source fleet, 2026-11-17; not independently verified here"
       },
@@ -179,6 +182,16 @@
           "lead": "adapters.md: scheduled and event-triggered work requires separate verification",
           "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
         }
+      },
+      "dimensions": {
+        "kind": [
+          "scheduled",
+          "event"
+        ],
+        "lifecycle": [
+          "standing",
+          "ephemeral"
+        ]
       }
     },
     {
@@ -290,7 +303,7 @@
         "coordinator"
       ],
       "grok": {
-        "mechanism": "An approval card the human answers in their own client; blocked actions escalate to the card; an outbound message is a draft card the human presses Send on.",
+        "mechanism": "An approval card the human answers in their own client; blocked actions escalate to the card; an outbound message is a draft card the human presses Send on. A one-way-door question is delivered as a single-question widget.",
         "notes": "A shared-identity approval on the platform is never a human yes.",
         "status": "supported",
         "evidence": "observed in the source fleet, 2026-11-17; not independently verified here"
@@ -569,7 +582,8 @@
       "invariants": [
         "One router to the human.",
         "One decision at a time, outcome first.",
-        "Interrupt only past the bar."
+        "Interrupt only past the bar.",
+        "A decision is one structured question with options and a recommendation, asked after reversible work is prepared."
       ],
       "guarantee_lost_if_emulated": "Specialists fan into the human; attention budget fails.",
       "blocks_if_missing": "none; degrade to a daily summary",
@@ -578,7 +592,7 @@
         "human-gatekeeper"
       ],
       "grok": {
-        "mechanism": "The owner one-to-one chat with the coordinator, plus user notifications.",
+        "mechanism": "The owner one-to-one chat with the coordinator, plus user notifications; one-way-door questions arrive as a single-question widget card (for example a merge yes).",
         "notes": "Room replies do not count as having told the human.",
         "status": "supported",
         "evidence": "observed in the source fleet, 2026-11-17; not independently verified here"

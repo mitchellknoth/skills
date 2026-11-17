@@ -4,7 +4,7 @@
 
 The goal is a provider-agnostic framework of the author's Grok Bot configuration, in the way a compiler front end does not care which language it emits. Two paths serve it:
 
-- **Abstract path, `fleet-architecture`:** pure functions (coordinator, advisor to the coordinator, implementer, risk-owned reviewer, adversary paired with a defender, done-ness interrogator, curator, watcher and reporter, housekeeper, human gatekeeper), the protocols that bind them, and thirteen provider-neutral primitives with per-target bindings. No domain is prescribed.
+- **Abstract path, `fleet-architecture`:** pure functions (coordinator, advisor to the coordinator, implementer, risk-owned reviewer, adversary paired with a defender, done-ness interrogator, curator, watcher and reporter, housekeeper, human gatekeeper), the protocols that bind them, an autonomy layer (interrupt contract, routine taxonomy, proactive loop) that keeps the human out of the loop except at one-way doors, and thirteen provider-neutral primitives with per-target bindings. No domain is prescribed.
 - **Prescriptive path, `fleet-preset`:** the same core, bundled, plus named domain seats (each binds one function), the author's process choices and field notes. Every Grok Bot mechanism is a binding of a neutral primitive.
 
 Neither path grants authority or silently activates runtime behavior. The primitive map is the intermediate representation for cross-provider plans; apart from `skill`, non-Grok bindings are `unknown` until a conformance replay says otherwise.
