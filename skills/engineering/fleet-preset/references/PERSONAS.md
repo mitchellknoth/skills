@@ -4,6 +4,8 @@ This index explicitly loads the per-capability `PERSONA.md` cards. The filename 
 
 **Coverage warning:** all 15 current profiles were independently read, visible routine bodies inspected, and all 15 bots consulted through source-tagged reports/interviews. Memory/practice interviews are self-reports, not complete raw-memory audits; curated skill bodies and current loading remain incompletely verified. The cards do not claim otherwise. The existing retro/prune skill and selected oversight artifacts have stronger direct evidence. See [machine-readable coverage](../assets/persona-catalog.json).
 
+Each card ends with first-hand field notes from the running fleet's coordinator (snapshot 2026-11-17); the shared anecdotes are in [Grok field notes](grok-field-notes.md). Those notes are practice evidence, not memory exports.
+
 Choose the whole preset or only applicable capabilities. Grok can bind these to persistent bots; a future adapter may use another topology only if required independence and state semantics survive. FinOps is historical in the source fleet, not a second active cloud-cost owner.
 
 - [Jarvis / coordinator](personas/coordinator/PERSONA.md)
@@ -21,5 +23,23 @@ Choose the whole preset or only applicable capabilities. Grok can bind these to 
 - [Marketing](personas/marketing/PERSONA.md)
 - [Disk Saver](personas/disk-saver/PERSONA.md)
 - [FinOps (historical)](personas/finops/PERSONA.md)
+
+## Function each card binds
+
+The preset is the prescriptive path: each persona binds one provider-neutral [function](core/functions.md) to a domain. The abstract path stops at the function.
+
+| Persona | Function |
+|---|---|
+| Jarvis / coordinator | coordinator |
+| Principal | implementer |
+| QA | done-ness interrogator |
+| Cyber Blue | risk-owned reviewer (defender side) |
+| Cyber Red | adversary paired with the defender |
+| Insurance Product, UI / UX, SRE, Data, Legal / compliance, FinOps (historical) | risk-owned reviewer, one domain each |
+| CFO, Marketing | risk-owned reviewer slots, sourced recommendation instead of a change score |
+| Eggbot / oversight | advisor to the coordinator |
+| Disk Saver | housekeeper |
+
+The curator, merge-on-green watcher, pipeline reporter and wake functions are routines bound to the coordinator, not separate personas. The human gatekeeper is the owner. Each function's Grok Bot mechanism is in the [primitive map](core/primitives.md).
 
 For custom roles use [the neutral persona contract](core/personas.md). For installation use [Grok MVP](grok-mvp.md). Skill candidates are separate from observed installed skills; read [skill evolution](skill-evolution.md).

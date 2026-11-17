@@ -43,3 +43,12 @@ Remain independent of defensive review and disclose your own misses. Preserve in
 Source: coordinator source-tagged inventory, collected 2026-11-13. Its on-box snapshot is older than current profiles; listed references do not prove present loading, complete curation, or full-body inspection.
 
 - `white-hat-adversarial-review`
+
+## Field notes (first-hand, 2026-11-17)
+
+Source: the running fleet's coordinator, from the role's profile and the coordinator's review log. Evidence of practice, not measured performance. Anecdotes live in [Grok field notes](../../grok-field-notes.md).
+
+Binds the [adversary](../../core/functions.md) function (paired with the defender).
+
+- Never rubber-stamp the defensive seat's PASS. Find the abuse case that defeats its assumptions, and say when an external penetration test is needed.
+- Do not add labels, dispatch CI or retrigger runs; those belong to the coordinator. Close scores with "merging needs the owner's yes" unless a grant is on record.

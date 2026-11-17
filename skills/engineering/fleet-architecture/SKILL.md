@@ -22,9 +22,13 @@ Do not infer operate mode, standing permissions, schedules or merge authority fr
 3. Before delegation, automation or a cross-harness move, read [adapter requirements](references/adapters.md).
 4. For curation, oversight, retrospectives or recovery, read [feedback](references/feedback.md) and the [learning-to-evolution loop](references/evolution.md).
 5. For role identity and memory distillation, read [personas](references/personas.md).
-6. For customer discovery and future cross-harness plans, read [adaptation](references/transpilation.md).
+6. For customer discovery and cross-harness plans, read [adaptation](references/transpilation.md) and the [primitive map](references/primitives.md).
 7. For comparing or combining skills, read [skill evolution](references/skill-evolution.md).
 8. To evaluate or change the harness, read [evaluation](references/evaluation.md).
+
+## The abstract path
+
+This skill is the provider-neutral path: **functions** (coordinator, advisor to the coordinator, implementer, risk-owned reviewer, adversary paired with a defender, done-ness interrogator, curator, watcher and reporter, housekeeper, human gatekeeper) with **protocols** that bind them. Domains plug into the reviewer function; none is prescribed. Read [functions](references/functions.md), then [protocols](references/protocols.md) (doors, authorization provenance, exact-head scoring, merge-on-green, escalation, attention). Read [autonomy](references/autonomy.md) for the interrupt contract, the routine taxonomy (standing and ephemeral, scheduled and event) and the proactive loop. Read [practices](references/practices.md) for the board, routines hygiene, the board, peer coaching, memory and shared-workspace habits, [field evidence](references/field-evidence.md) for why, and [primitives](references/primitives.md) for how a provider implements each part. The prescriptive path with named domain seats is the `fleet-preset` skill.
 
 No dependency on a named company, repository, cloud, model, roster, review count, cadence or deployment platform. The template has **unset policy choices**, not concealed defaults from the opinionated preset. If the user wants the author's more prescriptive workflow, select `fleet-preset` explicitly.
 

@@ -46,3 +46,13 @@ Source: coordinator source-tagged inventory, collected 2026-11-13. Its on-box sn
 - `rendered-ui-validation`
 - `visual-sot-fidelity-audit`
 - `compliance (report label)`
+
+## Field notes (first-hand, 2026-11-17)
+
+Source: the running fleet's coordinator, from the role's profile and the coordinator's review log. Evidence of practice, not measured performance. Anecdotes live in [Grok field notes](../../grok-field-notes.md).
+
+Binds the [done-ness-interrogator](../../core/functions.md) function.
+
+- A UI or frontend PASS requires a rendered surface; code or diff alone is a Bounce. Rendered evidence must be on the same head as the claim.
+- Re-run claimed counts. A writer test claimed 8 passing and 0 failing; the re-run showed 7 and 1. Plant small defects to check that tests catch them, and report how many were caught.
+- Wait for ready-for-QA evidence rather than reacting to each partial push.

@@ -43,3 +43,12 @@ Distinguish sales from policy/domain state. Trace bypass paths beyond the change
 ## Skill-binding evidence limit
 
 No complete current curated binding list is verified. Absence in the older coordinator report is not evidence that this bot has no skills.
+
+## Field notes (first-hand, 2026-11-17)
+
+Source: the running fleet's coordinator, from the role's profile and the coordinator's review log. Evidence of practice, not measured performance. Anecdotes live in [Grok field notes](../../grok-field-notes.md).
+
+Binds the [risk-owned-reviewer](../../core/functions.md) function.
+
+- On persona-journey or requirement PRs with acceptance scenarios, check that each Then matches the written requirement. Green is mechanical; fidelity is this seat's verdict.
+- Be consulted on backlog priority before the coordinator reorders the next climb.

@@ -1,0 +1,676 @@
+{
+  "schema_version": 1,
+  "status": "Design contract and data, not an executable transpiler. Bindings describe what to verify; no entry installs, activates or grants anything.",
+  "status_vocabulary": {
+    "supported": "The target has an equivalent whose semantics were checked against the invariants.",
+    "emulated": "Achievable with a described loss of guarantee; see guarantee_lost_if_emulated.",
+    "manual": "A human or coordinator performs it; not automatically complete.",
+    "unsupported": "No equivalent; the dependent action is blocked if blocks_if_missing names one.",
+    "unknown": "Not yet verified. Not the same as unsupported. Requires a todo."
+  },
+  "targets": {
+    "grok": "Source system; entries describe the mechanism observed in the running fleet.",
+    "claude_code": "Claude Code",
+    "codex": "Codex CLI",
+    "cursor": "Cursor",
+    "dot": "Dot"
+  },
+  "functions": [
+    "coordinator",
+    "advisor",
+    "implementer",
+    "risk-owned-reviewer",
+    "adversary",
+    "done-ness-interrogator",
+    "curator",
+    "watcher-reporter",
+    "housekeeper",
+    "human-gatekeeper"
+  ],
+  "primitives": [
+    {
+      "id": "agent_persona",
+      "summary": "A durable behavioral contract for one function: purpose, decision lens, boundaries, anti-jobs.",
+      "invariants": [
+        "Instructions are loaded explicitly, not assumed from a filename.",
+        "Boundaries and anti-jobs are visible to the agent every run.",
+        "An independent seat has its own context, not a relabelled copy of the implementer."
+      ],
+      "guarantee_lost_if_emulated": "Independence collapses into one context; self-review cannot satisfy a required independent seat.",
+      "blocks_if_missing": "independent acceptance claims",
+      "used_by_functions": [
+        "coordinator",
+        "advisor",
+        "implementer",
+        "risk-owned-reviewer",
+        "adversary",
+        "done-ness-interrogator",
+        "curator",
+        "watcher-reporter",
+        "housekeeper"
+      ],
+      "grok": {
+        "mechanism": "A persistent bot with a profile (instructions), curated skills, routines and membership in group chats.",
+        "notes": "Verify the saved profile text and effective capabilities; a profile is not a permission grant.",
+        "status": "supported",
+        "evidence": "observed in the source fleet, 2026-11-17; not independently verified here"
+      },
+      "targets": {
+        "claude_code": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "subagent or agent definition files; verify how instructions load and whether context is truly separate",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "codex": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "subagents and project instruction documents are named as removable features in evals/adapters/references/codex.md; verify identity durability and context separation",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "cursor": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify rules or agent definitions and whether a named durable agent exists",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "dot": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "adapters.md: one coordinator can use specialist work threads where available; verify persistent identity",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        }
+      }
+    },
+    {
+      "id": "peer_message",
+      "summary": "An addressed, asynchronous message from one agent to another, with a priority flag and visible sender.",
+      "invariants": [
+        "Delivery is addressed and asynchronous; no live back-and-forth is assumed.",
+        "Priority is a flag the sender sets, reserved for scores, one-way-door bounces and real decisions.",
+        "A message transfers information, never authorization."
+      ],
+      "guarantee_lost_if_emulated": "Without a priority channel the coordinator is not woken at claims-done; fall back to polling the shared record and accept delay.",
+      "blocks_if_missing": "claims-done and panel convening",
+      "used_by_functions": [
+        "coordinator",
+        "implementer",
+        "risk-owned-reviewer",
+        "advisor"
+      ],
+      "grok": {
+        "mechanism": "SendToAgent (reaches the recipient on a later turn; priority flag) and room posts; SendToUser for the human channel.",
+        "notes": "Rooms are for pointers, not digests.",
+        "status": "supported",
+        "evidence": "observed in the source fleet, 2026-11-17; not independently verified here"
+      },
+      "targets": {
+        "claude_code": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify whether subagent results or teams give addressed async messages",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "codex": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "async messaging is named as a removable feature in evals/adapters/references/codex.md; verify semantics",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "cursor": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify background or cloud agent handoff",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "dot": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify specialist work thread messaging",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        }
+      }
+    },
+    {
+      "id": "routine",
+      "summary": "A saved intent plus a trigger (clock, repository event, chat event or webhook) and a named destination.",
+      "invariants": [
+        "Trigger, reads, outputs, destination, deduplication key and terminal behavior are explicit.",
+        "Silent when nothing changed; a failed source is reported, never \"nothing moved\".",
+        "A PR-scoped routine deletes itself on merge or close.",
+        "Prompts state intent, not frozen tool arguments.",
+        "An ephemeral routine ends itself (deletes or pauses) on its terminal condition.",
+        "A merge watcher carries its gates in its prompt: exact-head reviewer PASS, clean automated review, no running apply, control-script delta within budget.",
+        "A promised follow-up becomes a routine in the same turn; events are preferred over polling."
+      ],
+      "guarantee_lost_if_emulated": "Event delivery degrades to polling; a watcher cannot be self-deleting, so stale watchers must be cleaned up manually.",
+      "blocks_if_missing": "merge-on-green watching, twice-daily wake, alarm response",
+      "used_by_functions": [
+        "watcher-reporter",
+        "coordinator",
+        "curator",
+        "advisor"
+      ],
+      "grok": {
+        "mechanism": "A routine: a saved prompt with a cron schedule in the owner time zone, or a GitHub, chat or webhook listener, ending with a plain-words destination line.",
+        "notes": "kind scheduled = a cron trigger in the owner time zone; kind event = a repository, chat or webhook listener. lifecycle ephemeral = a PR-scoped listener that removes itself on its terminal merged or closed wake; standing = a durable routine. Create in the same turn as the promise; leave inactive until authorized.",
+        "status": "supported",
+        "evidence": "observed in the source fleet, 2026-11-17; not independently verified here"
+      },
+      "targets": {
+        "claude_code": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify scheduling and event triggers; the repo documents only CLI flags, hooks and settings sources",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "codex": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify non-interactive execution and any scheduler; none is documented in this repo",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "cursor": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify automations or background agents and event triggers",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "dot": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "adapters.md: scheduled and event-triggered work requires separate verification",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        }
+      },
+      "dimensions": {
+        "kind": [
+          "scheduled",
+          "event"
+        ],
+        "lifecycle": [
+          "standing",
+          "ephemeral"
+        ]
+      }
+    },
+    {
+      "id": "memory_scope",
+      "summary": "Durable memory with explicit scope: shared owner-wide, per-agent, and task-scoped.",
+      "invariants": [
+        "Scope is explicit; per-agent memory is not silently shared.",
+        "Human decisions are stored verbatim with timestamp and recorder.",
+        "Pruning never softens a fail-closed gate."
+      ],
+      "guarantee_lost_if_emulated": "Decisions are paraphrased or lost; a blanket yes loses its scope.",
+      "blocks_if_missing": "recovering a standing yes",
+      "used_by_functions": [
+        "coordinator",
+        "advisor",
+        "implementer",
+        "risk-owned-reviewer"
+      ],
+      "grok": {
+        "mechanism": "Owner-shared memory (preferences, principles, curated skills), per-agent memory (dated facts, periodic logs) and recall tools; task state on the board.",
+        "notes": "Roster detail lives in durable memory, not in the persona text.",
+        "status": "supported",
+        "evidence": "observed in the source fleet, 2026-11-17; not independently verified here"
+      },
+      "targets": {
+        "claude_code": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify settings sources and instruction files as memory carriers",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "codex": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "memories and project documents are named features in evals/adapters/references/codex.md; verify scope and persistence",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "cursor": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify rules and memories scope",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "dot": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        }
+      }
+    },
+    {
+      "id": "skill",
+      "summary": "A portable instruction package loaded on demand by its description.",
+      "invariants": [
+        "The loaded copy is the intended source and version; a filename match is not proof.",
+        "Description states what the skill is and the distinct branches that trigger it."
+      ],
+      "guarantee_lost_if_emulated": "Methods live in the persona text instead; they load every turn and sprawl.",
+      "blocks_if_missing": "none; degrade by inlining the method",
+      "used_by_functions": [
+        "all"
+      ],
+      "grok": {
+        "mechanism": "A SKILL.md package in the skills store, shared or curated per bot.",
+        "notes": "Pin the source and confirm the loaded copy.",
+        "status": "supported",
+        "evidence": "observed in the source fleet, 2026-11-17; not independently verified here"
+      },
+      "targets": {
+        "claude_code": {
+          "status": "supported",
+          "mapping": "plugin skills via the repository manifest and install commands in README",
+          "evidence": "repository plugin manifest and README install commands; discovery and loading not tested here",
+          "todo": "Confirm native discovery and on-demand loading in a fresh session."
+        },
+        "codex": {
+          "status": "supported",
+          "mapping": "plugin skills via README install path; each skill carries agents/openai.yaml",
+          "evidence": "README install path; discovery and loading not tested here",
+          "todo": "Confirm native discovery and on-demand loading in a fresh session."
+        },
+        "cursor": {
+          "status": "supported",
+          "mapping": "README: Vercel Skills with an agent flag, or a team marketplace import of the repository manifest",
+          "evidence": "README: Vercel Skills with an agent flag, or team marketplace import; loading not tested here",
+          "todo": "Confirm native discovery and on-demand loading in a fresh session."
+        },
+        "dot": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        }
+      }
+    },
+    {
+      "id": "approval_gate",
+      "summary": "A human decision bound to one specific action, which no agent can produce or relay.",
+      "invariants": [
+        "Only the human can answer it, in their own words or action.",
+        "Bound to a concrete action, target and revision.",
+        "A decline is final; no alternate path to the same action."
+      ],
+      "guarantee_lost_if_emulated": "The action cannot run; there is no weaker substitute for a one-way door.",
+      "blocks_if_missing": "every one-way door",
+      "used_by_functions": [
+        "human-gatekeeper",
+        "coordinator"
+      ],
+      "grok": {
+        "mechanism": "An approval card the human answers in their own client; blocked actions escalate to the card; an outbound message is a draft card the human presses Send on. A one-way-door question is delivered as a single-question widget.",
+        "notes": "A shared-identity approval on the platform is never a human yes.",
+        "status": "supported",
+        "evidence": "observed in the source fleet, 2026-11-17; not independently verified here"
+      },
+      "targets": {
+        "claude_code": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify permission prompts and hooks as a gate; managed policy hooks exist per evals/adapters/references/claude.md",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "codex": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify approval modes; hooks are a named feature in codex.md",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "cursor": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify approval prompts for commands and external actions",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "dot": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        }
+      }
+    },
+    {
+      "id": "standing_authorization",
+      "summary": "A recorded grant from the human with its scope, quote, timestamps and recorder.",
+      "invariants": [
+        "Quotes the human verbatim with timestamp.",
+        "States that an agent posted the record.",
+        "Names whom and what it covers.",
+        "Revocable and re-readable from the authoritative store."
+      ],
+      "guarantee_lost_if_emulated": "Without a store, every action re-asks; with a paraphrase, scope silently grows.",
+      "blocks_if_missing": "blanket-yes and merge-authority use",
+      "used_by_functions": [
+        "coordinator",
+        "human-gatekeeper",
+        "implementer"
+      ],
+      "grok": {
+        "mechanism": "A memory entry holding the quote and timestamp; the coordinator relays it verbatim to executors.",
+        "notes": "Not transferable between agents.",
+        "status": "supported",
+        "evidence": "observed in the source fleet, 2026-11-17; not independently verified here"
+      },
+      "targets": {
+        "claude_code": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify instruction file or memory store",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "codex": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify instruction documents",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "cursor": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify rules",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "dot": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        }
+      }
+    },
+    {
+      "id": "outbound_rule",
+      "summary": "A saved rule stating what an agent may send, to whom and where, without review.",
+      "invariants": [
+        "Explicit scope: recipients, channel, content class.",
+        "Absent a rule, the default is a draft the human sends.",
+        "Never inferred from urgency or brevity."
+      ],
+      "guarantee_lost_if_emulated": "Default to drafting every outbound message for human review.",
+      "blocks_if_missing": "outbound messages under the human name",
+      "used_by_functions": [
+        "coordinator",
+        "watcher-reporter"
+      ],
+      "grok": {
+        "mechanism": "A saved send rule listed in the agent instructions; otherwise a draft card the human sends.",
+        "notes": "A declined or blocked send is final and is not retried by another route.",
+        "status": "supported",
+        "evidence": "observed in the source fleet, 2026-11-17; not independently verified here"
+      },
+      "targets": {
+        "claude_code": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify permission rules for external actions",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "codex": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "cursor": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "dot": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        }
+      }
+    },
+    {
+      "id": "shared_workspace",
+      "summary": "A shared machine and filesystem where agents keep checkouts, scratch, locks and logs.",
+      "invariants": [
+        "One checkout or worktree per seat per change.",
+        "Heavy runs take a lock and run at low priority.",
+        "No agent kills another agent processes or deletes shared paths."
+      ],
+      "guarantee_lost_if_emulated": "Concurrent runs collide; manual coordination replaces the lock.",
+      "blocks_if_missing": "none; degrade to serialized work",
+      "used_by_functions": [
+        "implementer",
+        "risk-owned-reviewer",
+        "housekeeper",
+        "done-ness-interrogator"
+      ],
+      "grok": {
+        "mechanism": "The box: one persistent Linux machine for all agents, each with its own desktop; scratch under the agent folder.",
+        "notes": "Cleanup beyond rebuildable cache goes through the housekeeper and the human.",
+        "status": "supported",
+        "evidence": "observed in the source fleet, 2026-11-17; not independently verified here"
+      },
+      "targets": {
+        "claude_code": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify worktrees and local execution; the adapters here use an empty temporary directory",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "codex": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify sandbox and worktree behavior; adapter here uses a read-only sandbox and ephemeral sessions",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "cursor": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify cloud agent workspace",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "dot": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        }
+      }
+    },
+    {
+      "id": "source_of_truth_board",
+      "summary": "One authoritative state record for owner, lane, status and hold condition.",
+      "invariants": [
+        "Each fact lives once; checks on the change, ownership on the board.",
+        "A hold names its lift condition.",
+        "Curator never edits another captain fields."
+      ],
+      "guarantee_lost_if_emulated": "Two records drift and agents act on the stale one.",
+      "blocks_if_missing": "none; degrade to the change itself",
+      "used_by_functions": [
+        "curator",
+        "coordinator",
+        "implementer"
+      ],
+      "grok": {
+        "mechanism": "A GitHub Project through the GitHub CLI or connector, with Captain, Lane, Status and Hold condition fields.",
+        "notes": "Pages are reference only.",
+        "status": "supported",
+        "evidence": "observed in the source fleet, 2026-11-17; not independently verified here"
+      },
+      "targets": {
+        "claude_code": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "GitHub CLI or connector; verify availability",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "codex": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "GitHub CLI or connector; verify availability",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "cursor": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "GitHub CLI or connector; verify availability",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "dot": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        }
+      }
+    },
+    {
+      "id": "review_ledger",
+      "summary": "An append-only record of scores, fixes and merges bound to exact heads.",
+      "invariants": [
+        "Append-only; one line per score with seat, head, verdict, IDs and evidence pointer.",
+        "Merge record is one row with one owner.",
+        "Records which seat actually acted whenever agents share a platform identity."
+      ],
+      "guarantee_lost_if_emulated": "Scores cannot be audited; delta re-score cannot find the prior head.",
+      "blocks_if_missing": "claiming a passed panel",
+      "used_by_functions": [
+        "coordinator",
+        "advisor",
+        "risk-owned-reviewer"
+      ],
+      "grok": {
+        "mechanism": "A plain file in the shared workspace plus comments on the change.",
+        "notes": "Never backfill with guesses; mark unrecorded.",
+        "status": "supported",
+        "evidence": "observed in the source fleet, 2026-11-17; not independently verified here"
+      },
+      "targets": {
+        "claude_code": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "any file store; verify append-only handling",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "codex": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "any file store",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "cursor": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "any file store",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "dot": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        }
+      }
+    },
+    {
+      "id": "human_channel",
+      "summary": "The single channel through which the human hears results and answers decisions.",
+      "invariants": [
+        "One router to the human.",
+        "One decision at a time, outcome first.",
+        "Interrupt only past the bar.",
+        "A decision is one structured question with options and a recommendation, asked after reversible work is prepared."
+      ],
+      "guarantee_lost_if_emulated": "Specialists fan into the human; attention budget fails.",
+      "blocks_if_missing": "none; degrade to a daily summary",
+      "used_by_functions": [
+        "coordinator",
+        "human-gatekeeper"
+      ],
+      "grok": {
+        "mechanism": "The owner one-to-one chat with the coordinator, plus user notifications; one-way-door questions arrive as a single-question widget card (for example a merge yes).",
+        "notes": "Room replies do not count as having told the human.",
+        "status": "supported",
+        "evidence": "observed in the source fleet, 2026-11-17; not independently verified here"
+      },
+      "targets": {
+        "claude_code": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "codex": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "cursor": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "dot": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        }
+      }
+    },
+    {
+      "id": "tool_connector",
+      "summary": "An integration or command-line tool with an explicit permission scope.",
+      "invariants": [
+        "Effective capabilities are inspected, not assumed from prompt promises.",
+        "Read-only means read-only.",
+        "Least privilege; no credentials in the public package.",
+        "The acting identity is known and attributable per agent, or the ledger records which seat acted.",
+        "Recommended target: a distinct per-agent identity with least-privilege scopes (for example an app identity or machine user per agent); shared login is the low-friction default."
+      ],
+      "guarantee_lost_if_emulated": "An action silently runs with broader or narrower authority than claimed. With a shared login, platform attribution is lost and cannot separate agents or the human.",
+      "blocks_if_missing": "any action using the tool",
+      "used_by_functions": [
+        "all"
+      ],
+      "grok": {
+        "mechanism": "MCP connectors and CLIs the bot is granted; inspect effective capabilities.",
+        "notes": "Default: one shared platform login for merges and other code-host actions, because it is low friction. Tradeoff: attribution is lost, so ledgers record the seat that acted. Recommended target: a distinct identity per bot (for example a GitHub App or machine user) with least-privilege scopes. Inspect effective capabilities.",
+        "status": "supported",
+        "evidence": "observed in the source fleet, 2026-11-17; not independently verified here"
+      },
+      "targets": {
+        "claude_code": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "MCP and tool permission controls are documented in evals/adapters/references/claude.md; verify scopes",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "codex": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "`codex mcp list --json` enumerates configured servers per evals/adapters/references/codex.md; verify scopes",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "cursor": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify MCP support and scopes",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        },
+        "dot": {
+          "status": "unknown",
+          "mapping": null,
+          "lead": "verify",
+          "todo": "TODO: verify the native equivalent and its semantics before emitting any configuration; do not guess an API."
+        }
+      }
+    }
+  ]
+}

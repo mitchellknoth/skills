@@ -4,11 +4,11 @@ This is a first-version draft. No live bots, automations or actions are installe
 
 ## Choose your entry point
 
-| | Architecture template | Opinionated preset |
+| | Abstract path | Prescriptive path |
 |---|---|---|
 | Invoke | `fleet-architecture` | `fleet-preset` |
-| Best for | Adapt the architecture to your own workflow | Start from the author's more prescriptive delivery flow |
-| Process | You configure roles, review, cadence and authority | Risk-routed review, meaningful test-first work, bounded loops, durable follow-through |
+| Best for | Adopt the functions and protocols for your own domains | Start from the author's named seats and strict defaults |
+| Process | Protocols are fixed; you choose domains, reference values and cadence | Risk-routed review, exact-head PASS and clean automated review before merge, net script delta at or below zero, bounded loops, durable follow-through |
 | Permission | Installation-specific, unset | Installation-specific, unset |
 | Independent install | Self-contained | Self-contained, with generated shared core |
 
@@ -19,6 +19,8 @@ This is a first-version draft. No live bots, automations or actions are installe
 **Preset:** “Use fleet-preset for this feature. Keep the coordinator accountable through verification; route only the roles relevant to the change. Prepare the implementation and review evidence, but do not merge or deploy.”
 
 **Evaluation:** “Use fleet-architecture in evaluate mode. Replay an approved batch where one required review is for an older revision. Explain the next permitted action. Do not contact any service.”
+
+**Another provider:** plan from the [primitive map](../skills/engineering/fleet-architecture/references/primitives.md) and its data in `primitive-bindings.json`. Start from `unknown` entries and their TODOs; do not guess a provider's API. A transpiler may emit only what a recorded conformance replay has promoted.
 
 Installing both skills does not mean both policies apply. Select the entry point per task and keep that selection in the private installation record. Choosing the template must not silently import the preset.
 

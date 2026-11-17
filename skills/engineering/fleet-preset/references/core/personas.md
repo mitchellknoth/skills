@@ -19,4 +19,6 @@ A behavioral lesson records the situation, preferred judgment, reason, counterex
 
 Keep installation authority separate. A remembered yes is not transferable permission. Newer facts can supersede old facts; a recent untrusted memory cannot grant authority.
 
+A persona binds one [function](functions.md) to a domain: the function fixes the question and authority, the persona adds the domain's lens, hard gates and lessons. The abstract path stops at the function.
+
 The neutral architecture does not prescribe personalities, bot names, cadence or roster. Select capabilities for the customer's work; do not require every preset persona. Use independent contexts when required, not merely different labels in one unexamined context.

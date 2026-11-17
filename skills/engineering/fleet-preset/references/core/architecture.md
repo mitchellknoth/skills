@@ -9,6 +9,10 @@
 - **Runtime adapters:** translate capabilities into actual tool calls, identity, persistent state and event delivery. Unsupported features remain unsupported.
 - **Feedback:** examine concrete outcomes and turn recurring failures into bounded, tested changes. Reuse an existing oversight mechanism before adding one.
 
+## Functions, protocols and primitives
+
+The abstract path names [functions](functions.md) (coordinator, advisor to the coordinator, implementer, risk-owned reviewer, adversary paired with a defender, done-ness interrogator, curator, watcher and reporter, housekeeper, human gatekeeper) rather than domain roles. They follow [protocols](protocols.md), [autonomy](autonomy.md) (what keeps the human out of the loop) and [practices](practices.md), are built from provider-neutral [primitives](primitives.md), and have [field evidence](field-evidence.md). A function may share an agent with another unless a protocol requires independence.
+
 ## Lifecycle and contracts
 
 1. **Frame:** intent and non-goals; source of truth; acceptance and consequence boundaries. If an existing artifact and a written spec disagree materially, reconcile them before claiming either as authoritative.
@@ -20,11 +24,11 @@
 7. **Observe:** verify the external result. Merge is not deployment; deployment success is not user acceptance. Retain dependencies needed for later release stages.
 8. **Learn:** assign significant findings an owner, disposition and next checkpoint. Measure whether the fix changes behavior, not just whether a retrospective was written.
 
-## Configurable, not universal
+## What is fixed and what is tunable
 
-The template does not prescribe mandatory test-first work, a fixed reviewer roster, fixed review rounds, a particular approval owner, nightly checks, automatic merge, or an implementation platform. Those are installation choices.
+**Fixed** (the protocols make these invariants, and the preset defaults to them): exact-head scoring with a delta re-score on every head move; the seat that raises a must-fix owns its fix; merge only when every routed seat has scored the exact head, the automated review (where one runs) is clean or triaged, required checks ran, and nothing is deploying; one-way doors decided only by the human's own words; net control-script delta at or below zero; ephemeral per-change watchers that end on merge or close. Evidence truthfulness, source provenance and respecting actual authority are never process preferences. Never invent a review, test, capability or permission to make a workflow appear complete.
 
-Evidence truthfulness, source provenance and respecting actual authority are not optional process preferences. Never invent a review, test, capability or permission to make a chosen workflow appear complete.
+**Tunable, as recorded installation policy:** which domains plug into the reviewer function, the reference values (round cap, windows, note length), cadences of standing routines, whether test-first work is expected, the human's door list (add only), whether an automated review exists, and how identity is provisioned. The template does not mandate an implementation platform.
 
 ## Handoff minimum
 

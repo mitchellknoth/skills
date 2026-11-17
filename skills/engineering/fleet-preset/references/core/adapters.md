@@ -13,6 +13,8 @@ An installed skill is not an installed operating system. Validate capabilities f
 | Scheduling | Actually installed? Last successful output? Startup/quota failure visibility? |
 | Oversight | Shares coordinator's failure domain? Can it detect a run that never starts? |
 
+The [primitive map](primitives.md) lists, per target, which primitives are verified, emulated or still unknown; an adapter's capability answers feed it.
+
 ## Initial adapter status
 
 - **Grok Bot:** use installation-specific bot/room bindings, existing routines and private state. This package does not export or install them. A copied routine description is not a verified subscription.

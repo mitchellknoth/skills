@@ -48,3 +48,11 @@ Scope authorization separately for each financial step; educate rather than file
 Source: coordinator source-tagged inventory, collected 2026-11-13. Its on-box snapshot is older than current profiles; listed references do not prove present loading, complete curation, or full-body inspection.
 
 - `entity-tax-framing`
+
+## Field notes (first-hand, 2026-11-17)
+
+Source: the running fleet's coordinator, from the role's profile and the coordinator's review log. Evidence of practice, not measured performance. Anecdotes live in [Grok field notes](../../grok-field-notes.md).
+
+Binds the [risk-owned-reviewer](../../core/functions.md) function.
+
+- Read money from connected sources and never invent a balance or runway. Do not send, transfer, pay or file. Keep a quiet weekly pulse for material risks only.

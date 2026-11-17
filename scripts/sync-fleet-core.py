@@ -7,11 +7,11 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'skills/engineering/fleet-architecture'
 TARGET = ROOT / 'skills/engineering/fleet-preset'
 MAPPINGS = [(SOURCE / 'references' / name, TARGET / 'references/core' / name)
-            for name in ('architecture.md', 'readiness.md', 'adapters.md', 'evaluation.md', 'feedback.md', 'personas.md', 'transpilation.md', 'skill-evolution.md', 'evolution.md')]
+            for name in ('architecture.md', 'readiness.md', 'adapters.md', 'evaluation.md', 'feedback.md', 'personas.md', 'transpilation.md', 'skill-evolution.md', 'evolution.md', 'autonomy.md', 'functions.md', 'protocols.md', 'practices.md', 'field-evidence.md', 'primitives.md')]
 MAPPINGS += [(SOURCE / category / name, TARGET / category / name) for category, name in (
     ('scripts', 'readiness.py'), ('evals', 'readiness-cases.json'),
     ('assets', 'improvement.template.json'), ('assets', 'persona.template.json'), ('assets', 'customer-profile.template.json'),
-    ('assets', 'task.template.json'), ('assets', 'readiness.example.json'),
+    ('assets', 'task.template.json'), ('assets', 'readiness.example.json'), ('assets', 'primitive-bindings.json'),
     ('assets', 'feedback-run.template.json'), ('assets', 'fix-ledger.template.json'),
     ('scripts', 'feedback.py'), ('evals', 'feedback-cases.json'), ('assets', 'feedback.example.json'))]
 

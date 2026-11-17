@@ -13,16 +13,24 @@ Read [architecture](references/core/architecture.md), [readiness and authority](
 
 The `fleet-architecture` skill is the neutral alternative, not a required additional installation. This preset supplies explicit process choices below; it does not grant permissions.
 
+## How this skill relates to the abstract path
+
+This is the prescriptive path: named domain seats and the author's process choices. Underneath it sits the provider-neutral core, bundled here as [functions](references/core/functions.md), [protocols](references/core/protocols.md), [practices](references/core/practices.md) [autonomy](references/core/autonomy.md) and the [primitive map](references/core/primitives.md). Every persona binds one function. Every Grok Bot mechanism is a binding of a neutral primitive, so a target other than Grok Bot can be planned from the primitives without losing the workflow. For the abstract path with no prescribed domains, use `fleet-architecture`.
+
 ## Preset workflow
 
 1. **One front door owns completion.** The coordinator decomposes and routes work while retaining integration ownership. Specialists return evidence and next actions, not merely opinions.
 2. **Frame meaningful milestones.** Capture intent, non-goals, acceptance, dependencies and source-of-truth references. Surface conflicting visual or product references before committing to derivatives.
 3. **Test behavioral changes first where practical.** Record meaningful failing evidence, then implement and verify. When test-first is unsuitable, explain why and use the best available evidence. Do not manufacture a red commit or claim tests ran when they did not.
 4. **Route by risk.** Use [role cards](references/roles.md). Separate implementation from independent acceptance. Do not invoke every role for every change or conflate QA, domain correctness and UX fidelity.
-5. **Resolve findings and bound loops.** Serialize conflicting fix pushes and final merges. The implementer retains integration ownership. A reviewer may propose or make an authorized patch, but cannot be its sole independent acceptance. After three substantive review rounds without convergence, stop automatic cycling and propose keep/split/redesign with evidence. Do not restart the count merely by renaming the task.
-6. **Separate authorization from readiness.** Batch permission is not a waiver of required final-head reviews, checks or material findings. Preserve valid approval while preparing the work; do not ask twice for unchanged scope. Use the core action contract on every execution entry point.
+5. **Resolve findings and bound loops.** Serialize conflicting fix pushes and final merges. The seat that raises a must-fix owns the fix, sweeps its class and re-scores; the implementer does not fix other seats' must-fixes, and no seat gives the only PASS on its own patch. After three fix pushes without a PASS, the seats holding must-fixes send an approach note (keep, split or redesign) and the coordinator picks. Do not restart the count merely by renaming the task.
+6. **Separate authorization from readiness.** Batch permission is not a waiver of required final-head reviews, checks or material findings. Preserve valid approval while preparing the work; do not ask twice for unchanged scope. Use the core action contract on every execution entry point. **Merge only on an exact-head PASS from every routed seat plus an automated review on that head that is clean or triaged**, with checks that ran, one merge at a time, no deploy or apply running and an expected-head guard; a new head voids approval. **Keep the net control-script delta at or below zero**: when a check blocks, delete it and rely on tests. Looser variants are recorded opt-ins in [choices](references/choices.md#opt-in-relaxations), never defaults.
 7. **Observe completion.** Record the actual resulting revision/action and verify the relevant outcome. Carry deployment dependencies and residual risks forward. A merge, green summary or completed routine is not sufficient proof of deployment or user acceptance.
 8. **Close the feedback loop.** Reuse existing oversight. Significant findings have an owner, disposition, checkpoint and evidence of closure. Track last successful output, not merely Active status. Keep quiet when healthy; surface actionable changes rather than recurring noise.
+
+## Field notes from a running fleet
+
+Before choosing process strictness, routine shapes or merge authority, read the [Grok field notes](references/grok-field-notes.md): first-hand practices and mistakes from the coordinator of a running fleet. They are evidence for choices, not extra permissions.
 
 ## Retrospectives and operational learning
 

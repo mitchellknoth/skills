@@ -6,8 +6,8 @@ Reusable workflows for coding agents. Each skill is a portable `SKILL.md` with i
 
 ## Skills
 
-- [fleet-architecture](skills/engineering/fleet-architecture/SKILL.md) — a configurable template for agent delivery roles, handoffs, readiness, state and feedback.
-- [fleet-preset](skills/engineering/fleet-preset/SKILL.md) — the author's opinionated delivery flow, explicitly selected and independently installable.
+- [fleet-architecture](skills/engineering/fleet-architecture/SKILL.md) — the abstract, provider-neutral path: functions, protocols, an autonomy layer and a primitive map, with no domain roles prescribed.
+- [fleet-preset](skills/engineering/fleet-preset/SKILL.md) — the prescriptive path: the same core plus named domain seats and strict defaults, explicitly selected and independently installable.
 - [implement-review-loop](skills/engineering/implement-review-loop/SKILL.md) — implement substantial milestones with test-first cycles and independent review.
 
 The fleet MVP is **Grok Bot first**, with a manual [deployment blueprint](skills/engineering/fleet-preset/references/grok-mvp.md). Cross-harness transpilation is a [capability-aware roadmap](skills/engineering/fleet-architecture/references/transpilation.md), not a shipped runtime compiler.
@@ -22,7 +22,7 @@ See the [persona catalog](skills/engineering/fleet-preset/references/PERSONAS.md
 
 ## Visual guide
 
-[Explore the illustrated fleet guide](docs/fleet-visual-guide.md): architecture and handoffs, learning versus measured evolution, and the preset versus build-your-own paths. The diagrams describe intended design, not proven live effectiveness.
+[Explore the illustrated fleet guide](docs/fleet-visual-guide.md): architecture and handoffs, who advises whom, the merge gate, standing versus ephemeral routines, where the human is asked, learning versus measured evolution, and the abstract versus prescriptive paths. The diagrams describe the design as practiced, not proven effectiveness.
 
 ![Fleet architecture overview](docs/diagrams/fleet-architecture.svg)
 

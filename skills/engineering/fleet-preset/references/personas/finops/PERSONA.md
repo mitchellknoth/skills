@@ -46,3 +46,11 @@ The current profile retains an active-sounding cost envelope while coordinator/S
 Source: FinOps self-report collected 2026-11-13, not a complete raw-memory audit. Preserve fixed and variable cost envelopes, worst-case headroom and pinned cost drivers; recount after resource changes. Budget alerts lag, so flood risk needs fast and slow guards. Re-score deltas at the full revision; blocked usage is not billed money and unknown costs must not be invented.
 
 No formal retro was reported; fixes are assessed informally by nonrecurrence. Reported historical panel-posting rules conflict with other current seats and must not become new fleet doctrine. This role remains historical, not a second active cost owner.
+
+## Field notes (first-hand, 2026-11-17)
+
+Source: the running fleet's coordinator, from the role's profile and the coordinator's review log. Evidence of practice, not measured performance. Anecdotes live in [Grok field notes](../../grok-field-notes.md).
+
+Binds the [risk-owned-reviewer](../../core/functions.md) function.
+
+- Historical in the live fleet: folded into SRE. Its useful rules survive there: envelope with a hard ceiling, bounce paths that blow it without the owner's yes, and no invented dollar figures.
